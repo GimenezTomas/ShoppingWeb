@@ -42,6 +42,9 @@
                                     </svg>
                                     <h1>Av. Constituyentes 5880</h1>
                                 </span>
+                                <svg id="bagIcon" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bag" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 1a2.5 2.5 0 0 0-2.5 2.5V4h5v-.5A2.5 2.5 0 0 0 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5H2z"/>
+                                </svg>
                                 <svg onclick="document.getElementById('iniciarSesionModal').style.display='block'" class="person-login" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
                                     <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
@@ -238,97 +241,349 @@
                     <h1>Restaurantes</h1>
                 </span>-->
                 <div id="restaurantes">
-                    
                     <a href="http://localhost/php/rest1copia.php?mesa=1&restaurante=1" style="color: transparent;">
-                        <div class="restaurante" >
+                        <div class="restaurante">
                             <div class="header">
-                                <img src="images/mcBurguer.png" alt="">
+                                <img src="../Images/moda-background.jpg" alt="">
                             </div>
                             <div class="body">
                                 <div class="logo">
-                                    <img src="images/mc.png" alt="">
+                                    <img src="../Images/starbucks.png" alt="">
                                 </div>
                                 <div class="text">
-                                    <h1>Mc Donald's</h1>
+                                    <div class="left">
+                                        <span>
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                              </svg>
+                                            <h3>5.0</h3>
+                                        </span>
+                                    </div>
+                                    <div class="right">
+                                        <span>
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                            </svg>
+                                            <h3>4.3KM</h3>
+                                        </span>
+                                    </div>
                                 </div>                   
-                             </div>
+                            </div>
                         </div>
                     </a>
                     <div class="restaurante">
                         <div class="header">
-                            <img src="images/franui.jpg" alt="">
+                            <img src="../Images/moda-background.jpg" alt="">
                         </div>
                         <div class="body">
-                            <div class="logo">
-                                <img src="images/rapanui.jpg" alt="">
-                            </div>
-                            <div class="text">
-                                <h1>Rapanui</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="restaurante">
-                        <div class="background" style="background-image: url('../Images/moda-background.jpg');"></div>
-                        <div class="body">        
                             <div class="logo">
                                 <img src="../Images/starbucks.png" alt="">
                             </div>
                             <div class="text">
-                                <h1>Starbucks coffee</h1>
-                            </div> 
+                                <div class="left">
+                                    <span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                          </svg>
+                                        <h3>5.0</h3>
+                                    </span>
+                                </div>
+                                <div class="right">
+                                    <span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                        </svg>
+                                        <h3>4.3KM</h3>
+                                    </span>
+                                </div>
+                            </div>                   
                         </div>
                     </div>
                     <div class="restaurante">
                         <div class="header">
-                            <img src="images/bife.png" alt="">
+                            <img src="../Images/moda-background.jpg" alt="">
                         </div>
                         <div class="body">
                             <div class="logo">
-                                <img src="images/logoRestaurante.jpg" alt="">
+                                <img src="../Images/starbucks.png" alt="">
                             </div>
                             <div class="text">
-                                <h1>Los Lopez cantina</h1>
-                            </div>
+                                <div class="left">
+                                    <span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                          </svg>
+                                        <h3>5.0</h3>
+                                    </span>
+                                </div>
+                                <div class="right">
+                                    <span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                        </svg>
+                                        <h3>4.3KM</h3>
+                                    </span>
+                                </div>
+                            </div>                   
                         </div>
                     </div>
                     <div class="restaurante">
                         <div class="header">
-                            <img src="images/pizzahutMenu.jpeg" alt="">
+                            <img src="../Images/moda-background.jpg" alt="">
                         </div>
                         <div class="body">
                             <div class="logo">
-                                <img src="images/pizzahut.png" alt="">
+                                <img src="../Images/starbucks.png" alt="">
                             </div>
                             <div class="text">
-                                <h1>Pizza Hut</h1>
-                            </div>
+                                <div class="left">
+                                    <span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                          </svg>
+                                        <h3>5.0</h3>
+                                    </span>
+                                </div>
+                                <div class="right">
+                                    <span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                        </svg>
+                                        <h3>4.3KM</h3>
+                                    </span>
+                                </div>
+                            </div>                   
                         </div>
                     </div>
                     <div class="restaurante">
                         <div class="header">
-                            <img src="images/menuBk.jpg" alt="">
+                            <img src="../Images/moda-background.jpg" alt="">
                         </div>
-                        <div class="top">
-                            <span class="calificacion">
-                                <svg style='vertical-align: center' width='1em' height='1em' viewBox='0 0 16 16' class='bi bi-star-fill' fill='currentColor' xmlns='http://www.w3.org/2000/svg'>
-                                    <path d='M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z'/>
-                                </svg>
-                                <h1>4.5</h1>
-                            </span>
-                            <h1 class="distancia">2.3KM</h1>
-                        </div>    
                         <div class="body">
                             <div class="logo">
-                                <img src="images/bk.png" alt="">
+                                <img src="../Images/starbucks.png" alt="">
                             </div>
                             <div class="text">
-                                <h1>Mc Donald's</h1>
-                            </div>               
-                         </div>
+                                <div class="left">
+                                    <span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                          </svg>
+                                        <h3>5.0</h3>
+                                    </span>
+                                </div>
+                                <div class="right">
+                                    <span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                        </svg>
+                                        <h3>4.3KM</h3>
+                                    </span>
+                                </div>
+                            </div>                   
+                        </div>
+                    </div>
+                    <div class="restaurante">
+                        <div class="header">
+                            <img src="../Images/moda-background.jpg" alt="">
+                        </div>
+                        <div class="body">
+                            <div class="logo">
+                                <img src="../Images/starbucks.png" alt="">
+                            </div>
+                            <div class="text">
+                                <div class="left">
+                                    <span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                          </svg>
+                                        <h3>5.0</h3>
+                                    </span>
+                                </div>
+                                <div class="right">
+                                    <span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                        </svg>
+                                        <h3>4.3KM</h3>
+                                    </span>
+                                </div>
+                            </div>                   
+                        </div>
+                    </div>
+                    <a href="http://localhost/php/rest1copia.php?mesa=1&restaurante=1" style="color: transparent;">
+                        <div class="restaurante">
+                            <div class="header">
+                                <img src="../Images/moda-background.jpg" alt="">
+                            </div>
+                            <div class="body">
+                                <div class="logo">
+                                    <img src="../Images/starbucks.png" alt="">
+                                </div>
+                                <div class="text">
+                                    <div class="left">
+                                        <span>
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                              </svg>
+                                            <h3>5.0</h3>
+                                        </span>
+                                    </div>
+                                    <div class="right">
+                                        <span>
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                            </svg>
+                                            <h3>4.3KM</h3>
+                                        </span>
+                                    </div>
+                                </div>                   
+                            </div>
+                        </div>
+                    </a>
+                    <div class="restaurante">
+                        <div class="header">
+                            <img src="../Images/moda-background.jpg" alt="">
+                        </div>
+                        <div class="body">
+                            <div class="logo">
+                                <img src="../Images/starbucks.png" alt="">
+                            </div>
+                            <div class="text">
+                                <div class="left">
+                                    <span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                          </svg>
+                                        <h3>5.0</h3>
+                                    </span>
+                                </div>
+                                <div class="right">
+                                    <span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                        </svg>
+                                        <h3>4.3KM</h3>
+                                    </span>
+                                </div>
+                            </div>                   
+                        </div>
+                    </div>
+                    <div class="restaurante">
+                        <div class="header">
+                            <img src="../Images/moda-background.jpg" alt="">
+                        </div>
+                        <div class="body">
+                            <div class="logo">
+                                <img src="../Images/starbucks.png" alt="">
+                            </div>
+                            <div class="text">
+                                <div class="left">
+                                    <span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                          </svg>
+                                        <h3>5.0</h3>
+                                    </span>
+                                </div>
+                                <div class="right">
+                                    <span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                        </svg>
+                                        <h3>4.3KM</h3>
+                                    </span>
+                                </div>
+                            </div>                   
+                        </div>
+                    </div>
+                    <div class="restaurante">
+                        <div class="header">
+                            <img src="../Images/moda-background.jpg" alt="">
+                        </div>
+                        <div class="body">
+                            <div class="logo">
+                                <img src="../Images/starbucks.png" alt="">
+                            </div>
+                            <div class="text">
+                                <div class="left">
+                                    <span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                          </svg>
+                                        <h3>5.0</h3>
+                                    </span>
+                                </div>
+                                <div class="right">
+                                    <span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                        </svg>
+                                        <h3>4.3KM</h3>
+                                    </span>
+                                </div>
+                            </div>                   
+                        </div>
+                    </div>
+                    <div class="restaurante">
+                        <div class="header">
+                            <img src="../Images/moda-background.jpg" alt="">
+                        </div>
+                        <div class="body">
+                            <div class="logo">
+                                <img src="../Images/starbucks.png" alt="">
+                            </div>
+                            <div class="text">
+                                <div class="left">
+                                    <span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                          </svg>
+                                        <h3>5.0</h3>
+                                    </span>
+                                </div>
+                                <div class="right">
+                                    <span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                        </svg>
+                                        <h3>4.3KM</h3>
+                                    </span>
+                                </div>
+                            </div>                   
+                        </div>
+                    </div>
+                    <div class="restaurante">
+                        <div class="header">
+                            <img src="../Images/moda-background.jpg" alt="">
+                        </div>
+                        <div class="body">
+                            <div class="logo">
+                                <img src="../Images/starbucks.png" alt="">
+                            </div>
+                            <div class="text">
+                                <div class="left">
+                                    <span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                          </svg>
+                                        <h3>5.0</h3>
+                                    </span>
+                                </div>
+                                <div class="right">
+                                    <span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                        </svg>
+                                        <h3>4.3KM</h3>
+                                    </span>
+                                </div>
+                            </div>                   
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div>   
     </body>
 </html>
 

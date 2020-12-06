@@ -1,1061 +1,1106 @@
 html{
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body{
-    background-color: #141414f7;
+  background-color: #141414f7;
 }
 
 ::-webkit-scrollbar{
-    display: none;
+  display: none;
 }
 
 .header{
-    width: 100%;
-    overflow: hidden;
-    background-color: #282828;
-    z-index: 6;
+  width: 100%;
+  overflow: hidden;
+  background-color: #282828;
+  z-index: 6;
 }
 
 .header input{
+  display: none;
+  border-width: 2px;
+  border-color: #FFC244;
+  border-radius: 20px;
+  border-style: solid;
+}
+
+.header input:focus{
+  outline: none;
+}
+
+.header .logo{
+ padding-left: 3%;
+}
+
+.header img{
+  width: 90px;
+  height: auto;
+}
+
+.header .al{
+  display: flex;
+  margin-right: 4%;
+  right: 0;
+  position: absolute;
+}
+
+.header .ubicacion{
+  display: flex;
+  max-width: 80%;
+  max-height: 65%;
+  overflow: hidden;
+  margin-right: 6%;
+  float: right;
+}
+
+.header .ubicacion svg{
+  width: 25px;
+  height: 25px;
+  fill: #FFC244;
+}
+
+.header .ubicacion h1{
+  font-size: 15px;
+  overflow: hidden;
+  color: white;
+}
+
+.header .list{
+  float: left;
+  width: 35px;
+  height: 35px;
+  margin-left: 4%;
+  display: block;
+  margin-bottom: auto;
+  fill: #FFC244;
+}
+
+.headerBottom{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  border-bottom:#2ABB9B;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  z-index: 6;
+}
+
+.header .person-login{
+  float: right;
+  fill: #FFC244;
+}
+
+/*MODAL-IZQ*/
+.containerIzq{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  outline: 0;    
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.6);
+}
+
+.mContent {
+  background-color: #282828;
+  height: 100%;
+  display: none;
+}
+
+.mContent .borrar svg{
+float: right;;
+width: 30px;
+height: 30px;
+display: block;
+fill: white;
+margin-right: 5%;
+margin-top: 5%;
+}
+
+.mContent .borrar svg:hover{
+width: 35px;
+height: 35px;
+}
+
+.mContent .opciones{
+list-style-type: none;
+text-align: left;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+.mContent .opciones .opcion{
+color: white;
+}
+/*modalUbicacion*/
+.modal {
+display: none;
+/* position: fixed; */
+z-index: 7;
+/* left: 0; */
+/* top: 0; */
+/* width: 100%; */
+/* height: 100%; */
+/* overflow: auto; */
+background-color: rgb(0,0,0);
+background-color: rgba(0,0,0,0.6);
+}
+
+/* Modal Ubicacion*/
+.modal-content {
+background-color: #282828;
+margin: auto;
+border: 1px solid #FFC244;
+top: 30%;
+height: 270px;
+z-index: 9;
+border-radius: 20px;
+}
+
+/* The Close Button */
+.close {
+color: #aaaaaa;
+position: absolute;
+right: 5%;
+top: 3%;
+}
+
+.close:hover{
+color: white;
+}
+
+.modal-content h2{
+font-size: 12px;
+margin-left: 6%;
+margin-top: 12%;
+color:#ffda26;
+}
+
+.modal-content h1{
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+font-size: x-large;
+font-weight: 600;
+margin-top: 1%;
+margin-left: 6%;
+text-align: left;
+color: whitesmoke;
+}
+
+.modal-content .ubicacion{
+width: 88%;
+border-style: solid;
+border-width: 2px;
+border-color:#FFC244;
+border-radius: 9px;
+margin-left: auto;
+margin-right: auto;
+height: 15%;
+margin-top: 2%;
+}
+
+.modal-content input{
+border:none;
+height: 100%;
+width: 85%;
+color: grey;
+background-color: #282828;
+}
+
+.modal-content input:focus{
+outline: none;
+}
+
+.modal-content .ubicacion svg{
+margin-left: 2%;
+fill: #FFC244;
+}
+
+.modal-content .span{
+position: absolute;
+width: 100%;
+bottom: 8%;
+}
+
+.modal-content .span button{
+width: 88%;
+display: block;
+margin: auto;
+border-radius: 12px;
+border: 4px solid #FFC244;
+color: grey;
+font-weight: 600;
+}
+
+.modal-content .span button:focus{
+outline: none;
+}
+
+/*IniciarSesion*/
+.modalIni {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 6; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modalIni .modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  /*padding: 20px;*/
+  border: 3px solid #c2bbbb;
+  border-radius: 80px;
+  overflow: hidden;
+  background-image: linear-gradient(155deg, #2ABB9B 54%,  #FFC244 49%);
+}
+
+/* The Close Button */
+.modalIni .close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.modalIni .close:hover,
+.modalIni .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modalIni .iniciarSesionContainer{
+  margin-left: 10%;
+  margin-right: 10%;
+  height: 100%;
+}
+
+.modalIni .logoContainer{
+   width: 95%;
+}
+
+.modalIni .headerIniciarSesion{
+  margin-top: 10px;
+  display: inline-flex;
+}
+
+.modalIni .headerIniciarSesion svg{
+  width: 30px;
+  height: 30px;
+}
+
+.modalIni .headerIniciarSesion img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding-left: 11%;
+}
+
+.modalIni .headerIniciarSesion div{
+  width: 90%;
+}
+
+.modalIni .labelIniciarSesion {
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.modalIni .containerFormulario{
+  margin-top: 7%;
+}
+
+.modalIni .contentInput{
+  margin-bottom: 25px;
+}
+
+.modalIni .iniciarSesionForm{
+  margin-bottom: 45px;
+  margin-top: 11%;
+}
+
+.modalIni .iniciarSesionForm input{
+  width: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 20px;
+  border-style: none;
+  font-size: 15px;
+  border-bottom: 1px solid #cacaca;  
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.modalIni .iniciarSesionForm input:focus{
+  border-width: 0px;
+  outline:0; /* I have also tried outline:none */
+  -webkit-appearance:none;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  border-style: none;
+  border-bottom: 1px solid rgb(151, 0, 221);
+}
+
+.modalIni .iniciarSesionForm button{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  width: 70%;
+  height: 35px;
+  border-radius: 6px;
+  font-size: 15px;
+  background-color: rgb(178, 13, 255);
+  border-style: none;
+  color: whitesmoke;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.modalIni .containerPhone{
+  border-radius: 15px;
+  border-style: solid;
+  border-width: 2px;
+  border-color:  #cacaca;
+  width: 100%;
+  height: 40px; 
+  margin-bottom: 15px;
+  background-color: white;
+
+}
+
+.modalIni .contentMail{
+  display: flex;
+  align-items: center;
+  background-color: white;
+
+}
+
+.modalIni .contentMail svg{
+  width: 25px;
+  height: 25px;
+  margin-right: -40px;
+  margin-left: 3%;
+}
+
+.modalIni .contentMail h1{
+  font-size: 16px;
+  margin: auto;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.modalIni .contentNumTel{
+  display: inline-flex;
+}
+
+.modalIni .contentNumArea{
+  width: 30%;
+  height: 100%;
+  border-right: 2px solid #b1afaf;;
+  display: flex;
+}
+
+.modalIni .contentNumArea div{
+  align-self: center;
+  margin-left: 10px;
+}
+
+.modalIni .contentNumArea img{
+  width: 25px;
+  height: 25px;
+}
+
+.modalIni .contentNumArea svg{
+  width: 15px;
+  height: 15px;
+  margin-left: 9%;
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.modalIni .contentNumArea h1{
+  font-size: 15px;
+  display: block;
+  margin-top: auto;
+  margin-left: 8px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.modalIni #telephoneNumber{
+  margin-left: 5%;
+  width: 59%;
+  overflow-x: hidden;
+  border-style: none;
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 15px;
+}
+
+.modalIni #telephoneNumber:focus{
+  border-width: 0px;
+  outline:0; /* I have also tried outline:none */
+  -webkit-appearance:none;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  border-style: none;
+}
+
+.modalIni .wppArea{
+  display: flex;
+  /*background-image: linear-gradient(130deg,#9ef8aa 0,#03c744 70%);*/
+  background-color: limegreen;
+  align-items: center;
+}
+
+.modalIni .wppArea:hover{
+  box-shadow: rgba(0, 0, 0, 0.75) 0px 4px 12px 0px;
+  border-style: none;
+}
+
+.modalIni .wppArea img{
+  width:40px;
+  height:40px;
+  margin-right: -40px;
+}
+
+.modalIni .wppArea h1{
+  color: whitesmoke;
+  font-size: 16px;
+  margin: auto;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.modalIni .smsArea{
+  display: flex;
+  align-items: center;
+  /*background-image: linear-gradient(130deg,#2d3af1 0,#5e1cf8 70%);*/
+  background-color: tomato;
+
+}
+
+.modalIni .smsArea svg{
+  width: 25px;
+  height: 25px;
+  margin-right: -40px;
+  margin-left: 3%;
+  color: whitesmoke;
+}
+
+.modalIni .smsArea h1{
+  color: whitesmoke;
+  font-size: 16px;
+  margin: auto;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.modalIni .smsArea:hover{
+  box-shadow: rgba(0, 0, 0, 0.75) 0px 4px 12px 0px;
+  border-style: none;
+}
+
+.modalIni .registrate{
+  text-align: center;
+  margin-top: 15%;
+}
+
+.modalIni .registrate h1,a{
+  font-size: 15px;
+  text-align: center;
+}
+
+.modalIni .registrate a{
+  color: #2ba6cb;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: max-content;
+}
+
+.modalIni .registrate a:hover{
+  border-bottom-style: solid;
+  border-color:#2ba6cb;
+  border-width: 1px;
+}
+
+/*Tipos*/
+
+.tiposBoxContainer{
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 0.7%;
+}
+
+.tiposBoxContainer .tiposBox{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 150px;
+  align-items: center;
+  height: 60px;
+  overflow-x: scroll;
+  background-color: white;
+  padding-left: 5px;
+  padding-right: 5px;
+  max-width: 100%;
+  width: fit-content;
+  border-color: #FFC244;
+  border-style: solid;
+  border-width: 4.5px;
+}
+
+.tiposBoxContainer .tiposBox.h1{
+  margin-left: 5px;
+}
+.tiposBoxContainer .tipos{
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 100px;
+  background-color: white;
+  min-width: fit-content;
+  height: 35px;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.3);
+  overflow: hidden;
+  border-color: #FFC244;
+  border-width: 1px;
+  transition: all 0.3s;
+  color: transparent;
+}
+.tipos:hover {
+  border-style: solid;
+  border-width: 3px;
+  color: transparent;
+}
+
+.tiposBoxContainer .tipos h3{
+  color: #282828;
+  font-size: 15px;
+  margin-right: 10px;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+/*Restaurantes*/
+.restCont{
+margin-top: 6%;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 5%;
+} 
+
+#restaurantesContainer{
+  background-color: #212121;
+  /* border-radius: 50px; */
+  border-style: solid;
+  border-color: #FFC244;
+}
+
+.headere h1{
+color: #eeeeee;
+}
+
+#restaurantes{
+text-align: center;
+position: relative;
+display: block;
+margin-left: auto;
+margin-right: auto;
+padding-top: 2%;
+margin-bottom: 3%;
+}
+
+#restaurantes .restaurante{
+width: 332px;
+height: 230px;
+overflow: hidden;
+display: inline-block;
+margin: 2%;
+border-radius: 20px;
+transition: all 0.4s;
+}
+
+#restaurantes .restaurante .header{
+width: 100%;
+height: 100%;
+}
+
+#restaurantes .restaurante .header img{
+  width: 100%;
+  height: 100%;
+  filter: blur(2px);
+  object-fit: cover;
+}
+
+#restaurantes .restaurante .body{
+  height: auto;
+  position: relative;
+  top: -63%;
+  z-index: 5;
+  display: flex;
+}
+
+#restaurantes .restaurante .body .text .left{
+  position: absolute;
+  left: 0;
+  width: 55%;
+  height: 80%;/*72*/
+}
+
+#restaurantes .restaurante .body .text .right{
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: /*72*/80%;
+}
+
+#restaurantes .restaurante .body .text span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#restaurantes .restaurante .body .text h3{
+  font-size: 18px;
+  color: #eeeeee;
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#restaurantes .restaurante .body .text svg{
+  width: 15px;
+  height: 15px;
+  fill: white;
+  margin-right: 2%;
+}
+
+#restaurantes .restaurante .body .text{
+width: 100%;
+height: 40px;
+background-color: rgb(40 40 40 / 0.8);
+z-index: -1;
+margin-top: 10px;/*
+border-bottom: solid #2ABB9B 2px;
+border-top: solid #2ABB9B 2px;*/
+display: flex;
+}
+
+#restaurantes .restaurante .body h1{
+font-size: 27px;
+margin-left: 90px;
+width: 70%;
+text-align: left;
+overflow: hidden;
+color: #ded9d9;
+}
+
+#restaurantes .restaurante .body .logo{
+border-radius: 100%;
+width: 60px;
+height: 60px;
+background-color: #282828;
+border-style: /*solid*/none;
+border-width: 2px;
+border-color: #2ABB9B;
+position: absolute;
+top: 59%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+#restaurantes .restaurante .body .logo img{
+resize: both;
+width: 100%;
+height: 100%;
+border-radius: 100%;
+}
+
+#restaurantes .restaurante .top{
+display: flex;
+position: absolute;
+background-color: hotpink;
+width: fit-content;
+right: 0;
+}
+
+#restaurantes .restaurante .top .calificacion{
+display: flex;
+width: fit-content;
+
+}
+
+#restaurantes .restaurante .top .calificacion h1{
+color: black;
+font-size: 20px;
+width: fit-content;
+margin: 0;
+}
+
+#restaurantes .restaurante .top .calificacion svg{
+width: 15px;
+height: 15px;
+}
+
+#restaurantes .restaurante .top .distancia{
+color: black;
+font-size: 20px;
+width: fit-content;
+margin: 0;
+}
+
+#restaurantes .restaurante:hover{
+border: solid;
+border-width: 3px;
+border-color: #FFC244;
+}
+
+#restaurantes .restaurante:not(:hover){
+border: solid;
+border-width: 1px;
+}
+
+.search-cont-cel{
+display: none;
+}
+
+@media (max-width: 650px){
+.header{
+  height: 10%;
+}
+.header .person-login{
+  width: 35px;
+  height: 35px;
+  margin-right: 5%;
+}
+
+.headere h1{
+  font-size: 30px;
+}
+
+.header input{
+  display: none;
+}
+
+.header .list{
+  margin-top: 2%;
+}
+
+.header .al{
+  margin-top: -2%;
+}
+
+/*searchCel*/
+
+.search-cont-cel{
+  display: block;
+  margin: auto;
+  margin-top: 7%;
+  width: 90%;
+  height: 7%;
+  margin-bottom: 10%;
+}
+
+.search-cont-cel input{
     display: none;
     border-width: 2px;
     border-color: #FFC244;
     border-radius: 20px;
     border-style: solid;
-}
-
-.header input:focus{
-    outline: none;
-}
-
-.header .logo{
-   padding-left: 3%;
-}
-
-.header img{
-    width: 90px;
-    height: auto;
-}
-
-.header .al{
-    display: flex;
-    margin-right: 4%;
-    right: 0;
-    position: absolute;
-}
-
-.header .ubicacion{
-    display: flex;
-    max-width: 80%;
-    max-height: 65%;
-    overflow: hidden;
-    margin-right: 6%;
-    float: right;
-}
-
-.header .ubicacion svg{
-    width: 25px;
-    height: 25px;
-    fill: #FFC244;
-}
-
-.header .ubicacion h1{
-    font-size: 15px;
-    overflow: hidden;
-    color: white;
-}
-
-.header .list{
-    float: left;
-    width: 35px;
-    height: 35px;
-    margin-left: 4%;
-    display: block;
-    margin-bottom: auto;
-    fill: #FFC244;
-}
-
-.headerBottom{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-    border-bottom:#2ABB9B;
-    border-bottom-style: solid;
-    border-bottom-width: 2px;
-    z-index: 6;
-}
-
-.header .person-login{
-    float: right;
-    fill: #FFC244;
-}
-
-/*MODAL-IZQ*/
-.containerIzq{
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1050;
-    display: none;
-    width: 100%;
     height: 100%;
-    overflow: hidden;
-    outline: 0;    
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.6);
+    color: grey;
+  }
+
+.search-cont-cel input:focus{
+  outline: none;
 }
 
-.mContent {
-    background-color: #282828;
-    height: 100%;
-    display: none;
-}
-
-.mContent .borrar svg{
-  float: right;;
-  width: 30px;
-  height: 30px;
-  display: block;
-  fill: white;
+.search-icon-cel{
+  width: 25px;
+  height: 25px;
   margin-right: 5%;
-  margin-top: 5%;
-}
-
-.mContent .borrar svg:hover{
-  width: 35px;
-  height: 35px;
-}
-
-.mContent .opciones{
-  list-style-type: none;
-  text-align: left;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  float: left;
+  fill: #2ABB9B;
 }
 
-.mContent .opciones .opcion{
-  color: white;
-}
-/*modalUbicacion*/
-.modal {
-  display: none;
-  /* position: fixed; */
-  z-index: 7;
-  /* left: 0; */
-  /* top: 0; */
-  /* width: 100%; */
-  /* height: 100%; */
-  /* overflow: auto; */
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.6);
-}
-
-/* Modal Ubicacion*/
-.modal-content {
-  background-color: #282828;
-  margin: auto;
-  border: 1px solid #FFC244;
-  top: 30%;
-  height: 270px;
-  z-index: 9;
-  border-radius: 20px;
-}
-
-/* The Close Button */
-.close {
-  color: #aaaaaa;
+.search-cont-cel .closer{
   position: absolute;
-  right: 5%;
-  top: 3%;
+  fill: #2ABB9B;
+  z-index: 9;
+  float: right;
+  height: 20px;
+  width: 20px;
+  right: 7%;
 }
 
-.close:hover{
-  color: white;
-}
-
-.modal-content h2{
-  font-size: 12px;
-  margin-left: 6%;
+/*tipos*/
+.tiposBoxContainer{
   margin-top: 12%;
-  color:#ffda26;
+  padding-left: 3%;
+  padding-right: 3%;
 }
 
-.modal-content h1{
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: x-large;
-  font-weight: 600;
-  margin-top: 1%;
-  margin-left: 6%;
-  text-align: left;
-  color: whitesmoke;
+/*modalUbicacion*/
+
+.modal-content{
+  width: 85%;
+  height: 300px;
+}
+
+.modal-content button{
+  background-color: white;
+  font-size: 120%;
 }
 
 .modal-content .ubicacion{
-  width: 88%;
-  border-style: solid;
-  border-width: 2px;
-  border-color:#FFC244;
-  border-radius: 9px;
-  margin-left: auto;
-  margin-right: auto;
-  height: 15%;
-  margin-top: 2%;
+  height: 18%;
 }
 
-.modal-content input{
-  border:none;
-  height: 100%;
-  width: 85%;
-  color: grey;
-  background-color: #282828;
+/*modal ini*/
+.modalIni .modal-content {
+  width: 90%;
+  height:90%;
 }
 
-.modal-content input:focus{
-  outline: none;
+.mContent {
+    width: 0;
+    display: none;
+    max-width: 60%;
 }
 
-.modal-content .ubicacion svg{
-  margin-left: 2%;
-  fill: #FFC244;
-}
-
-.modal-content .span{
-  position: absolute;
-  width: 100%;
-  bottom: 8%;
-}
-
-.modal-content .span button{
-  width: 88%;
-  display: block;
-  margin: auto;
-  border-radius: 12px;
-  border: 4px solid #FFC244;
-  color: grey;
-  font-weight: 600;
-}
-
-.modal-content .span button:focus{
-  outline: none;
-}
-
-/*IniciarSesion*/
-.modalIni {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 6; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  /* Modal Content */
-  .modalIni .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    /*padding: 20px;*/
-    border: 3px solid #c2bbbb;
-    border-radius: 80px;
-    overflow: hidden;
-    background-image: linear-gradient(155deg, #2ABB9B 54%,  #FFC244 49%);
-  }
-  
-  /* The Close Button */
-  .modalIni .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .modalIni .close:hover,
-  .modalIni .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .modalIni .iniciarSesionContainer{
-    margin-left: 10%;
-    margin-right: 10%;
-    height: 100%;
-  }
-  
-  .modalIni .logoContainer{
-     width: 95%;
-  }
-  
-  .modalIni .headerIniciarSesion{
-    margin-top: 10px;
-    display: inline-flex;
-  }
-  
-  .modalIni .headerIniciarSesion svg{
-    width: 30px;
-    height: 30px;
-  }
-  
-  .modalIni .headerIniciarSesion img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    padding-left: 11%;
-  }
-  
-  .modalIni .headerIniciarSesion div{
-    width: 90%;
-  }
-  
-  .modalIni .labelIniciarSesion {
-    text-align: center;
-    font-size: 25px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  }
-  
-  .modalIni .containerFormulario{
-    margin-top: 7%;
-  }
-  
-  .modalIni .contentInput{
-    margin-bottom: 25px;
-  }
-  
-  .modalIni .iniciarSesionForm{
-    margin-bottom: 45px;
-    margin-top: 11%;
-  }
-  
-  .modalIni .iniciarSesionForm input{
-    width: 90%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 20px;
-    border-style: none;
-    font-size: 15px;
-    border-bottom: 1px solid #cacaca;  
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  }
-  
-  .modalIni .iniciarSesionForm input:focus{
-    border-width: 0px;
-    outline:0; /* I have also tried outline:none */
-    -webkit-appearance:none;
-    box-shadow: none;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    border-style: none;
-    border-bottom: 1px solid rgb(151, 0, 221);
-  }
-  
-  .modalIni .iniciarSesionForm button{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10%;
-    width: 70%;
-    height: 35px;
-    border-radius: 6px;
-    font-size: 15px;
-    background-color: rgb(178, 13, 255);
-    border-style: none;
-    color: whitesmoke;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  }
-  
-  .modalIni .containerPhone{
-    border-radius: 15px;
-    border-style: solid;
-    border-width: 2px;
-    border-color:  #cacaca;
-    width: 100%;
-    height: 40px; 
-    margin-bottom: 15px;
-    background-color: white;
-
-  }
-  
-  .modalIni .contentMail{
-    display: flex;
-    align-items: center;
-    background-color: white;
-  
-  }
-  
-  .modalIni .contentMail svg{
-    width: 25px;
-    height: 25px;
-    margin-right: -40px;
-    margin-left: 3%;
-  }
-  
-  .modalIni .contentMail h1{
-    font-size: 16px;
-    margin: auto;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  }
-  
-  .modalIni .contentNumTel{
-    display: inline-flex;
-  }
-  
-  .modalIni .contentNumArea{
-    width: 30%;
-    height: 100%;
-    border-right: 2px solid #b1afaf;;
-    display: flex;
-  }
-  
-  .modalIni .contentNumArea div{
-    align-self: center;
-    margin-left: 10px;
-  }
-  
-  .modalIni .contentNumArea img{
-    width: 25px;
-    height: 25px;
-  }
-  
-  .modalIni .contentNumArea svg{
-    width: 15px;
-    height: 15px;
-    margin-left: 9%;
-    display: block;
-    margin-top: auto;
-    margin-bottom: auto;
-  }
-  
-  .modalIni .contentNumArea h1{
-    font-size: 15px;
-    display: block;
-    margin-top: auto;
-    margin-left: 8px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  }
-  
-  .modalIni #telephoneNumber{
-    margin-left: 5%;
-    width: 59%;
-    overflow-x: hidden;
-    border-style: none;
-    display: block;
-    margin-top: auto;
-    margin-bottom: auto;
-    font-size: 15px;
-  }
-  
-  .modalIni #telephoneNumber:focus{
-    border-width: 0px;
-    outline:0; /* I have also tried outline:none */
-    -webkit-appearance:none;
-    box-shadow: none;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    border-style: none;
-  }
-  
-  .modalIni .wppArea{
-    display: flex;
-    /*background-image: linear-gradient(130deg,#9ef8aa 0,#03c744 70%);*/
-    background-color: limegreen;
-    align-items: center;
-  }
-  
-  .modalIni .wppArea:hover{
-    box-shadow: rgba(0, 0, 0, 0.75) 0px 4px 12px 0px;
-    border-style: none;
-  }
-  
-  .modalIni .wppArea img{
-    width:40px;
-    height:40px;
-    margin-right: -40px;
-  }
-  
-  .modalIni .wppArea h1{
-    color: whitesmoke;
-    font-size: 16px;
-    margin: auto;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  }
-  
-  .modalIni .smsArea{
-    display: flex;
-    align-items: center;
-    /*background-image: linear-gradient(130deg,#2d3af1 0,#5e1cf8 70%);*/
-    background-color: tomato;
-  
-  }
-  
-  .modalIni .smsArea svg{
-    width: 25px;
-    height: 25px;
-    margin-right: -40px;
-    margin-left: 3%;
-    color: whitesmoke;
-  }
-  
-  .modalIni .smsArea h1{
-    color: whitesmoke;
-    font-size: 16px;
-    margin: auto;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  }
-  .modalIni .smsArea:hover{
-    box-shadow: rgba(0, 0, 0, 0.75) 0px 4px 12px 0px;
-    border-style: none;
-  }
-  
-  .modalIni .registrate{
-    text-align: center;
-    margin-top: 15%;
-  }
-  
-  .modalIni .registrate h1,a{
-    font-size: 15px;
-    text-align: center;
-  }
-  
-  .modalIni .registrate a{
-    color: #2ba6cb;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: max-content;
-  }
-  
-  .modalIni .registrate a:hover{
-    border-bottom-style: solid;
-    border-color:#2ba6cb;
-    border-width: 1px;
-  }
-
-/*Tipos*/
-
-.tiposBoxContainer{
-    width: 100%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 0.7%;
-}
-
-.tiposBoxContainer .tiposBox{
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 150px;
-    align-items: center;
-    height: 60px;
-    overflow-x: scroll;
-    background-color: white;
-    padding-left: 5px;
-    padding-right: 5px;
-    max-width: 100%;
-    width: fit-content;
-    border-color: #FFC244;
-    border-style: solid;
-    border-width: 4.5px;
-}
-
-.tiposBoxContainer .tiposBox.h1{
-    margin-left: 5px;
-}
-.tiposBoxContainer .tipos{
-    display: inline-flex;
-    align-items: center;
-    margin-left: 10px;
-    margin-right: 10px;
-    border-radius: 100px;
-    background-color: white;
-    min-width: fit-content;
-    height: 35px;
-    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.3);
-    overflow: hidden;
-    border-color: #FFC244;
-    border-width: 1px;
-    transition: all 0.3s;
-    color: transparent;
-}
-.tipos:hover {
-    border-style: solid;
-    border-width: 3px;
-    color: transparent;
-}
-
-.tiposBoxContainer .tipos h3{
-    color: #282828;
-    font-size: 15px;
-    margin-right: 10px;
-    margin-bottom: auto;
-    margin-top: auto;
-}
-
-/*Restaurantes*/
+/*restaurantes*/
 .restCont{
-  margin-top: 6%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 5%;
+  width: 90%;
 } 
 
 #restaurantesContainer{
-    background-color: #212121;
-    /* border-radius: 50px; */
-    border-style: solid;
-    border-color: #FFC244;
-}
-
-.headere h1{
-  color: #eeeeee;
-}
-
-#restaurantes{
-  text-align: center;
-  position: relative;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 2%;
-  margin-bottom: 3%;
-}
-
-#restaurantes .restaurante{
-  width: 332px;
-  height: 230px;
-  overflow: hidden;
-  display: inline-block;
-  margin: 2%;
-  border-radius: 20px;
-  transition: all 0.4s;
-}
-
-#restaurantes .restaurante .background{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  filter: blur(2px);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-#restaurantes .restaurante .body{
-  width: 100%;
-}
-
-#restaurantes .restaurante .body .text{
-  width: 100%;
-  height: fit-content;
-  background-color: rgb(40 40 40 / 0.8);
-  z-index: -1;
-  margin-top: 10px;
-  border-bottom: solid #2ABB9B 2px;
-  border-top: solid #2ABB9B 2px;
-}
-
-#restaurantes .restaurante .body h1{
-  font-size: 27px;
-  margin-left: 90px;
-  width: 70%;
-  text-align: left;
-  overflow: hidden;
-  color: #ded9d9;
-}
-
-#restaurantes .restaurante .body .logo{
-  border-radius: 100%;
-  width: 60px;
-  height: 60px;
-  background-color: #282828;
-  border-style: solid;
   border-width: 2px;
-  border-color: #2ABB9B;
-  margin-left: 4%;
-  position: absolute;
+  border-left: none;
+  border-right: none;
+  /*border-radius: 30px;*/
 }
-
-#restaurantes .restaurante .body .logo img{
-  resize: both;
-  width: 100%;
-  height: 100%;
-  border-radius: 100%;
-}
-
-#restaurantes .restaurante .top{
-  display: flex;
-  position: absolute;
-  background-color: hotpink;
-  width: fit-content;
-  right: 0;
-}
-
-#restaurantes .restaurante .top .calificacion{
-  display: flex;
-  width: fit-content;
-
-}
-
-#restaurantes .restaurante .top .calificacion h1{
-  color: black;
-  font-size: 20px;
-  width: fit-content;
-  margin: 0;
-}
-
-#restaurantes .restaurante .top .calificacion svg{
-  width: 15px;
-  height: 15px;
-}
-
-#restaurantes .restaurante .top .distancia{
-  color: black;
-  font-size: 20px;
-  width: fit-content;
-  margin: 0;
-}
-
-#restaurantes .restaurante:hover{
-  border: solid;
-  border-width: 3px;
-  border-color: #FFC244;
-}
-
-#restaurantes .restaurante:not(:hover){
-  border: solid;
-  border-width: 1px;
-}
-
-.search-cont-cel{
-  display: none;
-}
-
-@media (max-width: 650px){
-  .header{
-    height: 10%;
-  }
-  .header .person-login{
-    width: 35px;
-    height: 35px;
-    margin-right: 5%;
-  }
-
-  .headere h1{
-    font-size: 30px;
-  }
-
-  .header input{
-    display: none;
-  }
-
-  .header .list{
-    margin-top: 2%;
-  }
-
-  .header .al{
-    margin-top: -2%;
-  }
-
-  /*searchCel*/
-
-  .search-cont-cel{
-    display: block;
-    margin: auto;
-    margin-top: 7%;
-    width: 90%;
-    height: 7%;
-    margin-bottom: 10%;
-  }
-
-  .search-cont-cel input{
-      display: none;
-      border-width: 2px;
-      border-color: #FFC244;
-      border-radius: 20px;
-      border-style: solid;
-      height: 100%;
-      color: grey;
-    }
-
-  .search-cont-cel input:focus{
-    outline: none;
-  }
-
-  .search-icon-cel{
-    width: 25px;
-    height: 25px;
-    margin-right: 5%;
-    display: block;
-    margin-top: auto;
-    margin-bottom: auto;
-    float: left;
-    fill: #2ABB9B;
-  }
-
-  .search-cont-cel .closer{
-    position: absolute;
-    fill: #2ABB9B;
-    z-index: 9;
-    float: right;
-    height: 20px;
-    width: 20px;
-    right: 7%;
-  }
-
-  /*tipos*/
-  .tiposBoxContainer{
-    margin-top: 12%;
-    padding-left: 3%;
-    padding-right: 3%;
-  }
-
-  /*modalUbicacion*/
-
-  .modal-content{
-    width: 85%;
-    height: 300px;
-  }
-
-  .modal-content button{
-    background-color: white;
-    font-size: 120%;
-  }
-
-  .modal-content .ubicacion{
-    height: 18%;
-  }
-
-  /*modal ini*/
-  .modalIni .modal-content {
-    width: 90%;
-    height:90%;
-  }
-
-  .mContent {
-      width: 0;
-      display: none;
-      max-width: 60%;
-  }
-
-  /*restaurantes*/
-  .restCont{
-    width: 90%;
-  } 
-  
-  #restaurantesContainer{
-    border-width: 2px;
-    border-left: none;
-    border-right: none;
-    /*border-radius: 30px;*/
-  }
 }
 
 @media (min-width: 951px){
-  .header{
-    height: 10%;
-  }
+.header{
+  height: 10%;
+}
 
-  .header .search-cont{
-    display: block;
-    margin-top: auto;
-    margin-bottom: auto;
-    width: 40%;
-    margin-left: 3%;
-  }
+.header .search-cont{
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 40%;
+  margin-left: 3%;
+}
 
-  .header .search-icon{
-    width: 25px;
-    height: 25px;
-    margin-right: 5%;
-    display: block;
-    margin-top: auto;
-    margin-bottom: auto;
-    fill: #2ABB9B;
-  }
+.header .search-icon{
+  width: 25px;
+  height: 25px;
+  margin-right: 5%;
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+  fill: #2ABB9B;
+}
 
-  .header .person-login{
-    width: 35px;
-    height: 35px;
-    margin-right: 3%;
-  }
+.header .person-login{
+  width: 35px;
+  height: 35px;
+  margin-right: 3%;
+}
 
-  .header .list{
-    margin-top: 1%;
-  }
+.header .list{
+  margin-top: 1%;
+}
 
-  .header .al{
-    margin-top: -7px;
-  }
+.header .al{
+  margin-top: -7px;
+}
 
-  #sBarClose{
-    top: 2.5%; 
-    right: 42%;
-  }
+#sBarClose{
+  top: 2.5%; 
+  right: 42%;
+}
 
-  /*modalUbicacion*/
+/*modalUbicacion*/
 
-  .modal-content{
-    width: 430px;
-  }
+.modal-content{
+  width: 430px;
+}
 
-  /*tipos*/
-  .tiposBoxContainer{
-    margin-top: 7%;
-    padding-left: 10%;
-    padding-right: 10%;
-  }
+/*tipos*/
+.tiposBoxContainer{
+  margin-top: 7%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
 
-  /*modalIni*/
-  .modalIni .modal-content {
-    width: 30%;
-    height:500px;
-  }
+/*modalIni*/
+.modalIni .modal-content {
+  width: 30%;
+  height:500px;
+}
 
-  .mContent {
-      width: 0;
-      max-width: 25%;
-      display: none;
-  }
+.mContent {
+    width: 0;
+    max-width: 25%;
+    display: none;
+}
 
-  /*restaurantes*/
-  .restCont{
-    width: 85%;
-  } 
+/*restaurantes*/
+.restCont{
+  width: 85%;
+} 
 
-  #restaurantesContainer{
-    border-width: 3px;
-    border-left: none;
-    border-right: none;
-  }
+#restaurantesContainer{
+  border-width: 3px;
+  border-left: none;
+  border-right: none;
+}
 }
 
 @media (min-width: 651px) and (max-width: 950px){
-  .header{
-    height: 10%;
-  }
+.header{
+  height: 10%;
+}
 
-  .header .search-cont{
-    display: block;
-    margin-top: auto;
-    margin-bottom: auto;
-    width: 40%;
-    margin-left: 3%;
-  }
+.header .search-cont{
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 40%;
+  margin-left: 3%;
+}
 
-  .header .search-icon{
-    width: 25px;
-    height: 25px;
-    margin-right: 5%;
-    display: block;
-    margin-top: auto;
-    margin-bottom: auto;
-    fill: #2ABB9B;
-  }
+.header .search-icon{
+  width: 25px;
+  height: 25px;
+  margin-right: 5%;
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+  fill: #2ABB9B;
+}
 
-  .header .person-login{
-    width: 35px;
-    height: 35px;
-    margin-right: 3%;
-  }
+.header .person-login{
+  width: 35px;
+  height: 35px;
+  margin-right: 3%;
+}
 
-  .header .list{
-    margin-top: 1.5%;
-  }
+.header .list{
+  margin-top: 1.5%;
+}
 
-  .header .al{
-    margin-top: -12px;
-  }
+.header .al{
+  margin-top: -12px;
+}
 
-  /*tipos*/
-  .tiposBoxContainer{
-    margin-top: 7%;
-    padding-left: 10%;
-    padding-right: 10%;
-  }
+/*tipos*/
+.tiposBoxContainer{
+  margin-top: 7%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
 
-  /*modalIni*/
-  .modalIni .modal-content {
-    width: 40%;
-    height:85%;
-  }
-    
-  .mContent {
-    width: 0;
-    max-width: 45%;
-    display: none;
-  }
-
-  /*modalUbicacion*/
+/*modalIni*/
+.modalIni .modal-content {
+  width: 40%;
+  height:85%;
+}
   
-  .modal-content{
-    width: 50%;
-  }
+.mContent {
+  width: 0;
+  max-width: 45%;
+  display: none;
+}
 
-  /*restaurantes*/
-  .restCont{
-    width: 85%;
-  } 
+/*modalUbicacion*/
 
-  #restaurantesContainer{
-    border-width: 3px;
-    border-left: none;
-    border-right: none;
-  }
+.modal-content{
+  width: 50%;
+}
+
+/*restaurantes*/
+.restCont{
+  width: 85%;
+} 
+
+#restaurantesContainer{
+  border-width: 3px;
+  border-left: none;
+  border-right: none;
+}
 }
 
 @media (min-width: 651px) and (max-width: 750px){
 
-  .header .search-cont{
-    display: block;
-    margin-top: auto;
-    margin-bottom: auto;
-    width: 32%;
-    margin-left: 3%;
-  }
+.header .search-cont{
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 32%;
+  margin-left: 3%;
+}
 
-  #sBarClose{
-    top: 2.5%; 
-    right: 42%;
-  }
+#sBarClose{
+  top: 2.5%; 
+  right: 42%;
+}
 
-  .modal-content{
-    width: 400px;
-  }
+.modal-content{
+  width: 400px;
+}
 }
 
 @media (min-width: 751px) and (max-width: 900px){
-  #sBarClose{
-    top: 2.5%; 
-    right: 37%;
-  }
+#sBarClose{
+  top: 2.5%; 
+  right: 37%;
+}
 }
 
 @media (min-width: 901px) and (max-width: 980px){
-  #sBarClose{
-    top: 2.5%; 
-    right: 38%;
-  }
+#sBarClose{
+  top: 2.5%; 
+  right: 38%;
+}
 }
 
 @media (min-width: 981px) and (max-width:1180px){
-  #sBarClose{
-    top: 2.5%; 
-    right: 40%;
-  }
+#sBarClose{
+  top: 2.5%; 
+  right: 40%;
+}
 }
 
 @media (min-width: 1180px){
-  #sBarClose{
-    top: 2.5%; 
-    right: 42%;
-  }
+#sBarClose{
+  top: 2.5%; 
+  right: 42%;
+}
 }
