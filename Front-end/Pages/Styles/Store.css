@@ -1,0 +1,1049 @@
+html{
+    scroll-behavior: smooth;
+  }
+  
+  ::-webkit-scrollbar{
+    display: none;
+  }
+
+  .header{
+    width: 100%;
+    overflow: hidden;
+    /*background-color: #282828;*/
+    z-index: 6;
+  }
+  
+  .header .headerCont{
+    display: flex;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .header input{
+    display: none;
+    border-width: 2px;
+    border-color: #FFC244;
+    border-radius: 20px;
+    border-style: solid;
+  }
+  
+  .header input:focus{
+    outline: none;
+  }
+  
+  .header .logo{
+   padding-left: 3%;
+   padding-right: 6%;
+   height: fit-content;
+   display: block;
+   margin-top: auto;
+   margin-bottom: auto;
+  }
+  
+  .header img{
+    width: 90px;
+    height: auto;
+  }
+  
+  .header .al{
+    display: flex;
+    margin-right: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    align-items: center;
+  }
+  
+  .header .ubicacion{
+    display: flex;
+    max-width: 80%;
+    max-height: 65%;
+    overflow: hidden;
+    margin-right: 2%;
+    float: right;
+  }
+  
+  .header .ubicacion svg{
+    width: 25px;
+    height: 25px;
+    fill: white;
+  }
+  
+  .header .ubicacion h1{
+    font-size: 15px;
+    overflow: hidden;
+    color: #a9a9a9;
+    margin: 0;
+  }
+  
+  .header .list{
+    float: left;
+    width: 35px;
+    height: 35px;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    fill: white;
+  }
+  
+  .headerBottom{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    border-bottom:/*#2ABB9B*/white;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    z-index: 6;
+  }
+  
+  #bagIcon{
+    width: 28px;
+    height: 28px;
+    fill: white;
+    margin-left: 1%;
+    margin-right: 6%;
+  }
+  
+  .header .person-login{
+    float: right;
+    fill: white;
+  }
+  
+  /*MODAL-IZQ*/
+  .containerIzq{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    outline: 0;    
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.6);
+  }
+  
+  .mContent {
+    background-color: #282828;
+    height: 100%;
+    display: none;
+  }
+  
+  .mContent .borrar svg{
+  float: right;;
+  width: 30px;
+  height: 30px;
+  display: block;
+  fill: white;
+  margin-right: 5%;
+  margin-top: 5%;
+  }
+  
+  .mContent .borrar svg:hover{
+  width: 35px;
+  height: 35px;
+  }
+  
+  .mContent .opciones{
+  list-style-type: none;
+  text-align: left;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  }
+  
+  .mContent .opciones .opcion{
+  color: white;
+  }
+  
+  /*IniciarSesion*/
+  .modalIni {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 6; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modalIni .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    /*padding: 20px;*/
+    border: 3px solid #c2bbbb;
+    border-radius: 80px;
+    overflow: hidden;
+    background-image: linear-gradient(155deg, #2ABB9B 54%,  #FFC244 49%);
+  }
+  
+  /* The Close Button */
+  .modalIni .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .modalIni .close:hover,
+  .modalIni .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modalIni .iniciarSesionContainer{
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 100%;
+  }
+  
+  .modalIni .logoContainer{
+     width: 95%;
+  }
+  
+  .modalIni .headerIniciarSesion{
+    margin-top: 10px;
+    display: inline-flex;
+  }
+  
+  .modalIni .headerIniciarSesion svg{
+    width: 30px;
+    height: 30px;
+  }
+  
+  .modalIni .headerIniciarSesion img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding-left: 11%;
+  }
+  
+  .modalIni .headerIniciarSesion div{
+    width: 90%;
+  }
+  
+  .modalIni .labelIniciarSesion {
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  .modalIni .containerFormulario{
+    margin-top: 7%;
+  }
+  
+  .modalIni .contentInput{
+    margin-bottom: 25px;
+  }
+  
+  .modalIni .iniciarSesionForm{
+    margin-bottom: 45px;
+    margin-top: 11%;
+  }
+  
+  .modalIni .iniciarSesionForm input{
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 20px;
+    border-style: none;
+    font-size: 15px;
+    border-bottom: 1px solid #cacaca;  
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  .modalIni .iniciarSesionForm input:focus{
+    border-width: 0px;
+    outline:0; /* I have also tried outline:none */
+    -webkit-appearance:none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    border-style: none;
+    border-bottom: 1px solid rgb(151, 0, 221);
+  }
+  
+  .modalIni .iniciarSesionForm button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    width: 70%;
+    height: 35px;
+    border-radius: 6px;
+    font-size: 15px;
+    background-color: rgb(178, 13, 255);
+    border-style: none;
+    color: whitesmoke;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  .modalIni .containerPhone{
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    border-color:  #cacaca;
+    width: 100%;
+    height: 40px; 
+    margin-bottom: 15px;
+    background-color: white;
+  
+  }
+  
+  .modalIni .contentMail{
+    display: flex;
+    align-items: center;
+    background-color: white;
+  
+  }
+  
+  .modalIni .contentMail svg{
+    width: 25px;
+    height: 25px;
+    margin-right: -40px;
+    margin-left: 3%;
+  }
+  
+  .modalIni .contentMail h1{
+    font-size: 16px;
+    margin: auto;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  .modalIni .contentNumTel{
+    display: inline-flex;
+  }
+  
+  .modalIni .contentNumArea{
+    width: 30%;
+    height: 100%;
+    border-right: 2px solid #b1afaf;;
+    display: flex;
+  }
+  
+  .modalIni .contentNumArea div{
+    align-self: center;
+    margin-left: 10px;
+  }
+  
+  .modalIni .contentNumArea img{
+    width: 25px;
+    height: 25px;
+  }
+  
+  .modalIni .contentNumArea svg{
+    width: 15px;
+    height: 15px;
+    margin-left: 9%;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  
+  .modalIni .contentNumArea h1{
+    font-size: 15px;
+    display: block;
+    margin-top: auto;
+    margin-left: 8px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  .modalIni #telephoneNumber{
+    margin-left: 5%;
+    width: 59%;
+    overflow-x: hidden;
+    border-style: none;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 15px;
+  }
+  
+  .modalIni #telephoneNumber:focus{
+    border-width: 0px;
+    outline:0; /* I have also tried outline:none */
+    -webkit-appearance:none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    border-style: none;
+  }
+  
+  .modalIni .wppArea{
+    display: flex;
+    /*background-image: linear-gradient(130deg,#9ef8aa 0,#03c744 70%);*/
+    background-color: limegreen;
+    align-items: center;
+  }
+  
+  .modalIni .wppArea:hover{
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 4px 12px 0px;
+    border-style: none;
+  }
+  
+  .modalIni .wppArea img{
+    width:40px;
+    height:40px;
+    margin-right: -40px;
+  }
+  
+  .modalIni .wppArea h1{
+    color: whitesmoke;
+    font-size: 16px;
+    margin: auto;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  .modalIni .smsArea{
+    display: flex;
+    align-items: center;
+    /*background-image: linear-gradient(130deg,#2d3af1 0,#5e1cf8 70%);*/
+    background-color: tomato;
+  
+  }
+  
+  .modalIni .smsArea svg{
+    width: 25px;
+    height: 25px;
+    margin-right: -40px;
+    margin-left: 3%;
+    color: whitesmoke;
+  }
+  
+  .modalIni .smsArea h1{
+    color: whitesmoke;
+    font-size: 16px;
+    margin: auto;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  .modalIni .smsArea:hover{
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 4px 12px 0px;
+    border-style: none;
+  }
+  
+  .modalIni .registrate{
+    text-align: center;
+    margin-top: 15%;
+  }
+  
+  .modalIni .registrate h1,a{
+    font-size: 15px;
+    text-align: center;
+  }
+  
+  .modalIni .registrate a{
+    color: #2ba6cb;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+  }
+  
+  .modalIni .registrate a:hover{
+    border-bottom-style: solid;
+    border-color:#2ba6cb;
+    border-width: 1px;
+  }
+  
+  /*CARRITO*/
+  .containerFactura{
+    display: none;
+    position: fixed;
+    z-index: 6;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.6);
+  }
+  
+  .modalContent {
+    background-color: #282828;
+    margin: auto;
+    width: 500px;
+    height: 100%;
+    float: right;
+  }
+  
+  .headerNombrePagina{
+    border-bottom: solid;
+    border-bottom-width: 2px;
+    border-color: #ff2426;
+    margin-right: 8%;
+    margin-left: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+  }
+  
+  .headerNombrePagina img{
+    width: 100px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .headerNombrePagina svg{
+    --main-svg-width: 25px;
+    float:left;
+    width: var(--main-svg-width);
+    height: var(--main-svg-width);
+    display: block;
+    fill: white;
+    margin-right: calc(-1*(var(--main-svg-width)));
+  }
+  
+  .headerNombrePagina svg:hover{
+    --main-svg-width: 40px;
+  }
+  .headerUsuario {
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    border-bottom: solid;
+    border-bottom-width: 0.1px;
+    border-color: #ff2426;
+  }
+  .headerUsuario img{
+    border-style: solid;
+    border-color: #ff2426;
+    border-width: 2px;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin-bottom: 5%;
+  }
+  .headerUsuario h1{
+    margin-left: 8px;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 5%;
+    color: white;
+  }
+  
+  .headerRestaurante{
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    border-bottom: solid;
+    border-bottom-width: 0.1px;
+    border-color: #ff2426;
+  
+  }
+  
+  .headerRestaurante img{
+    width: 50px;
+    height: 50px;
+    border-radius: 10%;
+    margin-bottom: 5%;
+  }
+  
+  .headerRestaurante h1{
+    margin-left: 8px;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 5%;
+    color: white;
+  }
+  .headerRestaurante h2{
+    font-size: 12px;
+    text-align: right;
+    display: block;
+    color: #f7732d;
+  }
+  .headerRestaurante h2:hover{
+    font-size: 15px;
+  }
+  
+  .pedidos{
+    margin-top: 5%;
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-bottom:5%;
+  }
+  .pedidos ul{
+    overflow-y: scroll;
+    height: 290px;
+    padding-inline-start: 0%;
+  
+  }
+  
+  #platos .header{
+    border-bottom: solid;
+    border-bottom-width: 1px;
+    border-color: white;
+  }
+  
+  #platos .header h1{
+    font-size: 15px;
+    color: white;
+  }
+  
+  .pedido{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    border-bottom: solid;
+    border-bottom-width: 1px;
+    border-color: #7d7d7d;
+    padding: 10px 5px;
+  }
+  
+  .platoCarritoDiv{
+    margin-left: 8px;
+  }
+  
+  .platoCarritoDiv h5{
+    font-size: 12px;
+    color: #7d7d7d;
+  }
+  
+  .pedidos .pedido img{
+    border-style: solid;
+    border-color: silver;
+    border-width: 1px;
+    width: 50px;
+    height: 50px;
+    border-radius: 10%;
+  }
+  
+  .pedidos .pedido h3{
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-bottom: 0px;
+    white-space: nowrap;
+    color: white;
+    margin-left: 8px;
+  }
+  
+  .pedidos .pedido .p h2, h4{
+    font-size: 15px;
+    text-align: right;
+    display: block;
+    color: #7d7d7d;
+    margin-bottom: 0px;
+  }
+  
+  .pedidos .pedido .p{
+    text-align: right;
+    margin: 0px auto 0px auto;
+    margin-right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+  }
+  
+  .pedidos .pedido .p svg{
+    display: none;
+    width: 20px;
+    height: 20px;
+    /*fill: #f7732d;*//*naranja o negro*/
+    margin-left: 10px;
+    fill: white;
+  }
+  
+  .pedidos .pedido .p svg:hover{
+    width: 30px;
+    height: 30px;
+  }
+  
+  .pedir{
+    /*margin-left: 8%;*/
+    margin-top: 10px;
+    display: inline-flex;
+    width: 100%;
+  }
+  
+  .pedir button{
+    border-radius: 6px;
+    color: white;
+    border: #f7732d;
+  }
+  
+  .pedir button:active{
+    border-style: none;
+  }
+  
+  .pedir button:focus{
+    border-style: none;
+  }
+  
+  .pedir div{
+    margin-left: 75px;
+  }
+  
+  .pedir svg{
+    margin-top:8px;
+    fill: white;
+    /*lo centre a mano fijarse de cambiarlo*/
+  }
+  .pedir svg:hover {
+    fill: red;
+  }
+  
+  ::-webkit-scrollbar{
+    display: none;
+  }
+  .modal{
+    display: none;
+    z-index: 1;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.6);
+  }
+  
+  @media (max-width: 650px){
+    
+    .imgHeader{
+      height: 37%;
+      background-size: contain;
+    }
+
+    .header{
+      height: 10%;
+    }
+    .header .person-login{
+      width: 35px;
+      height: 35px;
+      margin-right: 5%;
+    }
+  
+    .headere h1{
+      font-size: 30px;
+    }
+  
+    .header input{
+      display: none;
+    }
+  
+    .header .headerCont{
+      width: 97%;
+    }
+
+    .search-cont{
+      display: none;
+    }
+  
+    /*modal ini*/
+    .modalIni .modal-content {
+      width: 90%;
+      height:90%;
+    }
+  
+    .mContent {
+        width: 0;
+        display: none;
+        max-width: 60%;
+    }
+    
+      /*carrito*/
+      
+      .modalContent {
+        background-color: #282828;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        float: right;
+    }
+  
+    .pedidos .pedido h3{
+        max-width: 60%;
+    }
+  
+    .pedir button{
+        background-image: linear-gradient(140deg,#da5306,#ff2b2e 70%);
+        height:40px;
+        width: 60%;
+    }
+  
+    .pedir svg{
+        width: 25px;
+        height: 25px;
+        /*lo centre a mano fijarse de cambiarlo*/
+    }
+  
+    .modal{
+        padding-top: 50%;
+    }
+  }
+  
+  @media (min-width: 951px){
+    
+    .imgHeader{
+      min-height: 50%;
+      max-height: 65%;
+      background-size: cover;
+    }
+
+    .header{
+      height: 10%;
+    }
+  
+    .header .headerCont{
+      width: 93%;
+    }
+  
+    .header .search-cont{
+      display: block;
+      margin-top: auto;
+      margin-bottom: auto;
+      width: 40%;
+      margin-left: 3%;
+    }
+  
+    .header .search-icon{
+      width: 25px;
+      height: 25px;
+      margin-right: 5%;
+      display: block;
+      margin-top: auto;
+      margin-bottom: auto;
+      fill: white;
+    }
+  
+    .header .person-login{
+      width: 35px;
+      height: 35px;
+      margin-right: 3%;
+    }
+  
+    #sBarClose{
+      top: 2.5%; 
+      right: 42%;
+    }
+  
+    /*modalUbicacion*/
+  
+    #myModalUbi .modal-content{
+      width: 430px;
+    }
+  
+    /*modalIni*/
+    .modalIni .modal-content {
+      width: 30%;
+      height:500px;
+    }
+  
+    .mContent {
+        width: 0;
+        max-width: 25%;
+        display: none;
+    }
+
+    /*carrito*/
+    .containerFactura{
+      display: none;
+      position: fixed;
+      z-index: 6;
+      top: 0;
+      padding-left: 860px;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.6);
+    }
+  
+    .modalContent {
+        background-color: #282828;
+        margin: auto;
+        width: 500px;
+        height: 100%;
+        float: right;
+    }
+  
+    .pedidos .pedido h3{
+        max-width: 220px;
+    }
+  
+    .pedir button{
+        height:40px;
+        width: 250px;
+        background-image: linear-gradient(130deg,#ff451a,#ff1517 70%);
+    }
+  
+    .pedir svg{
+        width: 25px;
+        height: 25px;
+    }
+  
+    .modal{
+        padding-top: 323px;
+        padding-left: 870px;
+    }
+  }
+  
+  @media (min-width: 651px) and (max-width: 950px){
+  
+    .imgHeader{
+      background-size: cover;
+      min-height: 50%;
+      max-height: 70%;
+    }
+
+    .header{
+      height: 10%;
+    }
+  
+    .header .headerCont{
+      width: 93%;
+    }
+  
+    .header .search-cont{
+      display: block;
+      margin-top: auto;
+      margin-bottom: auto;
+      width: 40%;
+      margin-left: 3%;
+    }
+  
+    .header .search-icon{
+      width: 25px;
+      height: 25px;
+      margin-right: 5%;
+      display: block;
+      margin-top: auto;
+      margin-bottom: auto;
+      fill: white;
+    }
+  
+    .header .person-login{
+      width: 35px;
+      height: 35px;
+      margin-right: 3%;
+    }
+
+    /*modalIni*/
+    .modalIni .modal-content {
+      width: 40%;
+      height:85%;
+    }
+      
+    .mContent {
+      width: 0;
+      max-width: 45%;
+      display: none;
+    }
+  
+    /*modalUbicacion*/
+  
+    #myModalUbi .modal-content{
+      width: 50%;
+    }
+  
+      /*carrito*/
+      .containerFactura{
+        display: none;
+        position: fixed;
+        z-index: 6;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.6);
+    }
+    
+    .modalContent {
+        background-color: #282828;
+        margin: auto;
+        width: 500px;
+        height: 100%;
+        float: right;
+    }
+  
+    .pedidos .pedido h3{
+        max-width: 220px;
+    }
+  
+    .pedir button{
+        height:40px;
+        width: 250px;
+        background-image: linear-gradient(130deg,#ff451a,#ff1517 70%);
+    }
+  
+    .pedir svg{
+        width: 25px;
+        height: 25px;
+    }
+  
+    .modal{
+        padding:auto;
+        padding-top: 40%;
+    }
+  }
+  
+  @media (min-width: 651px) and (max-width: 750px){
+  
+  .header .search-cont{
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 32%;
+    margin-left: 3%;
+  }
+  
+  #sBarClose{
+    top: 2.5%; 
+    right: 42%;
+  }
+  
+  #myModalUbi .modal-content{
+    width: 400px;
+  }
+  }
+  
+  @media (min-width: 751px) and (max-width: 900px){
+  #sBarClose{
+    top: 2.5%; 
+    right: 37%;
+  }
+  }
+  
+  @media (min-width: 901px) and (max-width: 980px){
+  #sBarClose{
+    top: 2.5%; 
+    right: 38%;
+  }
+  }
+  
+  @media (min-width: 981px) and (max-width:1180px){
+  #sBarClose{
+    top: 2.5%; 
+    right: 40%;
+  }
+  }
+  
+  @media (min-width: 1180px){
+  #sBarClose{
+    top: 2.5%; 
+    right: 42%;
+  }
+  }

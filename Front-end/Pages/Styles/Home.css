@@ -2,9 +2,9 @@ html{
   scroll-behavior: smooth;
 }
 
-body{
+/*body{
   background-color: #141414f7;
-}
+}*/
 
 ::-webkit-scrollbar{
   display: none;
@@ -13,8 +13,15 @@ body{
 .header{
   width: 100%;
   overflow: hidden;
-  background-color: #282828;
+  /*background-color: #282828;*/
   z-index: 6;
+}
+
+.header .headerCont{
+  display: flex;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .header input{
@@ -31,6 +38,11 @@ body{
 
 .header .logo{
  padding-left: 3%;
+ padding-right: 6%;
+ height: fit-content;
+ display: block;
+ margin-top: auto;
+ margin-bottom: auto;
 }
 
 .header img{
@@ -40,9 +52,11 @@ body{
 
 .header .al{
   display: flex;
-  margin-right: 4%;
-  right: 0;
-  position: absolute;
+  margin-right: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  align-items: center;
 }
 
 .header .ubicacion{
@@ -50,30 +64,31 @@ body{
   max-width: 80%;
   max-height: 65%;
   overflow: hidden;
-  margin-right: 6%;
+  margin-right: 2%;
   float: right;
 }
 
 .header .ubicacion svg{
   width: 25px;
   height: 25px;
-  fill: #FFC244;
+  fill: black;
 }
 
 .header .ubicacion h1{
   font-size: 15px;
   overflow: hidden;
-  color: white;
+  color: #a9a9a9;
+  margin: 0;
 }
 
 .header .list{
   float: left;
   width: 35px;
   height: 35px;
-  margin-left: 4%;
   display: block;
+  margin-top: auto;
   margin-bottom: auto;
-  fill: #FFC244;
+  fill: black;
 }
 
 .headerBottom{
@@ -81,15 +96,23 @@ body{
   margin-left: auto;
   margin-right: auto;
   width: 90%;
-  border-bottom:#2ABB9B;
+  border-bottom:/*#2ABB9B*/black;
   border-bottom-style: solid;
   border-bottom-width: 2px;
   z-index: 6;
 }
 
+#bagIcon{
+  width: 28px;
+  height: 28px;
+  fill: black;
+  margin-left: 1%;
+  margin-right: 6%;
+}
+
 .header .person-login{
   float: right;
-  fill: #FFC244;
+  fill: black;
 }
 
 /*MODAL-IZQ*/
@@ -141,21 +164,20 @@ margin-right: auto;
 color: white;
 }
 /*modalUbicacion*/
-.modal {
-display: none;
-/* position: fixed; */
-z-index: 7;
-/* left: 0; */
-/* top: 0; */
-/* width: 100%; */
-/* height: 100%; */
-/* overflow: auto; */
-background-color: rgb(0,0,0);
-background-color: rgba(0,0,0,0.6);
+#myModalUbi{
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 6; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.8);
 }
 
-/* Modal Ubicacion*/
-.modal-content {
+#myModalUbi  .modal-content {
 background-color: #282828;
 margin: auto;
 border: 1px solid #FFC244;
@@ -166,25 +188,25 @@ border-radius: 20px;
 }
 
 /* The Close Button */
-.close {
+#myModalUbi .close {
 color: #aaaaaa;
 position: absolute;
 right: 5%;
 top: 3%;
 }
 
-.close:hover{
+#myModalUbi .close:hover{
 color: white;
 }
 
-.modal-content h2{
+#myModalUbi .modal-content h2{
 font-size: 12px;
 margin-left: 6%;
 margin-top: 12%;
 color:#ffda26;
 }
 
-.modal-content h1{
+#myModalUbi .modal-content h1{
 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 font-size: x-large;
 font-weight: 600;
@@ -194,7 +216,7 @@ text-align: left;
 color: whitesmoke;
 }
 
-.modal-content .ubicacion{
+#myModalUbi .modal-content .ubicacion{
 width: 88%;
 border-style: solid;
 border-width: 2px;
@@ -206,7 +228,7 @@ height: 15%;
 margin-top: 2%;
 }
 
-.modal-content input{
+#myModalUbi .modal-content input{
 border:none;
 height: 100%;
 width: 85%;
@@ -214,22 +236,22 @@ color: grey;
 background-color: #282828;
 }
 
-.modal-content input:focus{
+#myModalUbi .modal-content input:focus{
 outline: none;
 }
 
-.modal-content .ubicacion svg{
+#myModalUbi .modal-content .ubicacion svg{
 margin-left: 2%;
 fill: #FFC244;
 }
 
-.modal-content .span{
+#myModalUbi .modal-content .span{
 position: absolute;
 width: 100%;
 bottom: 8%;
 }
 
-.modal-content .span button{
+#myModalUbi .modal-content .span button{
 width: 88%;
 display: block;
 margin: auto;
@@ -239,7 +261,7 @@ color: grey;
 font-weight: 600;
 }
 
-.modal-content .span button:focus{
+#myModalUbi .modal-content .span button:focus{
 outline: none;
 }
 
@@ -562,7 +584,6 @@ outline: none;
   padding-right: 5px;
   max-width: 100%;
   width: fit-content;
-  border-color: #FFC244;
   border-style: solid;
   border-width: 4.5px;
 }
@@ -609,15 +630,14 @@ margin-bottom: 5%;
 } 
 
 #restaurantesContainer{
-  background-color: #212121;
-  /* border-radius: 50px; */
+  /*background-color: #212121;*/
   border-style: solid;
-  border-color: #FFC244;
+  border-color: /*#FFC244*/black;
 }
 
-.headere h1{
+/*.headere h1{
 color: #eeeeee;
-}
+}*/
 
 #restaurantes{
 text-align: center;
@@ -630,8 +650,6 @@ margin-bottom: 3%;
 }
 
 #restaurantes .restaurante{
-width: 332px;
-height: 230px;
 overflow: hidden;
 display: inline-block;
 margin: 2%;
@@ -649,6 +667,7 @@ height: 100%;
   height: 100%;
   filter: blur(2px);
   object-fit: cover;
+  
 }
 
 #restaurantes .restaurante .body{
@@ -699,7 +718,6 @@ height: 100%;
 width: 100%;
 height: 40px;
 background-color: rgb(40 40 40 / 0.8);
-z-index: -1;
 margin-top: 10px;/*
 border-bottom: solid #2ABB9B 2px;
 border-top: solid #2ABB9B 2px;*/
@@ -719,14 +737,15 @@ color: #ded9d9;
 border-radius: 100%;
 width: 60px;
 height: 60px;
-background-color: #282828;
-border-style: /*solid*/none;
+background-color: white;
+border-style: solid;
 border-width: 2px;
 border-color: #2ABB9B;
 position: absolute;
 top: 59%;
 left: 50%;
 transform: translate(-50%, -50%);
+z-index: 5;
 }
 
 #restaurantes .restaurante .body .logo img{
@@ -776,7 +795,6 @@ border-color: #FFC244;
 }
 
 #restaurantes .restaurante:not(:hover){
-border: solid;
 border-width: 1px;
 }
 
@@ -784,277 +802,755 @@ border-width: 1px;
 display: none;
 }
 
-@media (max-width: 650px){
-.header{
-  height: 10%;
-}
-.header .person-login{
-  width: 35px;
-  height: 35px;
-  margin-right: 5%;
+/*CARRITO*/
+.containerFactura{
+  display: none;
+  position: fixed;
+  z-index: 6;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.6);
 }
 
-.headere h1{
-  font-size: 30px;
+.modalContent {
+  background-color: #282828;
+  margin: auto;
+  width: 500px;
+  height: 100%;
+  float: right;
 }
 
-.header input{
+.headerNombrePagina{
+  border-bottom: solid;
+  border-bottom-width: 2px;
+  border-color: #ff2426;
+  margin-right: 8%;
+  margin-left: 8%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.headerNombrePagina img{
+  width: 100px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.headerNombrePagina svg{
+  --main-svg-width: 25px;
+  float:left;
+  width: var(--main-svg-width);
+  height: var(--main-svg-width);
+  display: block;
+  fill: white;
+  margin-right: calc(-1*(var(--main-svg-width)));
+}
+
+.headerNombrePagina svg:hover{
+  --main-svg-width: 40px;
+}
+.headerUsuario {
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-top: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  border-bottom: solid;
+  border-bottom-width: 0.1px;
+  border-color: #ff2426;
+}
+.headerUsuario img{
+  border-style: solid;
+  border-color: #ff2426;
+  border-width: 2px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  margin-bottom: 5%;
+}
+.headerUsuario h1{
+  margin-left: 8px;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 5%;
+  color: white;
+}
+
+.headerRestaurante{
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-top: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  border-bottom: solid;
+  border-bottom-width: 0.1px;
+  border-color: #ff2426;
+
+}
+
+.headerRestaurante img{
+  width: 50px;
+  height: 50px;
+  border-radius: 10%;
+  margin-bottom: 5%;
+}
+
+.headerRestaurante h1{
+  margin-left: 8px;
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 5%;
+  color: white;
+}
+.headerRestaurante h2{
+  font-size: 12px;
+  text-align: right;
+  display: block;
+  color: #f7732d;
+}
+.headerRestaurante h2:hover{
+  font-size: 15px;
+}
+
+.pedidos{
+  margin-top: 5%;
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-bottom:5%;
+}
+.pedidos ul{
+  overflow-y: scroll;
+  height: 290px;
+  padding-inline-start: 0%;
+
+}
+
+#platos .header{
+  border-bottom: solid;
+  border-bottom-width: 1px;
+  border-color: white;
+}
+
+#platos .header h1{
+  font-size: 15px;
+  color: white;
+}
+
+.pedido{
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  border-bottom: solid;
+  border-bottom-width: 1px;
+  border-color: #7d7d7d;
+  padding: 10px 5px;
+}
+
+.platoCarritoDiv{
+  margin-left: 8px;
+}
+
+.platoCarritoDiv h5{
+  font-size: 12px;
+  color: #7d7d7d;
+}
+
+.pedidos .pedido img{
+  border-style: solid;
+  border-color: silver;
+  border-width: 1px;
+  width: 50px;
+  height: 50px;
+  border-radius: 10%;
+}
+
+.pedidos .pedido h3{
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-bottom: 0px;
+  white-space: nowrap;
+  color: white;
+  margin-left: 8px;
+}
+
+.pedidos .pedido .p h2, h4{
+  font-size: 15px;
+  text-align: right;
+  display: block;
+  color: #7d7d7d;
+  margin-bottom: 0px;
+}
+
+.pedidos .pedido .p{
+  text-align: right;
+  margin: 0px auto 0px auto;
+  margin-right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.pedidos .pedido .p svg{
+  display: none;
+  width: 20px;
+  height: 20px;
+  /*fill: #f7732d;*//*naranja o negro*/
+  margin-left: 10px;
+  fill: white;
+}
+
+.pedidos .pedido .p svg:hover{
+  width: 30px;
+  height: 30px;
+}
+
+.pedir{
+  /*margin-left: 8%;*/
+  margin-top: 10px;
+  display: inline-flex;
+  width: 100%;
+}
+
+.pedir button{
+  border-radius: 6px;
+  color: white;
+  border: #f7732d;
+}
+
+.pedir button:active{
+  border-style: none;
+}
+
+.pedir button:focus{
+  border-style: none;
+}
+
+.pedir div{
+  margin-left: 75px;
+}
+
+.pedir svg{
+  margin-top:8px;
+  fill: white;
+  /*lo centre a mano fijarse de cambiarlo*/
+}
+.pedir svg:hover {
+  fill: red;
+}
+
+::-webkit-scrollbar{
   display: none;
 }
+.modal{
+  display: none;
+  /* position: fixed; */
+  z-index: 1;
+  /* left: 0; */
+  /* top: 0; */
+  /* width: 100%; */
+  /* height: 100%; */
+  /* overflow: auto; */
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.6);
+}
+/*carrousel*/
 
-.header .list{
+#imagen1{
+  display: block;
+  margin: auto;
+}
+#imagen2, #imagen3, #imagen4{
+  display: none;
+  margin: auto;
+
+}
+#cr{
+  display: block;
+  width: 80%;
+  height: 65%;
+  margin: auto;
+  position: relative;
   margin-top: 2%;
 }
 
-.header .al{
-  margin-top: -2%;
+#cr img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/*searchCel*/
-
-.search-cont-cel{
-  display: block;
-  margin: auto;
-  margin-top: 7%;
-  width: 90%;
-  height: 7%;
-  margin-bottom: 10%;
+#points{
+  z-index: 1;
+  margin-top: -4%;
+  text-align: center;
+  position: relative;
 }
 
-.search-cont-cel input{
-    display: none;
-    border-width: 2px;
-    border-color: #FFC244;
-    border-radius: 20px;
-    border-style: solid;
-    height: 100%;
-    color: grey;
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: red;
+}
+
+#adelante{
+  float: right;
+}
+
+#atras{
+  float: left;
+}
+
+#rey{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.buttonCR{
+  position: absolute;
+  left: 20%;
+  top: 60%;
+  background-color: white;
+  border-radius: 50px;
+  padding: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.buttonCR h1{
+  font-size: 22px;
+  color: #000;
+}
+
+@media (max-width: 650px){
+  .header{
+    height: 10%;
+  }
+  .header .person-login{
+    width: 35px;
+    height: 35px;
+    margin-right: 5%;
   }
 
-.search-cont-cel input:focus{
-  outline: none;
-}
+  .headere h1{
+    font-size: 30px;
+  }
 
-.search-icon-cel{
-  width: 25px;
-  height: 25px;
-  margin-right: 5%;
-  display: block;
-  margin-top: auto;
-  margin-bottom: auto;
-  float: left;
-  fill: #2ABB9B;
-}
-
-.search-cont-cel .closer{
-  position: absolute;
-  fill: #2ABB9B;
-  z-index: 9;
-  float: right;
-  height: 20px;
-  width: 20px;
-  right: 7%;
-}
-
-/*tipos*/
-.tiposBoxContainer{
-  margin-top: 12%;
-  padding-left: 3%;
-  padding-right: 3%;
-}
-
-/*modalUbicacion*/
-
-.modal-content{
-  width: 85%;
-  height: 300px;
-}
-
-.modal-content button{
-  background-color: white;
-  font-size: 120%;
-}
-
-.modal-content .ubicacion{
-  height: 18%;
-}
-
-/*modal ini*/
-.modalIni .modal-content {
-  width: 90%;
-  height:90%;
-}
-
-.mContent {
-    width: 0;
+  .header input{
     display: none;
-    max-width: 60%;
-}
+  }
 
-/*restaurantes*/
-.restCont{
-  width: 90%;
-} 
+  .header .headerCont{
+    width: 97%;
+  }
+  /*carrousel*/
+  #points{
+    margin-top: -8%;
+  }
 
-#restaurantesContainer{
-  border-width: 2px;
-  border-left: none;
-  border-right: none;
-  /*border-radius: 30px;*/
-}
+  /*searchCel*/
+
+  .search-cont-cel{
+    display: block;
+    margin: auto;
+    margin-top: 7%;
+    width: 90%;
+    height: 7%;
+    margin-bottom: 10%;
+  }
+
+  .search-cont-cel input{
+      display: none;
+      border-width: 2px;
+      border-color: #FFC244;
+      border-radius: 20px;
+      border-style: solid;
+      height: 100%;
+      color: grey;
+    }
+
+  .search-cont-cel input:focus{
+    outline: none;
+  }
+
+  .search-icon-cel{
+    width: 25px;
+    height: 25px;
+    margin-right: 5%;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    float: left;
+    /*fill: #2ABB9B;*/
+  }
+
+  .search-cont-cel .closer{
+    position: absolute;
+    fill: #2ABB9B;
+    z-index: 9;
+    float: right;
+    height: 20px;
+    width: 20px;
+    right: 7%;
+  }
+
+  #searchBar, .search-icon{
+    display: none;
+  }
+
+  /*tipos*/
+  .tiposBoxContainer{
+    margin-top: 12%;
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+
+  .tiposBoxContainer .tiposBox{
+    border: none;
+    border-bottom: solid black 1px;
+    border-radius: 0%;
+  }
+
+  /*modalUbicacion*/
+
+  #myModalUbi .modal-content{
+    width: 85%;
+    height: 300px;
+  }
+
+  #myModalUbi .modal-content button{
+    background-color: white;
+    font-size: 120%;
+  }
+
+  #myModalUbi .modal-content .ubicacion{
+    height: 18%;
+  }
+
+  /*modal ini*/
+  .modalIni .modal-content {
+    width: 90%;
+    height:90%;
+  }
+
+  .mContent {
+      width: 0;
+      display: none;
+      max-width: 60%;
+  }
+
+  /*restaurantes*/
+  .restCont{
+    width: 90%;
+  } 
+
+  #restaurantesContainer{
+    border-width: 2px;
+    border-left: none;
+    border-right: none;
+    /*border-radius: 30px;*/
+  }
+
+  #restaurantes .restaurante{
+    width: 280px;
+    height: 193px;
+  }
+  
+    /*carrito*/
+    
+    .modalContent {
+      background-color: #282828;
+      margin: auto;
+      width: 100%;
+      height: 100%;
+      float: right;
+  }
+
+  .pedidos .pedido h3{
+      max-width: 60%;
+  }
+
+  .pedir button{
+      background-image: linear-gradient(140deg,#da5306,#ff2b2e 70%);
+      height:40px;
+      width: 60%;
+  }
+
+  .pedir svg{
+      width: 25px;
+      height: 25px;
+      /*lo centre a mano fijarse de cambiarlo*/
+  }
+
+  .modal{
+      padding-top: 50%;
+  }
 }
 
 @media (min-width: 951px){
-.header{
-  height: 10%;
-}
+  .header{
+    height: 10%;
+  }
 
-.header .search-cont{
-  display: block;
-  margin-top: auto;
-  margin-bottom: auto;
-  width: 40%;
-  margin-left: 3%;
-}
+  .header .headerCont{
+    width: 93%;
+  }
 
-.header .search-icon{
-  width: 25px;
-  height: 25px;
-  margin-right: 5%;
-  display: block;
-  margin-top: auto;
-  margin-bottom: auto;
-  fill: #2ABB9B;
-}
+  .header .search-cont{
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 40%;
+    margin-left: 3%;
+  }
 
-.header .person-login{
-  width: 35px;
-  height: 35px;
-  margin-right: 3%;
-}
+  .header .search-icon{
+    width: 25px;
+    height: 25px;
+    margin-right: 5%;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    fill: black;
+  }
 
-.header .list{
-  margin-top: 1%;
-}
+  .header .person-login{
+    width: 35px;
+    height: 35px;
+    margin-right: 3%;
+  }
 
-.header .al{
-  margin-top: -7px;
-}
+  #sBarClose{
+    top: 2.5%; 
+    right: 42%;
+  }
 
-#sBarClose{
-  top: 2.5%; 
-  right: 42%;
-}
+  /*modalUbicacion*/
 
-/*modalUbicacion*/
+  #myModalUbi .modal-content{
+    width: 430px;
+  }
 
-.modal-content{
-  width: 430px;
-}
+  /*tipos*/
+  .tiposBoxContainer{
+    margin-top: 7%;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
 
-/*tipos*/
-.tiposBoxContainer{
-  margin-top: 7%;
-  padding-left: 10%;
-  padding-right: 10%;
-}
+  /*modalIni*/
+  .modalIni .modal-content {
+    width: 30%;
+    height:500px;
+  }
 
-/*modalIni*/
-.modalIni .modal-content {
-  width: 30%;
-  height:500px;
-}
+  .mContent {
+      width: 0;
+      max-width: 25%;
+      display: none;
+  }
 
-.mContent {
-    width: 0;
-    max-width: 25%;
+  /*restaurantes*/
+  .restCont{
+    width: 85%;
+  } 
+
+  #restaurantesContainer{
+    border-width: 3px;
+    border-left: none;
+    border-right: none;
+  }
+
+  #restaurantes .restaurante{
+    width: 332px;
+    height: 230px;
+  }
+  /*carrito*/
+  .containerFactura{
     display: none;
-}
+    position: fixed;
+    z-index: 6;
+    top: 0;
+    padding-left: 860px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.6);
+  }
 
-/*restaurantes*/
-.restCont{
-  width: 85%;
-} 
+  .modalContent {
+      background-color: #282828;
+      margin: auto;
+      width: 500px;
+      height: 100%;
+      float: right;
+  }
 
-#restaurantesContainer{
-  border-width: 3px;
-  border-left: none;
-  border-right: none;
-}
+  .pedidos .pedido h3{
+      max-width: 220px;
+  }
+
+  .pedir button{
+      height:40px;
+      width: 250px;
+      background-image: linear-gradient(130deg,#ff451a,#ff1517 70%);
+  }
+
+  .pedir svg{
+      width: 25px;
+      height: 25px;
+  }
+
+  .modal{
+      padding-top: 323px;
+      padding-left: 870px;
+  }
 }
 
 @media (min-width: 651px) and (max-width: 950px){
-.header{
-  height: 10%;
-}
+  .header{
+    height: 10%;
+  }
 
-.header .search-cont{
-  display: block;
-  margin-top: auto;
-  margin-bottom: auto;
-  width: 40%;
-  margin-left: 3%;
-}
+  .header .headerCont{
+    width: 93%;
+  }
 
-.header .search-icon{
-  width: 25px;
-  height: 25px;
-  margin-right: 5%;
-  display: block;
-  margin-top: auto;
-  margin-bottom: auto;
-  fill: #2ABB9B;
-}
+  .header .search-cont{
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 40%;
+    margin-left: 3%;
+  }
 
-.header .person-login{
-  width: 35px;
-  height: 35px;
-  margin-right: 3%;
-}
+  .header .search-icon{
+    width: 25px;
+    height: 25px;
+    margin-right: 5%;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    fill: black;
+  }
 
-.header .list{
-  margin-top: 1.5%;
-}
+  .header .person-login{
+    width: 35px;
+    height: 35px;
+    margin-right: 3%;
+  }
 
-.header .al{
-  margin-top: -12px;
-}
+  /*tipos*/
+  .tiposBoxContainer{
+    margin-top: 7%;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
 
-/*tipos*/
-.tiposBoxContainer{
-  margin-top: 7%;
-  padding-left: 10%;
-  padding-right: 10%;
-}
+  /*modalIni*/
+  .modalIni .modal-content {
+    width: 40%;
+    height:85%;
+  }
+    
+  .mContent {
+    width: 0;
+    max-width: 45%;
+    display: none;
+  }
 
-/*modalIni*/
-.modalIni .modal-content {
-  width: 40%;
-  height:85%;
-}
+  /*modalUbicacion*/
+
+  #myModalUbi .modal-content{
+    width: 50%;
+  }
+
+  /*restaurantes*/
+  .restCont{
+    width: 85%;
+  } 
+
+  #restaurantesContainer{
+    border-width: 3px;
+    border-left: none;
+    border-right: none;
+  }
+  #restaurantes .restaurante{
+    width: 280px;
+    height: 193px;
+  }
   
-.mContent {
-  width: 0;
-  max-width: 45%;
-  display: none;
-}
 
-/*modalUbicacion*/
+    /*carrito*/
+    .containerFactura{
+      display: none;
+      position: fixed;
+      z-index: 6;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.6);
+  }
+  
+  .modalContent {
+      background-color: #282828;
+      margin: auto;
+      width: 500px;
+      height: 100%;
+      float: right;
+  }
 
-.modal-content{
-  width: 50%;
-}
+  .pedidos .pedido h3{
+      max-width: 220px;
+  }
 
-/*restaurantes*/
-.restCont{
-  width: 85%;
-} 
+  .pedir button{
+      height:40px;
+      width: 250px;
+      background-image: linear-gradient(130deg,#ff451a,#ff1517 70%);
+  }
 
-#restaurantesContainer{
-  border-width: 3px;
-  border-left: none;
-  border-right: none;
-}
+  .pedir svg{
+      width: 25px;
+      height: 25px;
+  }
+
+  .modal{
+      padding:auto;
+      padding-top: 40%;
+  }
 }
 
 @media (min-width: 651px) and (max-width: 750px){
@@ -1072,8 +1568,12 @@ display: none;
   right: 42%;
 }
 
-.modal-content{
+#myModalUbi .modal-content{
   width: 400px;
+}
+
+#points{
+  margin-top: -6%;
 }
 }
 
