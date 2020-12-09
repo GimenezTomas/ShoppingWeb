@@ -82,7 +82,7 @@ html{
 }
 
 .header .list{
-  float: left;
+  float: right;
   width: 35px;
   height: 35px;
   display: block;
@@ -1108,14 +1108,14 @@ display: none;
   height: 15px;
   width: 15px;
   margin: 0 2px;
-  background-color: white;
+  background-color: black;
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
 }
 
 .active, .dot:hover {
-  background-color: red;
+  background-color: white;
 }
 
 #adelante{
@@ -1133,6 +1133,7 @@ display: none;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   width: 100%;
+  opacity: 0.4;
 }
 
 .buttonCR{
@@ -1149,12 +1150,22 @@ display: none;
 .buttonCR h1{
   font-size: 22px;
   color: #000;
+  margin: 0;
+}
+
+.buttonCR:hover{
+  opacity: 0.5;
 }
 
 @media (max-width: 650px){
   .header{
     height: 10%;
   }
+
+  .header .al span{
+    display: none;
+  }
+
   .header .person-login{
     width: 35px;
     height: 35px;
@@ -1165,16 +1176,48 @@ display: none;
     font-size: 30px;
   }
 
-  .header input{
+  /*.header input{
     display: none;
-  }
+  }*/
 
   .header .headerCont{
     width: 97%;
   }
+
+  .header .search-cont{
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: 1%;
+  }
+
+  .header .al{
+    margin-left: 1%;
+  }
+
+  .header .search-icon{
+    width: 25px;
+    height: 25px;
+    margin-right: 5%;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    fill: black;
+  }
   /*carrousel*/
+  #cr{
+    width: 95%;
+  }
+
   #points{
     margin-top: -8%;
+  }
+
+  .buttonCR{
+    top: auto;
+    bottom: 15%;
+    left: 10%;
   }
 
   /*searchCel*/
