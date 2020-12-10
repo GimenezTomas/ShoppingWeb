@@ -61,7 +61,7 @@ function openSearchBar(id, widthMax){
         if(innerWidth>650){
             progress = setInterval(frame, 10);
         }else{
-            progress = setInterval(frame, 7);
+            progress = setInterval(frame, 2);
         }
         function frame(){
             if(width>=widthMax){
@@ -84,7 +84,7 @@ function closeSearchBar(id, width){
     let time = 10
 
     if(id=="fc"){
-        time = 7
+        time = 2
     }
 
     let progress = setInterval(frame, time);

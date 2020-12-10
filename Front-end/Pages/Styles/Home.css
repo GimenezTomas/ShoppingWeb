@@ -271,7 +271,7 @@ outline: none;
 .modalIni {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 6; /* Sit on top */
+  z-index: 12; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -285,11 +285,8 @@ outline: none;
 .modalIni .modal-content {
   background-color: #fefefe;
   margin: auto;
-  /*padding: 20px;*/
   border: 3px solid #c2bbbb;
-  border-radius: 80px;
   overflow: hidden;
-  background-image: linear-gradient(155deg, #2ABB9B 54%,  #FFC244 49%);
 }
 
 /* The Close Button */
@@ -307,9 +304,32 @@ outline: none;
   cursor: pointer;
 }
 
+.modalIni .headerIniciarSesion{
+  width: 100%;
+  border-bottom: solid #a9a9a9 1px;
+  height: 56px;
+}
+
+.modalIni .headerIniciarSesion .left{
+  width: 85%;
+  height: 100%;
+  border-right: solid #a9a9a9 1px;
+}
+
+.modalIni .headerIniciarSesion .left h1{
+  padding-top: 13px;
+  padding-left: 5%;
+  font-size: 1.25rem;
+  letter-spacing: 0;
+  line-height: 1.5rem;
+  font-weight: 700;
+}
+
+.modalIni .headerIniciarSesion .right{
+  width: 15%;
+}
+
 .modalIni .iniciarSesionContainer{
-  margin-left: 10%;
-  margin-right: 10%;
   height: 100%;
 }
 
@@ -318,13 +338,14 @@ outline: none;
 }
 
 .modalIni .headerIniciarSesion{
-  margin-top: 10px;
   display: inline-flex;
 }
 
 .modalIni .headerIniciarSesion svg{
-  width: 30px;
-  height: 30px;
+  display: block;
+  margin: auto;
+  height: 100%;
+  width: 70%;
 }
 
 .modalIni .headerIniciarSesion img{
@@ -340,229 +361,50 @@ outline: none;
 }
 
 .modalIni .labelIniciarSesion {
-  text-align: center;
-  font-size: 25px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .modalIni .containerFormulario{
   margin-top: 7%;
+  margin-left: 7%;
+  margin-right: 7%;
 }
 
-.modalIni .contentInput{
-  margin-bottom: 25px;
+.modalIni .containerFormulario #iniForm{
+  margin-top: 12%;
 }
 
-.modalIni .iniciarSesionForm{
-  margin-bottom: 45px;
-  margin-top: 11%;
+.modalIni .containerFormulario #iniForm .userIni{
+  padding-bottom: 7%;
+  position: relative;
 }
 
-.modalIni .iniciarSesionForm input{
-  width: 90%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: 20px;
-  border-style: none;
-  font-size: 15px;
-  border-bottom: 1px solid #cacaca;  
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.modalIni .containerFormulario #iniForm .userIni h2{
+  color: #a9a9a9;
+  text-transform: uppercase;
+  font-size: 13px;
 }
 
-.modalIni .iniciarSesionForm input:focus{
-  border-width: 0px;
-  outline:0; /* I have also tried outline:none */
-  -webkit-appearance:none;
-  box-shadow: none;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  border-style: none;
-  border-bottom: 1px solid rgb(151, 0, 221);
-}
-
-.modalIni .iniciarSesionForm button{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10%;
-  width: 70%;
-  height: 35px;
-  border-radius: 6px;
-  font-size: 15px;
-  background-color: rgb(178, 13, 255);
-  border-style: none;
-  color: whitesmoke;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-.modalIni .containerPhone{
-  border-radius: 15px;
-  border-style: solid;
-  border-width: 2px;
-  border-color:  #cacaca;
+.modalIni .containerFormulario #iniForm .userIni input{
   width: 100%;
-  height: 40px; 
-  margin-bottom: 15px;
-  background-color: white;
-
+  height: 40px;
+  border: solid 1px rgb(63, 63, 63);
+  color: #000;
+  outline: black;
+  font-weight: 600;
 }
 
-.modalIni .contentMail{
-  display: flex;
-  align-items: center;
-  background-color: white;
-
+.modalIni .containerFormulario #iniForm .userIni svg{
+  position: absolute;
+  right: 3%;
+  width: 20px;
+  height: 20px;
+  top: 50%;  
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
-
-.modalIni .contentMail svg{
-  width: 25px;
-  height: 25px;
-  margin-right: -40px;
-  margin-left: 3%;
-}
-
-.modalIni .contentMail h1{
-  font-size: 16px;
-  margin: auto;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-.modalIni .contentNumTel{
-  display: inline-flex;
-}
-
-.modalIni .contentNumArea{
-  width: 30%;
-  height: 100%;
-  border-right: 2px solid #b1afaf;;
-  display: flex;
-}
-
-.modalIni .contentNumArea div{
-  align-self: center;
-  margin-left: 10px;
-}
-
-.modalIni .contentNumArea img{
-  width: 25px;
-  height: 25px;
-}
-
-.modalIni .contentNumArea svg{
-  width: 15px;
-  height: 15px;
-  margin-left: 9%;
-  display: block;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-.modalIni .contentNumArea h1{
-  font-size: 15px;
-  display: block;
-  margin-top: auto;
-  margin-left: 8px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-.modalIni #telephoneNumber{
-  margin-left: 5%;
-  width: 59%;
-  overflow-x: hidden;
-  border-style: none;
-  display: block;
-  margin-top: auto;
-  margin-bottom: auto;
-  font-size: 15px;
-}
-
-.modalIni #telephoneNumber:focus{
-  border-width: 0px;
-  outline:0; /* I have also tried outline:none */
-  -webkit-appearance:none;
-  box-shadow: none;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  border-style: none;
-}
-
-.modalIni .wppArea{
-  display: flex;
-  /*background-image: linear-gradient(130deg,#9ef8aa 0,#03c744 70%);*/
-  background-color: limegreen;
-  align-items: center;
-}
-
-.modalIni .wppArea:hover{
-  box-shadow: rgba(0, 0, 0, 0.75) 0px 4px 12px 0px;
-  border-style: none;
-}
-
-.modalIni .wppArea img{
-  width:40px;
-  height:40px;
-  margin-right: -40px;
-}
-
-.modalIni .wppArea h1{
-  color: whitesmoke;
-  font-size: 16px;
-  margin: auto;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-.modalIni .smsArea{
-  display: flex;
-  align-items: center;
-  /*background-image: linear-gradient(130deg,#2d3af1 0,#5e1cf8 70%);*/
-  background-color: tomato;
-
-}
-
-.modalIni .smsArea svg{
-  width: 25px;
-  height: 25px;
-  margin-right: -40px;
-  margin-left: 3%;
-  color: whitesmoke;
-}
-
-.modalIni .smsArea h1{
-  color: whitesmoke;
-  font-size: 16px;
-  margin: auto;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-.modalIni .smsArea:hover{
-  box-shadow: rgba(0, 0, 0, 0.75) 0px 4px 12px 0px;
-  border-style: none;
-}
-
-.modalIni .registrate{
-  text-align: center;
-  margin-top: 15%;
-}
-
-.modalIni .registrate h1,a{
-  font-size: 15px;
-  text-align: center;
-}
-
-.modalIni .registrate a{
-  color: #2ba6cb;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: max-content;
-}
-
-.modalIni .registrate a:hover{
-  border-bottom-style: solid;
-  border-color:#2ba6cb;
-  border-width: 1px;
-}
-
 /*Tipos*/
 
 .tiposBoxContainer{
@@ -798,10 +640,6 @@ border-color: #FFC244;
 
 #restaurantes .restaurante:not(:hover){
 border-width: 1px;
-}
-
-.search-cont-cel{
-display: none;
 }
 
 /*CARRITO*/
@@ -1090,6 +928,7 @@ display: none;
   margin: auto;
   position: relative;
   margin-top: 2%;
+  box-shadow: 0px 3px 6px 4px #888888;
 }
 
 #imagesCarrousel img{
@@ -1262,6 +1101,80 @@ display: none;
   overflow: hidden;
 }
 
+#modalBuscador .headere{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  margin-top: 5%;
+}
+
+#modalBuscador .headere .search{
+  padding: 5px;
+  border-radius: 25px;
+  background-color: #f5f5f5;
+  position: relative;
+  display: flex;
+  width: 83%;
+}
+
+#modalBuscador .headere .search div{
+  border-radius: 100%;
+  position: absolute;
+  padding-left: 5px;
+  padding-top: 5px;
+}
+
+#modalBuscador .headere .search svg{
+  width: 25px;
+  height: 25px;
+}
+
+#modalBuscador .headere .search input{
+  display: block;
+  margin-left: 40px;
+  background-color: transparent;
+  border: none;
+  outline: transparent;
+  padding-right: 7%;
+  font-size: 18px;
+  width: 100%;
+}
+
+#modalBuscador .headere .close{
+  padding: 5px;
+  background-color: #e6e6e6;
+  display: block;
+  margin-left: auto;
+  border-radius: 100%;
+}
+
+#modalBuscador .headere .close svg{
+  width: 35px;
+  height: 35px;
+  fill: black;
+}
+
+#modalBuscador .body{
+  margin-left: 10%;
+  margin-top: 12%;
+}
+
+#modalBuscador .body h1{
+  font-size: 20px;
+}
+
+#modalBuscador .body ul{
+  padding: 0;
+}
+
+#modalBuscador .body li{
+  padding: 5px;
+  font-size: 18px;
+  list-style-type: none;
+  color: #888888;
+}
+
 @media (max-width: 650px){
 
   .header .al span{
@@ -1332,56 +1245,6 @@ display: none;
     height: 60px;
   }
 
-  /*searchCel*/
-
-  .search-cont-cel{
-    display: block;
-    margin: auto;
-    margin-top: 7%;
-    width: 90%;
-    height: 7%;
-    margin-bottom: 10%;
-  }
-
-  .search-cont-cel input{
-      display: none;
-      border-width: 2px;
-      border-color: #FFC244;
-      border-radius: 20px;
-      border-style: solid;
-      height: 100%;
-      color: grey;
-    }
-
-  .search-cont-cel input:focus{
-    outline: none;
-  }
-
-  .search-icon-cel{
-    width: 25px;
-    height: 25px;
-    margin-right: 5%;
-    display: block;
-    margin-top: auto;
-    margin-bottom: auto;
-    float: left;
-    /*fill: #2ABB9B;*/
-  }
-
-  .search-cont-cel .closer{
-    position: absolute;
-    fill: #2ABB9B;
-    z-index: 9;
-    float: right;
-    height: 20px;
-    width: 20px;
-    right: 7%;
-  }
-
-  #searchBar, .search-icon{
-    display: none;
-  }
-
   /*tipos*/
   .tiposBoxContainer{
     margin-top: 12%;
@@ -1413,8 +1276,9 @@ display: none;
 
   /*modal ini*/
   .modalIni .modal-content {
-    width: 90%;
-    height:90%;
+    width: 100%;
+    height:100%;
+    border: none;
   }
 
   .mContent {
