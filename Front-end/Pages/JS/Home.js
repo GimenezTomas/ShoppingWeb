@@ -42,6 +42,15 @@ function barChange(id, idClose){
     }
 }
 
+
+function searchBar(id, widthMax){
+    if(innerWidth<651){
+        document.getElementById('modalBuscador').style.display = 'block'
+    }else{
+        openSearchBar(id, widthMax)
+    }
+}
+
 function openSearchBar(id, widthMax){
     let progressBar = document.getElementById(id) 
 
@@ -304,8 +313,8 @@ function llamarFactura(id){
 activarCarrousel();
 function activarCarrousel(){
     $("#cr").append("<div id='rey'></div>");
-    $("#rey").append("<img id='atras' src='../Images/flechaIzq.png' style='width: 100px; height: 100px;'>");
-    $("#rey").append("<img id='adelante' src='../Images/flechaDer.png' style='width: 100px; height: 100px;'>");
+    $("#rey").append("<img id='atras' src='../Images/flechaIzq.png'>");
+    $("#rey").append("<img id='adelante' src='../Images/flechaDer.png'>");
 
     var imagen = 1;
     cambioPuntos();

@@ -135,15 +135,16 @@ html{
   background-color: #282828;
   height: 100%;
   display: none;
+  float: right;
 }
 
 .mContent .borrar svg{
-float: right;;
+float: left;
 width: 30px;
 height: 30px;
 display: block;
 fill: white;
-margin-right: 5%;
+margin-left: 5%;
 margin-top: 5%;
 }
 
@@ -153,6 +154,7 @@ height: 35px;
 }
 
 .mContent .opciones{
+  padding-top: 50px;
 list-style-type: none;
 text-align: left;
 display: block;
@@ -1090,7 +1092,7 @@ display: none;
   margin-top: 2%;
 }
 
-#cr img{
+#imagesCarrousel img{
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1157,10 +1159,110 @@ display: none;
   opacity: 0.5;
 }
 
+/*pf*/
+
+.bottom{
+  background-color: rgb(40, 40, 40);
+  height: auto;
+  position: relative;
+}
+
+.bottom .body{
+  padding: 5%;
+  padding-bottom: 15%;
+  justify-content: center;
+}
+
+.bottom .body .redesSociales{
+  width: 30%;
+}
+
+.bottom .body .redesSociales .logos{
+  display: inline-block;
+  margin-left: -5px;
+  margin-top: 15px;
+}
+
+.bottom .body .redesSociales .logos img{
+  height: 35px;
+  width: 35px;
+  padding: 5px;
+  object-fit: contain;
+}
+
+.bottom .body h3{
+  color: white;
+  font-family: monospace;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  font-size: 15px;
+}
+
+.bottom .body .nosotros{
+  width: 30%;
+}
+
+.bottom .body .nosotros ul{
+  color: white;
+  padding: 0;
+}
+
+.bottom .body .nosotros li{
+  list-style-type: none;
+}
+
+.bottom .body .preguntasFrecuentes{
+  width: 30%;
+}
+
+.bottom .body .preguntasFrecuentes ul{
+  color: white;
+  padding: 0;
+}
+
+.bottom .body .preguntasFrecuentes li{
+  list-style-type: none;
+}
+
+.bottom .footer{
+  text-align: center;
+  background-color: #000;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.bottom .footer h6{
+  color: white;
+  font-family: 'FuturaPT-Book', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  letter-spacing: 0.2em;
+  font-size: 12px;
+  margin: 0;
+  padding: 5px;
+}
+/*modal buscador*/
+#modalBuscador{
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 12; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4);
+}
+
+#contentBuscador{
+  background-color: #fefefe;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
 @media (max-width: 650px){
-  .header{
-    height: 10%;
-  }
 
   .header .al span{
     display: none;
@@ -1218,6 +1320,16 @@ display: none;
     top: auto;
     bottom: 15%;
     left: 10%;
+  }
+
+  #atras{
+    width: 60px;
+    height: 60px;
+  }
+
+  #adelante{
+    width: 60px;
+    height: 60px;
   }
 
   /*searchCel*/
@@ -1357,12 +1469,49 @@ display: none;
   .modal{
       padding-top: 50%;
   }
+
+  
+  /*footer*/
+  .bottom{
+    border-top: solid rgb(150, 150, 150) 3px;
+  }
+
+  .bottom .body{
+    height: 700px;
+  }
+
+  .bottom .body .preguntasFrecuentes{
+    width: 100%;
+  }
+
+  .bottom .body .nosotros{
+    width: 100%;
+  }
+
+  .bottom .body .redesSociales{
+    width: 100%;
+  }
+
+  .bottom .body h3{
+    padding-top: 5%;
+  }
+
+  .bottom .body .preguntasFrecuentes li{
+    font-size: 12px;
+    padding-top: 3%;
+  }
+  
+  .bottom .body .nosotros li{
+    font-size: 12px;
+    padding-top: 3%;
+  }
+
+  .bottom .footer{
+    padding-top: 5%;
+  }
 }
 
 @media (min-width: 951px){
-  .header{
-    height: 10%;
-  }
 
   .header .headerCont{
     width: 93%;
@@ -1395,6 +1544,17 @@ display: none;
   #sBarClose{
     top: 2.5%; 
     right: 42%;
+  }
+  /*carrousel*/
+
+  #atras{
+    width: 100px;
+    height: 100px;
+  }
+
+  #adelante{
+    width: 100px;
+    height: 100px;
   }
 
   /*modalUbicacion*/
@@ -1478,12 +1638,24 @@ display: none;
       padding-top: 323px;
       padding-left: 870px;
   }
+  /*footer*/
+  .bottom .body{
+    display: flex;
+  }
 }
 
 @media (min-width: 651px) and (max-width: 950px){
-  .header{
-    height: 10%;
+
+  #atras{
+    width: 60px;
+    height: 60px;
   }
+
+  #adelante{
+    width: 60px;
+    height: 60px;
+  }
+
 
   .header .headerCont{
     width: 93%;
@@ -1512,7 +1684,16 @@ display: none;
     height: 35px;
     margin-right: 3%;
   }
+/*carrousel*/
+  #atras{
+    width: 100px;
+    height: 100px;
+  }
 
+  #adelante{
+    width: 100px;
+    height: 100px;
+  }
   /*tipos*/
   .tiposBoxContainer{
     margin-top: 7%;
@@ -1593,6 +1774,11 @@ display: none;
   .modal{
       padding:auto;
       padding-top: 40%;
+  }
+
+  /*footer*/
+  .bottom .body{
+    display: flex;
   }
 }
 
