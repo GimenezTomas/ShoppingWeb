@@ -132,6 +132,20 @@ function llamarModal(id){
     }
 }
 /*ini*/
+function hidePassword(id, idHide, idEye){
+    if (document.getElementById(id).type == 'text'){
+        document.getElementById(id).type = 'password'
+        document.getElementById(id).style.letterSpacing = '0.25rem'
+        document.getElementById(idEye).style.display="none"
+        document.getElementById(idHide).style.display="block"
+    }else{
+        document.getElementById(id).style.letterSpacing = '0'
+        document.getElementById(id).type = 'text'
+        document.getElementById(idEye).style.display="block"
+        document.getElementById(idHide).style.display="none"
+    }
+}
+
 function mailVerification(idFormulario, viaMail){
     let form = document.getElementById(idFormulario)
     
