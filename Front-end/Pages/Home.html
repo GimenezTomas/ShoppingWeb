@@ -2,8 +2,7 @@
     <head>
         <title>Home</title>
         <script src="jquery-3.4.1.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="./Styles/Home.css" type="text/css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">        <link rel="stylesheet" href="./Styles/Home.css" type="text/css">
         <script src="./JS/Home.js"></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,6 +42,33 @@
                                 <path fill-rule="evenodd" d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                             </svg>
                         </div>
+                        <script>
+                            function llamarModal(id){
+                                console.log('entre')
+                                var modal = document.getElementById(id);
+
+                                modal.style.display = "block";
+                                let width = 0
+                                if(innerWidth < 651){
+                                    width = 60
+                                }else if(innerWidth>951){
+                                    width = 25
+                                }else{
+                                    width = 45
+                                }
+                                
+                                if(openSearchBar('izqModalCont', width)){
+                                    modal.style.display = 'none'
+                                }
+
+                                // When the user clicks anywhere outside of the modal, close it
+                                window.onclick = function(event) {
+                                    if (event.target == modal) {
+                                        llamarModal('containerIzqModal')
+                                    }
+                                }
+                             }   
+                        </script>
                         <svg id="list" onclick="llamarModal('containerIzqModal')" class="list" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
                         </svg>
@@ -111,7 +137,7 @@
                     <svg onclick="llamarFactura('factura')" viewBox="0 0 16 16" class="bi bi-arrow-left-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5.5a.5.5 0 0 0 0-1H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5z"/>
                     </svg>
-                    <img src="../Images/appleLogo.png" alt="">
+                    <img src="../Images/9z.png" alt="">
                 </div>
                 <div class="headerUsuario">
                     <img src="../Images/usuarioLogo.png" alt="">
@@ -268,57 +294,123 @@
         <!--Modal izq-->
         <div id = "containerIzqModal" class="containerIzq">
             <div style="display: none" id="izqModalCont" class="mContent">
-                <div class="borrar">
-                    <svg onclick="llamarModal('containerIzqModal')" viewBox="0 0 16 16" class="bi bi-arrow-left-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5.5a.5.5 0 0 0 0-1H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5z"/>
+                <!--<div class="borrar">
+                    <svg onclick="llamarModal('containerIzqModal')"xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                     </svg>
-                </div>
+                </div>-->
                 <ul class="opciones">
                     <li class="opcion">
-                        Trabaja con nosotros
+                        <h1>Trabaja con nosotros</h1>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
                     </li>
                     <li class="opcion">
-                        Ayuda
+                        <h1>Ayuda</h1>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
                     </li>
                     <li class="opcion">
-                        Ver negocio
+                        <h1>Ver negocio</h1>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
                     </li>
                     <li class="opcion">
-                        Frabbi prime
+                        <h1>Frabbi prime</h1>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
                     </li>
                     <li class="opcion">
-                        Mis puntos
+                        <h1>Mis puntos</h1>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
                     </li>
                 </ul>
             </div>
         </div> 
+        <script>
+            function passwordModal(offsetTop){
+                document.getElementById('passwordModalC').style.top = offsetTop - 30
+                document.getElementById('passwordModal').style.display = "block";       
+
+                window.onclick = function(event) {
+                    if (event.target == document.getElementById('passwordModal')) {
+                        document.getElementById('passwordModal').style.display = "none";
+                    }
+                }
+
+                setTimeout(function () {document.getElementById('passwordModal').style.display = 'none'}, 3000)
+            }
+        </script>
         <!--iniciarSesionModal-->
         <div id="iniciarSesionModal" class="modalIni">
             <div class="modal-content">
+                <!--passwordModal-->
+                <div id="passwordModal">
+                    <div id="passwordModalC" class="modal-content">
+                        <h1>La contraseña debe tener un minimo de 9 caracteres y debe contener por lo menos un número, una minuscula y una mayúscula</h1>
+                    </div>
+                </div>
                 <div class = "iniciarSesionContainer">
                     <div class="headerIniciarSesion">
                         <span class="left">
                             <h1 id="headerFormModal">INICIAR SESION</h1>
                         </span>
                         <span class="right">
-                            <svg onclick="document.getElementById('iniciarSesionModal').style.display='none'" class="closer" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <svg id="right-close" onclick="modalIniClose()" class="closer" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                            <script>/*Lo puse aca porque sino no anda*/
+                                function modalIniClose(){
+                                    document.getElementById('iniContNew').style.display = 'none'
+                                    document.getElementById('iniCont2').style.display = 'none'
+                                    document.getElementById('iniciarSesionModal').style.display = 'none'
+                                    document.getElementById('iniciarSesionCont').style.display = 'block'
+                                }
+                                function back()
+                                {
+                                    let now = 'bodyRegister2'
+                                    let last = 'bodyRegister1'
+                                    if(document.getElementById(now).style.display != 'none'){
+                                        document.getElementById(now).style.display='none'
+                                        document.getElementById(last).style.display='block'
+
+                                    }else{
+                                        document.getElementById('containerFormulario').style.display='block'
+                                        document.getElementById(now).style.display='none'
+                                        document.getElementById('headerFormModal').innerHTML='INICIAR SESION' 
+                                        document.getElementById('right-close').style.display='block' 
+                                        document.getElementById('right-back').style.display='none' 
+                                        document.getElementById('registerF').style.display='none' 
+                                    } 
+                                }
+                                function loginWPP(){
+                                    document.getElementById('iniciarSesionCont').style.display = 'none'
+                                    document.getElementById('iniContWPP').style.display = 'block'
+                                }
+                            </script>
+                            <svg style="margin-top: 10%; width:40px; height:40px; display:none;" id="right-back" onclick="back()" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
                             </svg>
                         </span>
                     </div>
                     <div id="containerFormulario" class="containerFormulario">
-                        <!---->
-                        <div id="iniciarSesionCont">
+                        <div id="iniciarSesionCont" class="iniciarSesionCont">
                             <h1 class="labelIniciarSesion">Completa con tus datos para iniciar sesión</h1>
-                            <div id="iniForm">
+                            <div id="iniForm" class="iniForm">
                                 <div class="userIni">
                                     <h2>Email</h2>
-                                    <input id="emailIni" type="text" placeholder="Email address">
+                                    <input onkeyup="checkForm('email', 'emailIni')" class="form-control" id="emailIni" type="email" placeholder="Email address">
                                 </div>
                                 <div class="userIni">
                                     <h2>Password</h2>
                                     <div>
-                                        <input style="letter-spacing: 0.25rem;" id="passwordIni" type="password">
+                                        <input onclick="passwordModal((document.getElementById('passwordIni').offsetParent).offsetTop)" onkeyup="checkForm('password', 'passwordIni')" class="form-control" style="padding-right: 18%; letter-spacing: 0.25rem;" id="passwordIni" type="password">
                                         <svg onclick = "hidePassword('passwordIni', 'eyeSlash', 'eye')" id="eyeSlash" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye-slash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7.028 7.028 0 0 0-2.79.588l.77.771A5.944 5.944 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.134 13.134 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755-.165.165-.337.328-.517.486l.708.709z"/>
                                             <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829l.822.822zm-2.943 1.299l.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829z"/>
@@ -332,54 +424,307 @@
                                     </div>
                                 </div>
                                 <div class="options">
-                                    <h6 class="wpp">Iniciar sesión via whatsapp</h6>
-                                    <a href="">
-                                        <h6 class="forgotPassword">¿Olvidaste tu contraseña?</h6>
-                                    </a>
+                                    <h6 onclick="loginWPP()" class="wpp">Iniciar sesión via whatsapp</h6>
+                                    <h6 style ="color: #007bff;" onclick="document.getElementById('iniciarSesionCont').style.display = 'none', document.getElementById('iniContNew').style.display = 'block'" class="forgotPassword">¿Olvidaste tu contraseña?</h6>
                                 </div>
-                                <button class="button">ACCEDER</button>
+                                <script>
+                                    function globalCheck(...inputs){
+                                        let optional = false
+                                        for(let i=0; i<inputs.length; i++){
+                                            let input=inputs[i]
+                                            if(input == 'optional'){
+                                                optional = true
+                                            }else if((document.getElementById(input).value == "" && !optional) || document.getElementById(input).className.includes("is-invalid")){
+                                                document.getElementById(input).scrollIntoView()
+                                                return false
+                                            }
+                                        }
+                                        return true
+                                    }
+
+                                    function checkForm(type, id){//completar
+                                        let email = document.getElementById(id)
+                                        formConditions(email, type)
+                                        if(email.value == ''){
+                                            email.classList.remove('is-invalid')
+                                        }
+                                    }
+
+                                    function formConditions(element, type){
+                                        let ok = false
+                                        switch(type){
+                                            case 'email':   
+                                                if(element.value.length > 5){
+                                                    let arroba = false
+                                                    let extension = false
+
+                                                    for(let i=0; i<element.value.length; i++){
+                                                        if(element.value[i] == '@' && element.value[i-3] != null && element.value.charCodeAt(i+1) > 64 && element.value.charCodeAt(i+1) < 123){
+                                                            arroba = true
+                                                        }else if(element.value[i] == '.' && arroba && element.value[i+1] != null){
+                                                            extension = true
+                                                        }
+                                                    }
+
+                                                    if(arroba && extension){
+                                                        ok = true
+                                                    }
+                                                }
+                                                if(ok){
+                                                    element.classList.remove('is-invalid')
+                                                }else{
+                                                    element.classList.add('is-invalid')
+                                                }
+                                                break
+                                            case "password":
+                                                if(element.value.length>8){
+                                                    let upperCase = false
+                                                    let lowerCase = false
+                                                    let number = false
+
+                                                    for(let i = 0; i<element.value.length; i++ ){
+                                                        if(element.value.charCodeAt(i) > 64 && element.value.charCodeAt(i) < 91 ){
+                                                            upperCase = true
+                                                        }else if(element.value.charCodeAt(i) < 123 && element.value.charCodeAt(i) > 96 ){
+                                                            lowerCase = true
+                                                        }else if(element.value.charCodeAt(i) > 47 && element.value.charCodeAt(i) < 58 ){
+                                                            number = true
+                                                        }
+                                                    }
+                                                    
+                                                    if(lowerCase && upperCase && number){
+                                                        ok = true
+                                                    }
+                                                }
+                                                if(ok){
+                                                    element.classList.remove('is-invalid')
+                                                }else{
+                                                    element.classList.add('is-invalid')
+                                                }
+                                                break 
+                                            case "password2":
+                                                if(element.value == document.getElementById('passwordRegister').value){
+                                                    element.classList.remove('is-invalid')
+                                                }else if(element.value != ''){
+                                                    element.classList.add('is-invalid')
+                                                }
+                                                break
+                                            case "name":
+                                                if(element.value.length>1){
+                                                    for(let i=0; i<element.value.length; i++){
+                                                        if((element.value.charCodeAt(i) < 65 || (element.value.charCodeAt(i) > 90 && element.value.charCodeAt(i) < 95)) || element.value.charCodeAt(i) > 122){
+                                                            element.classList.add('is-invalid')
+                                                            ok = true
+                                                            break
+                                                        }
+                                                    }
+                                                }else{
+                                                    ok = true
+                                                }
+                                                if(!ok){
+                                                    element.classList.remove('is-invalid')
+                                                }
+                                                break
+                                            case "phone":
+                                                if(element.value.length>8 && element.value.length<12){
+                                                    element.classList.remove('is-invalid')
+                                                }else{
+                                                    element.classList.add('is-invalid')
+                                                }
+                                                break
+                                            case "code":
+                                                if(element.value.length!=6){
+                                                    element.classList.add('is-invalid')
+                                                }else{
+                                                    element.classList.remove('is-invalid')
+                                                }
+                                        }
+                                    }
+
+                                    function toVerify(){
+                                        if(globalCheck('emailRegister', 'nameRegister', 'lastnameRegister', 'passwordRegister', 'password2Register', 'optional','celRegister', 'addressRegister')){
+                                            document.getElementById('bodyRegister1').style.display='none'
+                                            document.getElementById('bodyRegister2').style.display='block'
+                                        }
+                                        document.getElementById('emailVerRegi').innerHTML = document.getElementById('emailRegister').value
+                                    }
+                                </script>
+                                <button onclick="globalCheck('emailIni', 'passwordIni')" class="button">ACCEDER</button>
+                            </div>
+                        </div>
+                        <div style="display: none;" id="iniContNew" class="iniciarSesionCont">
+                            <h1 class="labelIniciarSesion">Ingresa el mail o el número de celular de la cuenta que quieres recuperar</h1>
+                            <div id="iniNew" class="iniForm">
+                                <div class="userIni">
+                                    <h2>Email</h2>
+                                    <input onkeyup="checkForm('email', 'emailNew')" class="form-control" id="emailNew" type="email" placeholder="Email address">
+                                </div>
+                                <div class="userIni">
+                                    <h2>NÚMERO DE CELULAR</h2>
+                                    <div class="inputNumber">
+                                        <img src="../Images/banderaArgentina.png" alt="">
+                                        <select style="border: none; border-radius: 0; width: 40%; padding-left: 9%; padding-right: 5px; overflow: hidden;" name="numbers" id="numbersPho">
+                                            <option value="54 Argentina">+54 Argentina</option>
+                                            <option value="55 Brasil">+55 Brasil</option>
+                                            <option value="57 Chile">+57 Chile</option>
+                                            <option value="51 Perú">+51 Perú</option>
+                                        </select>
+                                        <input onkeyup="checkForm('phone', 'celIni')" class="form-control" id="celIni" type="number" placeholder="Escribe tu numero...">
+                                    </div>
+                                </div>
+                                <script>
+                                    function newPassword(...inputs){
+                                        for(let i=0; i<inputs.length; i++){
+                                            let input=inputs[i]
+                                            if(document.getElementById(input).value != "" && !document.getElementById(input).className.includes("is-invalid")){
+                                                document.getElementById('h1NewPass').innerHTML += " "+document.getElementById(input).value
+                                                document.getElementById('iniContNew').style.display = 'none'
+                                                document.getElementById('iniCont2').style.display = 'block'
+                                                return 0
+                                            }
+                                        }
+                                    }
+                                </script>
+                                <button onclick="newPassword('emailNew', 'celIni')" class="button">ENVIAR</button>
+                            </div>
+                        </div>
+                        <div style="display: none;" id="iniContWPP" class="iniciarSesionCont">
+                            <h1 class="labelIniciarSesion">Ingresa el número de celular de tu cuenta</h1>
+                            <div id="iniNewWPP" class="iniForm">
+                                <div class="userIni">
+                                    <h2>NÚMERO DE CELULAR</h2>
+                                    <div class="inputNumber">
+                                        <img src="../Images/banderaArgentina.png" alt="">
+                                        <select style="border: none; border-radius: 0; width: 40%; padding-left: 9%; padding-right: 5px; overflow: hidden;" name="numbers" id="numbersWPP">
+                                            <option value="54 Argentina">+54 Argentina</option>
+                                            <option value="55 Brasil">+55 Brasil</option>
+                                            <option value="57 Chile">+57 Chile</option>
+                                            <option value="51 Perú">+51 Perú</option>
+                                        </select>
+                                        <input onkeyup="checkForm('phone', 'celWppLogIn')" class="form-control" id="celWppLogIn" type="number" placeholder="Escribe tu numero...">
+                                    </div>
+                                </div>
+                                <button onclick="globalCheck('celWppLogIn')" class="button">ENVIAR</button>
+                            </div>
+                        </div>
+                        <div style="display: none;" id="iniCont2" class="iniciarSesionCont">
+                            <h1 id="h1NewPass" class="labelIniciarSesion">Ingresa el código enviado a</h1>
+                            <div id="iniNew" class="iniForm">
+                                <div class="userIni">
+                                    <h2>CODIGO</h2>
+                                    <input onkeyup="checkForm('code', 'codeIni')" class="form-control" id="codeIni" type="number" placeholder="123754">
+                                    <h6>Volver a enviar codigo</h6>
+                                </div>
+                                <button class="button">ENVIAR</button>
                             </div>
                         </div>
                         <div id="registerForm">
                             <h1>CREAR CUENTA</h1>
                             <h3>Registrate para poder disfrutar de todos los beneficios y recibir notificaciones</h3>
-                            <button onclick="document.getElementById('registerF').style.display='block', document.getElementById('containerFormulario').style.display='none', document.getElementById('headerFormModal').innerHTML='REGISTARSE'" class="button">Crear</button>
+                            <button onclick="document.getElementById('registerF').style.display='block', document.getElementById('containerFormulario').style.display='none', document.getElementById('headerFormModal').innerHTML='REGISTARSE', document.getElementById('right-close').style.display='none', document.getElementById('right-back').style.display='block', document.getElementById('bodyRegister1').style.display='block', document.getElementById('bodyRegister2').style.display='none'" class="button">Crear</button>
                         </div>
                     </div>
-                    <div id='registerF'>
-
+                    <div style="display: none;" class="containerFormulario" id='registerF'>
+                        <div class="iniciarSesionCont">
+                            <div class="headere">
+                                <h1 class="labelIniciarSesion">CREAR NUEVA CUENTA</h1>
+                            </div>
+                            <div id="bodyRegister1" class="body">
+                                <div class="head">
+                                    <H2>OBLIGATORIO!</H2>
+                                </div>
+                                <div class="iniForm">
+                                    <div class="userIni">
+                                        <h2>EMAIL</h2>
+                                        <input onkeyup="checkForm('email', 'emailRegister')" class="form-control" id="emailRegister" type="text" placeholder="Email address">
+                                    </div>
+                                    <div class="userIni">
+                                        <h2>NOMBRE</h2>
+                                        <input class="form-control" onkeyup="checkForm('name', 'nameRegister')" id="nameRegister" type="name" placeholder="Tu nombre">
+                                    </div>
+                                    <div class="userIni">
+                                        <h2>APELLIDO</h2>
+                                        <input onkeyup="checkForm('name', 'lastnameRegister')" class="form-control" id="lastnameRegister" type="text" placeholder="Tu apellido">
+                                    </div>
+                                    <div class="userIni">
+                                        <h2>CONTRASEÑA</h2>
+                                        <div>
+                                            <input onkeyup="checkForm('password', 'passwordRegister'), checkForm('password2', 'password2Register')" onclick="passwordModal((document.getElementById('passwordRegister').offsetParent).offsetTop)" class="form-control" style="padding-right: 18%; letter-spacing: 0.25rem;" id="passwordRegister" type="password">
+                                            <svg onclick = "hidePassword('passwordRegister', 'eyeSlash1', 'eye1')" id="eyeSlash1" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye-slash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7.028 7.028 0 0 0-2.79.588l.77.771A5.944 5.944 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.134 13.134 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755-.165.165-.337.328-.517.486l.708.709z"/>
+                                                <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829l.822.822zm-2.943 1.299l.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829z"/>
+                                                <path d="M3.35 5.47c-.18.16-.353.322-.518.487A13.134 13.134 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7.029 7.029 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709z"/>
+                                                <path fill-rule="evenodd" d="M13.646 14.354l-12-12 .708-.708 12 12-.708.708z"/>
+                                            </svg>
+                                            <svg id="eye1" onclick = "hidePassword('passwordRegister', 'eyeSlash1', 'eye1')" style="display:none" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"/>
+                                                <path fill-rule="evenodd" d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="userIni">
+                                        <h2>CONFIRMAR CONTRASEÑA</h2>
+                                        <div>
+                                            <input onclick="passwordModal((document.getElementById('password2Register').offsetParent).offsetTop)" onkeyup="checkForm('password2', 'password2Register')" class="form-control" style="padding-right: 18%; letter-spacing: 0.25rem;" id="password2Register" type="password">
+                                            <svg onclick = "hidePassword('password2Register', 'eyeSlash2', 'eye2')" id="eyeSlash2" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye-slash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7.028 7.028 0 0 0-2.79.588l.77.771A5.944 5.944 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.134 13.134 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755-.165.165-.337.328-.517.486l.708.709z"/>
+                                                <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829l.822.822zm-2.943 1.299l.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829z"/>
+                                                <path d="M3.35 5.47c-.18.16-.353.322-.518.487A13.134 13.134 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7.029 7.029 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709z"/>
+                                                <path fill-rule="evenodd" d="M13.646 14.354l-12-12 .708-.708 12 12-.708.708z"/>
+                                            </svg>
+                                            <svg id="eye2" onclick = "hidePassword('password2Register', 'eyeSlash2', 'eye2')" style="display:none" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"/>
+                                                <path fill-rule="evenodd" d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="userIni">
+                                        <h2>PAÍS/REGIÓN</h2>
+                                        <select name="countrys" id="countrys">
+                                            <option value="Argentina">Argentina</option>
+                                            <option value="Brasil">Brasil</option>
+                                            <option value="Chile">Chile</option>
+                                            <option value="Perú">Perú</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="head">
+                                    <H2>OPCIONALES</H2>
+                                </div>
+                                <div class="iniForm">
+                                    <div class="userIni">
+                                        <h2>NÚMERO DE CELULAR</h2>
+                                        <div class="inputNumber">
+                                            <img src="../Images/banderaArgentina.png" alt="">
+                                            <select style="border: none; border-radius: 0; width: 40%; padding-left: 9%; padding-right: 5px; overflow: hidden;" name="numbers" id="numbers">
+                                                <option value="54 Argentina">+54 Argentina</option>
+                                                <option value="55 Brasil">+55 Brasil</option>
+                                                <option value="57 Chile">+57 Chile</option>
+                                                <option value="51 Perú">+51 Perú</option>
+                                            </select>
+                                            <input onkeyup="checkForm('phone', 'celRegister')" class="form-control" id="celRegister" type="number" placeholder="Escribe tu numero...">
+                                        </div>
+                                    </div>
+                                    <div class="userIni">
+                                        <h2>DIRECCIÓN</h2>
+                                        <input class="form-control" id="addressRegister" type="text" placeholder="Av. Constituyentes 5880">
+                                    </div>
+                                </div>
+                                <button onclick="toVerify()" class="button">CREAR</button>
+                            </div>
+                            <div id="bodyRegister2" class="body">
+                                <h1>Se envió un mail a <span id="emailVerRegi" class="mail">example@gmail.com</span>, porfavor entra para poder obtener el codigo y verificar la cuenta </h1>
+                                <div class="userIni">
+                                    <h2>CODIGO</h2>
+                                    <input onkeyup="checkForm('code', 'codeRegister')" class="form-control" id="codeRegister" type="number" placeholder="123754">
+                                    <h6>Volver a enviar codigo</h6>
+                                </div>
+                                <button onclick="globalCheck('code')" class="button">VERIFICAR</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!--botones tipos-->
-        <div class="tiposBoxContainer">
-            <nav class = tiposBox>
-                <a class = "tipos" href = "#<?php echo $name; ?>">
-                    <img src="../Images/empanada.png" alt="not found" width = "25" height = "25">
-                    <h3 id="1TBOX" class = "tipos_font">Casual</h3>
-                </a>
-                <a class = "tipos" href = "#<?php echo $name; ?>">
-                    <img src="../Images/empanada.png" alt="not found" width = "25" height = "25">
-                    <h3 id="2TBOX" class = "tipos_font">Mexicana</h3>
-                </a>
-                <a class = "tipos" href = "#<?php echo $name; ?>">
-                    <img src="../Images/empanada.png" alt="not found" width = "25" height = "25">
-                    <h3 id="3TBOX" class = "tipos_font">Rapida</h3>
-                </a>
-                <a class = "tipos" href = "#<?php echo $name; ?>">
-                    <img src="../Images/empanada.png" alt="not found" width = "25" height = "25">
-                    <h3 id="4TBOX" class = "tipos_font">Helados</h3>
-                </a>
-                <a class = "tipos" href = "#<?php echo $name; ?>">
-                    <img src="../Images/empanada.png" alt="not found" width = "25" height = "25">
-                    <h3 id="5TBOX" class = "tipos_font">Merienda</h3>
-                </a>
-                <a class = "tipos" href = "#<?php echo $name; ?>">
-                    <img src="../Images/empanada.png" alt="not found" width = "25" height = "25">
-                    <h3 id="6TBOX" class = "tipos_font">Tacos</h3>
-                </a>
-            </nav>
         </div>
         <!--Locales-->
         <div class="restCont">    

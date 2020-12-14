@@ -79,12 +79,15 @@ function openSearchBar(id, widthMax){
 
 function closeSearchBar(id, width){
     let progressBar = document.getElementById(id) 
-    console.log(id)
     //let width = progressBar.style.width;
     let time = 10
 
     if(id=="fc"){
         time = 2
+        console.log('no bebe')
+    }else if('izqModalCont' == id){
+        time = 2
+        console.log('si bebe')
     }
 
     let progress = setInterval(frame, time);
@@ -106,8 +109,9 @@ function closeSearchBar(id, width){
     }
 }
 
-/*modal-izq*/
+/*modal-izq
 function llamarModal(id){
+    console.log('entre')
     var modal = document.getElementById(id);
 
     modal.style.display = "block";
@@ -127,7 +131,7 @@ function llamarModal(id){
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
         if (event.target == modal) {
-            modal.style.display = "none";
+            llamarModal('containerIzqModal')
         }
     }
 }
@@ -146,66 +150,149 @@ function hidePassword(id, idHide, idEye){
     }
 }
 
-function mailVerification(idFormulario, viaMail){
-    let form = document.getElementById(idFormulario)
-    
-    for(let i=0; i<form.childNodes.length; i++){
-        if(form.childNodes[i].tagName=="DIV"){
-            for(let j = 0; j<form.childNodes[i].childNodes.length; j++){
-                if (form.childNodes[i].childNodes[j].id!="mailArea" && form.childNodes[i].childNodes[j].id!=null && form.childNodes[i].childNodes[j].id!=undefined){
-                    try {  
-                        if(viaMail){
-                            document.getElementById(form.childNodes[i].childNodes[j].id).style.display="none"
-                        }
-                        else{
-                            document.getElementById(form.childNodes[i].childNodes[j].id).style.display="flex"
-                        }
-                    } catch (error) {
-                        
-                    }
-                }
-                else if(form.childNodes[i].childNodes[j].id=="mailArea"){
-                    for(let l = 0; l < form.childNodes[i].childNodes[j].childNodes.length; l++){
-                        if(form.childNodes[i].childNodes[j].childNodes[l].tagName=="H1"){//fijarse de que sea una lista y que cuando toco se desplieguen los metodos, creo que es mas comodo
-                            if(viaMail){
-                                form.childNodes[i].childNodes[j].childNodes[l].innerHTML="Cambiar metodo"
-                                form.childNodes[i].childNodes[j].onmousedown = function(){mailVerification("iniciarSesionCont",false)}
-                            }
-                            else{
-                                form.childNodes[i].childNodes[j].childNodes[l].innerHTML="Verificar con mail"
-                                form.childNodes[i].childNodes[j].onmousedown = function(){mailVerification("iniciarSesionCont",true)}
-                            }
-                            break
-                        }
-                    }
-                }
-            }
+/*function back(){
+    let now = 'bodyRegister2'
+    let last = 'bodyRegister1'
+    if(document.getElementById(now).style.display != 'none'){
+        document.getElementById(now).style.display='none'
+        document.getElementById(last).style.display='block'
+
+    }else{
+        document.getElementById('containerFormulario').style.display='block'
+        document.getElementById(now).style.display='none'
+        document.getElementById('headerFormModal').innerHTML='INICIAR SESION' 
+        document.getElementById('right-close').style.display='block' 
+        document.getElementById('right-back').style.display='none' 
+        document.getElementById('registerF').style.display='none' 
+    } 
+}*/
+/*
+function globalCheck(...inputs){
+    let optional = false
+    for(let i=0; i<inputs.length; i++){
+        let input=inputs[i]
+        if(input == 'optional'){
+            optional = true
+        }else if((document.getElementById(input).value == "" && !optional) || document.getElementById(input).className.includes("is-invalid")){
+            document.getElementById(input).scrollIntoView()
+            return false
         }
     }
-    if(viaMail){
-        document.getElementById("iniciarSesionForm").style.display="block"    
-    }
-    else{
-        document.getElementById("iniciarSesionForm").style.display="none"
+    return true
+}
+
+function checkForm(type, id){//completar
+    let email = document.getElementById(id)
+    formConditions(email, type)
+}
+
+function formConditions(element, type){
+    let ok = false
+    switch(type){
+        case 'email':   
+            if(element.value.length > 5){
+                let arroba = false
+                let extension = false
+
+                for(let i=0; i<element.value.length; i++){
+                    if(element.value[i] == '@' && element.value[i-3] != null && element.value.charCodeAt(i+1) > 64 && element.value.charCodeAt(i+1) < 123){
+                        arroba = true
+                    }else if(element.value[i] == '.' && arroba && element.value[i+1] != null){
+                        extension = true
+                    }
+                }
+
+                if(arroba && extension){
+                    ok = true
+                }
+            }
+            if(ok){
+                element.classList.remove('is-invalid')
+            }else{
+                element.classList.add('is-invalid')
+            }
+            break
+        case "password":
+            if(element.value.length>8){
+                let upperCase = false
+                let lowerCase = false
+                let number = false
+
+                for(let i = 0; i<element.value.length; i++ ){
+                    if(element.value.charCodeAt(i) > 64 && element.value.charCodeAt(i) < 91 ){
+                        upperCase = true
+                    }else if(element.value.charCodeAt(i) < 123 && element.value.charCodeAt(i) > 96 ){
+                        lowerCase = true
+                    }else if(element.value.charCodeAt(i) > 47 && element.value.charCodeAt(i) < 58 ){
+                        number = true
+                    }
+                }
+                
+                if(lowerCase && upperCase && number){
+                    ok = true
+                }
+            }
+            if(ok){
+                element.classList.remove('is-invalid')
+            }else{
+                element.classList.add('is-invalid')
+            }
+            break 
+        case "password2":
+            if(element.value == document.getElementById('passwordRegister').value){
+                element.classList.remove('is-invalid')
+            }else if(element.value != ''){
+                element.classList.add('is-invalid')
+            }
+            break
+        case "name":
+            if(element.value.length>1){
+                for(let i=0; i<element.value.length; i++){
+                    if((element.value.charCodeAt(i) < 65 || (element.value.charCodeAt(i) > 90 && element.value.charCodeAt(i) < 95)) || element.value.charCodeAt(i) > 122){
+                        element.classList.add('is-invalid')
+                        ok = true
+                        break
+                    }
+                }
+            }else{
+                ok = true
+            }
+            if(!ok){
+                element.classList.remove('is-invalid')
+            }
+            break
+        case "phone":
+            if(element.value.length>8 && element.value.length<12){
+                element.classList.remove('is-invalid')
+            }else{
+                element.classList.add('is-invalid')
+            }
+            break
+        case "code":
+            if(element.value.length!=6){
+                element.classList.add('is-invalid')
+            }else{
+                element.classList.remove('is-invalid')
+            }
     }
 }
 
-function checkFormIniciarSesion(){//completar
-    let email = document.getElementById("iniEmail")
-    let password = document.getElementById("iniPassword")
-    
-    if(password.value.length<6){
-        password.classList.add('is-invalid')
+function toVerify(){
+    if(globalCheck('emailRegister', 'nameRegister', 'lastnameRegister', 'passwordRegister', 'password2Register', 'optional','celRegister', 'addressRegister')){
+        document.getElementById('bodyRegister1').style.display='none'
+        document.getElementById('bodyRegister2').style.display='block'
     }
-    else{
-        password.classList.remove('is-invalid')
-    }
-    if(email.value.length<1){
-        email.classList.add('is-invalid')
-    }
-    else{
-        email.classList.remove('is-invalid')
-    }
+}
+*/
+/*passwordModal*/
+function passwordModal(x, y){
+    setInterval(document.getElementById('passwordModal').style.display = 'none', 5000)
+
+    window.addEventListener('click', function(e){   
+        if (!document.getElementById('passwordModal').contains(e.target)){
+          document.getElementById('passwordModal').style.display = 'none'
+        } 
+      });
 }
 /*Factura - Bag*/
 actualizarPrecioTotal('platos', 'precio', 'botonPedir')

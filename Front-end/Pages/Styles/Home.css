@@ -129,10 +129,11 @@ html{
   outline: 0;    
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
 }
 
 .mContent {
-  background-color: #282828;
+  background-color: white;
   height: 100%;
   display: none;
   float: right;
@@ -143,9 +144,10 @@ float: left;
 width: 30px;
 height: 30px;
 display: block;
-fill: white;
+fill: black;
 margin-left: 5%;
 margin-top: 5%;
+transition: all 0.3s;
 }
 
 .mContent .borrar svg:hover{
@@ -154,16 +156,32 @@ height: 35px;
 }
 
 .mContent .opciones{
-  padding-top: 50px;
-list-style-type: none;
-text-align: left;
-display: block;
-margin-left: auto;
-margin-right: auto;
+  padding: 10%;
+  list-style-type: none;
+  text-align: left;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .mContent .opciones .opcion{
-color: white;
+  display: flex;
+  padding-top: 5%;
+}
+
+.mContent .opciones .opcion h1{
+  text-align: left;
+  font-size: 23px;
+  width: 80%;
+  letter-spacing: 3px;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+
+.mContent .opciones .opcion svg{
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 /*modalUbicacion*/
 #myModalUbi{
@@ -195,6 +213,7 @@ color: #aaaaaa;
 position: absolute;
 right: 5%;
 top: 3%;
+  transition: all 1s;
 }
 
 #myModalUbi .close:hover{
@@ -267,6 +286,35 @@ font-weight: 600;
 outline: none;
 }
 
+/*passwordModal*/
+#passwordModal{
+  display: none; /* Hidden by default */
+  position: absolute; /* Stay in place */
+  z-index: 15; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+}
+
+#passwordModal .modal-content {
+  background-color: #282828;
+  margin: auto;
+  overflow: hidden;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  overflow-y: scroll;
+  width: 65%;
+  height: auto;
+  padding: 5%;
+}
+
+#passwordModal h1{
+  color: white;
+  font-size: 12px;
+}
 /*IniciarSesion*/
 .modalIni {
   display: none; /* Hidden by default */
@@ -369,7 +417,7 @@ outline: none;
 }
 
 .modalIni .labelIniciarSesion {
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -380,27 +428,38 @@ outline: none;
   margin-right: 7%;
 }
 
-#iniciarSesionCont{
+.iniciarSesionCont{
   padding-bottom: 10%;
   border-bottom: solid 1px #888888;
 }
 
-.modalIni .containerFormulario #iniForm{
+.modalIni .containerFormulario .iniForm{
   margin-top: 8%;
 }
 
-.modalIni .containerFormulario #iniForm .userIni{
+.modalIni .userIni{
   padding-bottom: 7%;
   position: relative;
 }
 
-.modalIni .containerFormulario #iniForm .userIni h2{
+.modalIni .containerFormulario .iniForm .userIni h2{
   color: #a9a9a9;
   text-transform: uppercase;
   font-size: 13px;
 }
 
-.modalIni .containerFormulario #iniForm .userIni input{
+.modalIni .userIni select{
+  width: 100%;
+  height: 40px;
+  border: solid 1px rgb(63, 63, 63);
+  color: #000;
+  outline: black;
+  font-weight: 600;
+  background-color: white;
+  background-image: none;
+}
+
+.modalIni .userIni input{
   width: 100%;
   height: 40px;
   border: solid 1px rgb(63, 63, 63);
@@ -409,9 +468,9 @@ outline: none;
   font-weight: 600;
 }
 
-.modalIni .containerFormulario #iniForm .userIni svg{
+.modalIni .userIni svg{
   position: absolute;
-  right: 3%;
+  right: 10%;
   width: 20px;
   height: 20px;
   top: 50%;  
@@ -419,20 +478,50 @@ outline: none;
   transform: translateY(-50%);
 }
 
-.modalIni .containerFormulario #iniForm .options{
+.modalIni .formControl:focus{
+  outline: none;
+  border: 0;
+}
+
+.modalIni .userIni .inputNumber{
+  position: relative;
+  display: flex;
+  border: solid 1px rgb(63, 63, 63);
+}
+
+.modalIni .userIni .inputNumber input{
+  width: 60%;
+  border: none;
+  border-radius: 0;
+  border-left:solid 1px rgb(63, 63, 63);
+}
+
+.modalIni .userIni .inputNumber img{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  margin-left: 2%;
+}
+
+.modalIni .containerFormulario .iniForm .options{
   display: flex;
   overflow: hidden;
   width: 100%;
   position: relative;
 }
 
-.modalIni .containerFormulario #iniForm .options .wpp{
+.modalIni .containerFormulario .iniForm .options .wpp{
   font-size: 12px;
   width: 50%;
   margin-right: 5px;
+  text-decoration-line: underline;
+  text-decoration-color: black;
 }
 
-.modalIni .containerFormulario #iniForm .options .forgotPassword{
+.modalIni .containerFormulario .iniForm .options .forgotPassword{
   font-size: 12px;
   position: absolute;
   right: 0;
@@ -483,64 +572,54 @@ outline: none;
   margin-top: 5%;
 }
 
-/*Tipos*/
-
-.tiposBoxContainer{
-  width: 100%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 0.7%;
+#registerF .body .head{
+  margin-top: 10%;
+  padding-bottom: 3%;
+  border-bottom: solid 1px #888888;
 }
 
-.tiposBoxContainer .tiposBox{
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 150px;
-  align-items: center;
-  height: 60px;
-  overflow-x: scroll;
-  background-color: white;
-  padding-left: 5px;
-  padding-right: 5px;
-  max-width: 100%;
-  width: fit-content;
-  border-style: solid;
-  border-width: 4.5px;
+#registerF .body .head h2{
+  font-size: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-.tiposBoxContainer .tiposBox.h1{
-  margin-left: 5px;
-}
-.tiposBoxContainer .tipos{
-  display: inline-flex;
-  align-items: center;
-  margin-left: 10px;
-  margin-right: 10px;
-  border-radius: 100px;
-  background-color: white;
-  min-width: fit-content;
-  height: 35px;
-  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.3);
-  overflow: hidden;
-  border-color: #FFC244;
-  border-width: 1px;
-  transition: all 0.3s;
-  color: transparent;
-}
-.tipos:hover {
-  border-style: solid;
-  border-width: 3px;
-  color: transparent;
+#bodyRegister2 h1{
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding-top: 5%;
 }
 
-.tiposBoxContainer .tipos h3{
-  color: #282828;
-  font-size: 15px;
-  margin-right: 10px;
-  margin-bottom: auto;
-  margin-top: auto;
+.modalIni .userIni h6{
+  margin-top: 5px;
+  font-size: 12px;
+  width: 50%;
+  margin-right: 5px;
+  text-decoration-line: underline;
+  text-decoration-color: black;
+}
+
+#bodyRegister2 h6{
+  margin-top: 5px;
+  font-size: 12px;
+  width: 50%;
+  margin-right: 5px;
+  text-decoration-line: underline;
+  text-decoration-color: black;
+}
+
+#bodyRegister2 span{
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+#bodyRegister2 h2{
+  padding-top: 5%;
+  color: #a9a9a9;
+  font-size: 13px;
+  text-transform: uppercase;
 }
 
 /*Restaurantes*/
@@ -556,10 +635,6 @@ margin-bottom: 5%;
   border-style: solid;
   border-color: /*#FFC244*/black;
 }
-
-/*.headere h1{
-color: #eeeeee;
-}*/
 
 #restaurantes{
 text-align: center;
@@ -1322,20 +1397,6 @@ border-width: 1px;
     width: 60px;
     height: 60px;
   }
-
-  /*tipos*/
-  .tiposBoxContainer{
-    margin-top: 12%;
-    padding-left: 3%;
-    padding-right: 3%;
-  }
-
-  .tiposBoxContainer .tiposBox{
-    border: none;
-    border-bottom: solid black 1px;
-    border-radius: 0%;
-  }
-
   /*modalUbicacion*/
 
   #myModalUbi .modal-content{
@@ -1506,17 +1567,10 @@ border-width: 1px;
     width: 430px;
   }
 
-  /*tipos*/
-  .tiposBoxContainer{
-    margin-top: 7%;
-    padding-left: 10%;
-    padding-right: 10%;
-  }
-
   /*modalIni*/
   .modalIni .modal-content {
-    width: 30%;
-    height:500px;
+    width: 50%;
+    height:60%;
   }
 
   .mContent {
@@ -1637,16 +1691,10 @@ border-width: 1px;
     width: 100px;
     height: 100px;
   }
-  /*tipos*/
-  .tiposBoxContainer{
-    margin-top: 7%;
-    padding-left: 10%;
-    padding-right: 10%;
-  }
 
   /*modalIni*/
   .modalIni .modal-content {
-    width: 40%;
+    width: 65%;
     height:85%;
   }
     
