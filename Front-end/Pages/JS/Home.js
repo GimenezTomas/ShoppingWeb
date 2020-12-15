@@ -84,10 +84,15 @@ function closeSearchBar(id, width){
 
     if(id=="fc"){
         time = 2
-        console.log('no bebe')
     }else if('izqModalCont' == id){
+        time = 3
+    }else if(id.substr(0, 12) == 'bottomBorder'){
         time = 2
-        console.log('si bebe')
+        for(let i=0 ; i<document.getElementsByClassName('b123').length; i++){
+            if(document.getElementsByClassName('b123')[i].id != id){
+                document.getElementsByClassName('b123')[i].style.display = 'none'
+            }
+        }
     }
 
     let progress = setInterval(frame, time);

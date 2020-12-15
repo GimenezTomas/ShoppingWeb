@@ -2,6 +2,10 @@ html{
   scroll-behavior: smooth;
 }
 
+:root{
+  --main-bg-width: 0%;
+}
+
 /*body{
   background-color: #141414f7;
 }*/
@@ -167,15 +171,35 @@ height: 35px;
 .mContent .opciones .opcion{
   display: flex;
   padding-top: 5%;
+  position: relative;
+  padding-bottom: 2%;
 }
+
+.mContent .opciones .opcion:after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  transition: all .2s linear;
+  height: 0;
+  background: #383838;
+  z-index: 2;
+}
+
+.mContent .opciones .opcion:hover:after{
+  height: 100%;
+}
+
 
 .mContent .opciones .opcion h1{
   text-align: left;
-  font-size: 23px;
+  font-size: 19px;
   width: 80%;
   letter-spacing: 3px;
   font-weight: 200;
   text-transform: uppercase;
+  padding-left: 5%;
 }
 
 .mContent .opciones .opcion svg{
@@ -809,7 +833,7 @@ border-width: 1px;
 }
 
 .modalContent {
-  background-color: #282828;
+  background-color: white;
   margin: auto;
   width: 500px;
   height: 100%;
@@ -826,28 +850,28 @@ border-width: 1px;
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
+  height: 10%;
+  overflow: hidden;
 }
 
-.headerNombrePagina img{
-  width: 100px;
-  height: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.headerNombrePagina h5{
+  max-width: 85%;
+  overflow: hidden;
 }
 
 .headerNombrePagina svg{
   --main-svg-width: 25px;
-  float:left;
+  margin-left: auto;
   width: var(--main-svg-width);
   height: var(--main-svg-width);
   display: block;
-  fill: white;
+  fill: black;
   margin-right: calc(-1*(var(--main-svg-width)));
+  transition: all .3s;
 }
 
 .headerNombrePagina svg:hover{
-  --main-svg-width: 40px;
+  --main-svg-width: 32px;
 }
 .headerUsuario {
   margin-left: 8%;
@@ -875,7 +899,7 @@ border-width: 1px;
   font-size: 18px;
   text-align: center;
   margin-bottom: 5%;
-  color: white;
+  color: black;
 }
 
 .headerRestaurante{
@@ -904,7 +928,7 @@ border-width: 1px;
   font-size: 15px;
   text-align: center;
   margin-bottom: 5%;
-  color: white;
+  color: black;
 }
 .headerRestaurante h2{
   font-size: 12px;
@@ -932,12 +956,12 @@ border-width: 1px;
 #platos .header{
   border-bottom: solid;
   border-bottom-width: 1px;
-  border-color: white;
+  border-color: black;
 }
 
 #platos .header h1{
   font-size: 15px;
-  color: white;
+  color: black;
 }
 
 .pedido{
@@ -978,7 +1002,7 @@ border-width: 1px;
   overflow: hidden;
   margin-bottom: 0px;
   white-space: nowrap;
-  color: white;
+  color: black;
   margin-left: 8px;
 }
 
@@ -1006,7 +1030,8 @@ border-width: 1px;
   height: 20px;
   /*fill: #f7732d;*//*naranja o negro*/
   margin-left: 10px;
-  fill: white;
+  fill: black;
+  transition: all .5s;
 }
 
 .pedidos .pedido .p svg:hover{
@@ -1041,7 +1066,8 @@ border-width: 1px;
 
 .pedir svg{
   margin-top:8px;
-  fill: white;
+  fill: black;
+  transition: all .5s;
   /*lo centre a mano fijarse de cambiarlo*/
 }
 .pedir svg:hover {
@@ -1420,11 +1446,11 @@ border-width: 1px;
     border: none;
     border-radius: 0;
   }
+  /*Modal izq*/
 
   .mContent {
       width: 0;
       display: none;
-      max-width: 60%;
   }
 
   /*restaurantes*/
@@ -1447,7 +1473,6 @@ border-width: 1px;
     /*carrito*/
     
     .modalContent {
-      background-color: #282828;
       margin: auto;
       width: 100%;
       height: 100%;
@@ -1609,7 +1634,6 @@ border-width: 1px;
   }
 
   .modalContent {
-      background-color: #282828;
       margin: auto;
       width: 500px;
       height: 100%;
@@ -1740,7 +1764,6 @@ border-width: 1px;
   }
   
   .modalContent {
-      background-color: #282828;
       margin: auto;
       width: 500px;
       height: 100%;
