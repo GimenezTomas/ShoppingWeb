@@ -1,0 +1,1488 @@
+html{
+    scroll-behavior: smooth;
+  }
+  
+  :root{
+    --main-bg-width: 0%;
+  }
+  
+  ::-webkit-scrollbar{
+    display: none;
+  }
+  
+  .header{
+    width: 100%;
+    overflow: hidden;
+    /*background-color: #282828;*/
+    z-index: 6;
+  }
+  
+  .header .headerCont{
+    display: flex;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .header input{
+    display: none;
+    border-width: 2px;
+    border-color: #FFC244;
+    border-radius: 20px;
+    border-style: solid;
+  }
+  
+  .header input:focus{
+    outline: none;
+  }
+  
+  .header .logo{
+   padding-left: 3%;
+   padding-right: 6%;
+   height: fit-content;
+   display: block;
+   margin-top: auto;
+   margin-bottom: auto;
+  }
+  
+  .header img{
+    width: 90px;
+    height: auto;
+  }
+  
+  .header .al{
+    display: flex;
+    margin-right: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    align-items: center;
+  }
+  
+  .header .ubicacion{
+    display: flex;
+    max-width: 80%;
+    max-height: 65%;
+    overflow: hidden;
+    margin-right: 2%;
+    float: right;
+  }
+  
+  .header .ubicacion svg{
+    width: 25px;
+    height: 25px;
+    fill: black;
+  }
+  
+  .header .ubicacion h1{
+    font-size: 15px;
+    overflow: hidden;
+    color: #a9a9a9;
+    margin: 0;
+  }
+  
+  .header .list{
+    float: right;
+    width: 35px;
+    height: 35px;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    fill: black;
+  }
+  
+  .headerBottom{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    border-bottom:/*#2ABB9B*/black;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    z-index: 6;
+  }
+  
+  #bagIcon{
+    width: 28px;
+    height: 28px;
+    fill: black;
+    margin-left: 1%;
+    margin-right: 6%;
+  }
+  
+  .header .person-login{
+    float: right;
+    fill: black;
+  }
+  
+  /*MODAL-IZQ*/
+  .containerIzq{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    outline: 0;    
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+  }
+  
+  .mContent {
+    background-color: white;
+    height: 100%;
+    display: none;
+    float: right;
+  }
+  
+  .mContent .borrar svg{
+  float: left;
+  width: 30px;
+  height: 30px;
+  display: block;
+  fill: black;
+  margin-left: 5%;
+  margin-top: 5%;
+  transition: all 0.3s;
+  }
+  
+  .mContent .borrar svg:hover{
+  width: 35px;
+  height: 35px;
+  }
+  
+  .mContent .opciones{
+    padding: 10%;
+    list-style-type: none;
+    text-align: left;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .mContent .opciones .opcion{
+    display: flex;
+    padding-top: 5%;
+    position: relative;
+    padding-bottom: 2%;
+  }
+  
+  .mContent .opciones .opcion:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    transition: all .2s linear;
+    height: 0;
+    background: #383838;
+    z-index: 2;
+  }
+  
+  .mContent .opciones .opcion:hover:after{
+    height: 100%;
+  }
+  
+  
+  .mContent .opciones .opcion h1{
+    text-align: left;
+    font-size: 19px;
+    width: 80%;
+    letter-spacing: 3px;
+    font-weight: 200;
+    text-transform: uppercase;
+    padding-left: 5%;
+  }
+  
+  .mContent .opciones .opcion svg{
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  /*modalUbicacion*/
+  #myModalUbi{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 6; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  #myModalUbi  .modal-content {
+  background-color: #282828;
+  margin: auto;
+  border: 1px solid #FFC244;
+  top: 30%;
+  height: 270px;
+  z-index: 9;
+  border-radius: 20px;
+  }
+  
+  /* The Close Button */
+  #myModalUbi .close {
+  color: #aaaaaa;
+  position: absolute;
+  right: 5%;
+  top: 3%;
+    transition: all 1s;
+  }
+  
+  #myModalUbi .close:hover{
+  color: white;
+  }
+  
+  #myModalUbi .modal-content h2{
+  font-size: 12px;
+  margin-left: 6%;
+  margin-top: 12%;
+  color:#ffda26;
+  }
+  
+  #myModalUbi .modal-content h1{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: x-large;
+  font-weight: 600;
+  margin-top: 1%;
+  margin-left: 6%;
+  text-align: left;
+  color: whitesmoke;
+  }
+  
+  #myModalUbi .modal-content .ubicacion{
+  width: 88%;
+  border-style: solid;
+  border-width: 2px;
+  border-color:#FFC244;
+  border-radius: 9px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 15%;
+  margin-top: 2%;
+  }
+  
+  #myModalUbi .modal-content input{
+  border:none;
+  height: 100%;
+  width: 85%;
+  color: grey;
+  background-color: #282828;
+  }
+  
+  #myModalUbi .modal-content input:focus{
+  outline: none;
+  }
+  
+  #myModalUbi .modal-content .ubicacion svg{
+  margin-left: 2%;
+  fill: #FFC244;
+  }
+  
+  #myModalUbi .modal-content .span{
+  position: absolute;
+  width: 100%;
+  bottom: 8%;
+  }
+  
+  #myModalUbi .modal-content .span button{
+  width: 88%;
+  display: block;
+  margin: auto;
+  border-radius: 12px;
+  border: 4px solid #FFC244;
+  color: grey;
+  font-weight: 600;
+  }
+  
+  #myModalUbi .modal-content .span button:focus{
+  outline: none;
+  }
+  
+  /*passwordModal*/
+  #passwordModal{
+    display: none; /* Hidden by default */
+    position: absolute; /* Stay in place */
+    z-index: 15; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+  }
+  
+  #passwordModal .modal-content {
+    background-color: #282828;
+    margin: auto;
+    overflow: hidden;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    overflow-y: scroll;
+    width: 65%;
+    height: auto;
+    padding: 5%;
+  }
+  
+  #passwordModal h1{
+    color: white;
+    font-size: 12px;
+  }
+  /*IniciarSesion*/
+  .modalIni {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 12; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modalIni .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    overflow: hidden;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    overflow-y: scroll;
+  }
+  
+  /* The Close Button */
+  .modalIni .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .modalIni .close:hover,
+  .modalIni .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modalIni .headerIniciarSesion{
+    width: 100%;
+    border-bottom: solid #a9a9a9 1px;
+    height: 56px;
+  }
+  
+  .modalIni .headerIniciarSesion .left{
+    width: 85%;
+    height: 100%;
+    border-right: solid #a9a9a9 1px;
+  }
+  
+  .modalIni .headerIniciarSesion .left h1{
+    padding-top: 13px;
+    padding-left: 5%;
+    font-size: 1.25rem;
+    letter-spacing: 0;
+    line-height: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .modalIni .headerIniciarSesion .right{
+    width: 15%;
+    transition: all 0.5s;
+  }
+  
+  .modalIni .headerIniciarSesion .right:hover{
+    background-color: #dfdfdf;
+  }
+  
+  .modalIni .iniciarSesionContainer{
+    height: 100%;
+  }
+  
+  .modalIni .logoContainer{
+     width: 95%;
+  }
+  
+  .modalIni .headerIniciarSesion{
+    display: inline-flex;
+  }
+  
+  .modalIni .headerIniciarSesion svg{
+    display: block;
+    margin: auto;
+    height: 100%;
+    width: 70%;
+  }
+  
+  .modalIni .headerIniciarSesion img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding-left: 11%;
+  }
+  
+  .modalIni .headerIniciarSesion div{
+    width: 90%;
+  }
+  
+  .modalIni .labelIniciarSesion {
+    font-size: 19px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  .modalIni .containerFormulario{
+    margin-top: 7%;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+  
+  .iniciarSesionCont{
+    padding-bottom: 10%;
+    border-bottom: solid 1px #888888;
+  }
+  
+  .modalIni .containerFormulario .iniForm{
+    margin-top: 8%;
+  }
+  
+  .modalIni .userIni{
+    padding-bottom: 7%;
+    position: relative;
+  }
+  
+  .modalIni .containerFormulario .iniForm .userIni h2{
+    color: #a9a9a9;
+    text-transform: uppercase;
+    font-size: 13px;
+  }
+  
+  .modalIni .userIni select{
+    width: 100%;
+    height: 40px;
+    border: solid 1px rgb(63, 63, 63);
+    color: #000;
+    outline: black;
+    font-weight: 600;
+    background-color: white;
+    background-image: none;
+  }
+  
+  .modalIni .userIni input{
+    width: 100%;
+    height: 40px;
+    border: solid 1px rgb(63, 63, 63);
+    color: #000;
+    outline: black;
+    font-weight: 600;
+  }
+  
+  .modalIni .userIni svg{
+    position: absolute;
+    right: 10%;
+    width: 20px;
+    height: 20px;
+    top: 50%;  
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  
+  .modalIni .formControl:focus{
+    outline: none;
+    border: 0;
+  }
+  
+  .modalIni .userIni .inputNumber{
+    position: relative;
+    display: flex;
+    border: solid 1px rgb(63, 63, 63);
+  }
+  
+  .modalIni .userIni .inputNumber input{
+    width: 60%;
+    border: none;
+    border-radius: 0;
+    border-left:solid 1px rgb(63, 63, 63);
+  }
+  
+  .modalIni .userIni .inputNumber img{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin-left: 2%;
+  }
+  
+  .modalIni .containerFormulario .iniForm .options{
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+  }
+  
+  .modalIni .containerFormulario .iniForm .options .wpp{
+    font-size: 12px;
+    width: 50%;
+    margin-right: 5px;
+    text-decoration-line: underline;
+    text-decoration-color: black;
+  }
+  
+  .modalIni .containerFormulario .iniForm .options .forgotPassword{
+    font-size: 12px;
+    position: absolute;
+    right: 0;
+    width: fit-content;
+    max-width: 44%;
+    height: auto;
+  }
+  
+  .modalIni .button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8%;
+    width: 100%;
+    height: 40px;
+    background: black;
+    color: white;
+    border: none;
+    outline: transparent;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.5s;
+  }
+  
+  .modalIni .button:hover{
+    background-color: #f7f7f7;
+    color: #000;
+  }
+  
+  #registerForm{
+    padding-top: 10%;
+    padding-bottom: 10%;
+    border-bottom: solid 1px #888888;
+  }
+  
+  #registerForm h1{
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  #registerForm h3{
+    font-size: 15px;
+    font-weight: 500;
+    color: #a9a9a9;
+    margin-top: 5%;
+  }
+  
+  #registerF .body .head{
+    margin-top: 10%;
+    padding-bottom: 3%;
+    border-bottom: solid 1px #888888;
+  }
+  
+  #registerF .body .head h2{
+    font-size: 17px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  #bodyRegister2 h1{
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding-top: 5%;
+  }
+  
+  .modalIni .userIni h6{
+    margin-top: 5px;
+    font-size: 12px;
+    width: 50%;
+    margin-right: 5px;
+    text-decoration-line: underline;
+    text-decoration-color: black;
+  }
+  
+  #bodyRegister2 h6{
+    margin-top: 5px;
+    font-size: 12px;
+    width: 50%;
+    margin-right: 5px;
+    text-decoration-line: underline;
+    text-decoration-color: black;
+  }
+  
+  #bodyRegister2 span{
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  #bodyRegister2 h2{
+    padding-top: 5%;
+    color: #a9a9a9;
+    font-size: 13px;
+    text-transform: uppercase;
+  }
+  
+/*CARRITO*/
+.containerFactura{
+    display: none;
+    position: fixed;
+    z-index: 12;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.6);
+  }
+  
+  .modalContent {
+    background-color: white;
+    margin: auto;
+    width: 500px;
+    height: 100%;
+    float: right;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  .headerNombrePagina{
+    border-bottom: 1px solid #e5edef;
+    margin-right: 4%;
+    margin-left: 4%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    height: 10%;
+    overflow: hidden;
+  }
+  
+  .headerNombrePagina h5{
+    max-width: 85%;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+  
+  .headerNombrePagina span{
+    font-weight: 700;
+  }
+  
+  .headerNombrePagina svg{
+    --main-svg-width: 25px;
+    margin-left: auto;
+    width: var(--main-svg-width);
+    height: var(--main-svg-width);
+    display: block;
+    fill: black;
+    transition: all .3s;
+  }
+  
+  .headerNombrePagina svg:hover{
+    --main-svg-width: 32px;
+  }
+  .headerUsuario {
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    border-bottom: solid;
+    border-bottom-width: 0.1px;
+    border-color: #ff2426;
+  }
+  .headerUsuario img{
+    border-style: solid;
+    border-color: #ff2426;
+    border-width: 2px;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin-bottom: 5%;
+  }
+  .headerUsuario h1{
+    margin-left: 8px;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 5%;
+    color: black;
+  }
+  
+  .headerRestaurante{
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    border-bottom: solid;
+    border-bottom-width: 0.1px;
+    border-color: #ff2426;
+  
+  }
+  
+  .headerRestaurante img{
+    width: 50px;
+    height: 50px;
+    border-radius: 10%;
+    margin-bottom: 5%;
+  }
+  
+  .headerRestaurante h1{
+    margin-left: 8px;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 5%;
+    color: black;
+  }
+  .headerRestaurante h2{
+    font-size: 12px;
+    text-align: right;
+    display: block;
+    color: #f7732d;
+  }
+  .headerRestaurante h2:hover{
+    font-size: 15px;
+  }
+  
+  .pedidos{
+    margin-top: 5%;
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-bottom:5%;
+  }
+  .pedidos ul{
+    overflow-y: scroll;
+    height: 290px;
+    padding-inline-start: 0%;
+  
+  }
+  
+  #platos .header{
+    border-bottom: solid;
+    border-bottom-width: 1px;
+    border-color: black;
+  }
+  
+  #platos .header h1{
+    font-size: 15px;
+    color: black;
+  }
+  
+  .pedido{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    border-bottom: solid;
+    border-bottom-width: 1px;
+    border-color: #7d7d7d;
+    padding: 10px 5px;
+  }
+  
+  .platoCarritoDiv{
+    margin-left: 8px;
+  }
+  
+  .platoCarritoDiv h5{
+    font-size: 12px;
+    color: #7d7d7d;
+  }
+  
+  .pedidos .pedido img{
+    border-style: solid;
+    border-color: silver;
+    border-width: 1px;
+    width: 50px;
+    height: 50px;
+    border-radius: 10%;
+  }
+  
+  .pedidos .pedido h3{
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-bottom: 0px;
+    white-space: nowrap;
+    color: black;
+    margin-left: 8px;
+  }
+  
+  .pedidos .pedido .p h2, h4{
+    font-size: 15px;
+    text-align: right;
+    display: block;
+    color: #7d7d7d;
+    margin-bottom: 0px;
+  }
+  
+  .pedidos .pedido .p{
+    text-align: right;
+    margin: 0px auto 0px auto;
+    margin-right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+  }
+  
+  .pedidos .pedido .p svg{
+    display: none;
+    width: 20px;
+    height: 20px;
+    /*fill: #f7732d;*//*naranja o negro*/
+    margin-left: 10px;
+    fill: black;
+    transition: all .5s;
+  }
+  
+  .pedidos .pedido .p svg:hover{
+    width: 30px;
+    height: 30px;
+  }
+  
+  .pedir{
+    /*margin-left: 8%;*/
+    margin-top: 10px;
+    display: inline-flex;
+    width: 100%;
+  }
+  
+  .pedir button{
+    border-radius: 6px;
+    color: white;
+    border: #f7732d;
+  }
+  
+  .pedir button:active{
+    border-style: none;
+  }
+  
+  .pedir button:focus{
+    border-style: none;
+  }
+  
+  .pedir div{
+    margin-left: 75px;
+  }
+  
+  .pedir svg{
+    margin-top:8px;
+    fill: black;
+    transition: all .5s;
+    /*lo centre a mano fijarse de cambiarlo*/
+  }
+  .pedir svg:hover {
+    fill: red;
+  }
+  
+  ::-webkit-scrollbar{
+    display: none;
+  }
+  .modal{
+    display: none;
+    /* position: fixed; */
+    z-index: 1;
+    /* left: 0; */
+    /* top: 0; */
+    /* width: 100%; */
+    /* height: 100%; */
+    /* overflow: auto; */
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.6);
+  }
+
+  
+/*pf*/
+
+.bottom{
+    background-color: rgb(40, 40, 40);
+    height: auto;
+    position: relative;
+  }
+  
+  .bottom .body{
+    padding: 5%;
+    padding-bottom: 15%;
+    justify-content: center;
+  }
+  
+  .bottom .body .redesSociales{
+    width: 30%;
+  }
+  
+  .bottom .body .redesSociales .logos{
+    display: inline-block;
+    margin-left: -5px;
+    margin-top: 15px;
+  }
+  
+  .bottom .body .redesSociales .logos svg{
+    height: 35px;
+    width: 35px;
+    padding: 5px;
+    fill: white;
+    object-fit: contain;
+  }
+  
+  .bottom .body h3{
+    color: white;
+    font-family: monospace;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    font-size: 15px;
+  }
+  
+  .bottom .body .nosotros{
+    width: 30%;
+  }
+  
+  .bottom .body .nosotros ul{
+    color: white;
+    padding: 0;
+  }
+  
+  .bottom .body .nosotros li{
+    list-style-type: none;
+  }
+  
+  .bottom .body .preguntasFrecuentes{
+    width: 30%;
+  }
+  
+  .bottom .body .preguntasFrecuentes ul{
+    color: white;
+    padding: 0;
+  }
+  
+  .bottom .body .preguntasFrecuentes li{
+    list-style-type: none;
+  }
+  
+  .bottom .footer{
+    text-align: center;
+    background-color: #000;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .bottom .footer h6{
+    color: white;
+    font-family: 'FuturaPT-Book', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    letter-spacing: 0.2em;
+    font-size: 12px;
+    margin: 0;
+    padding: 5px;
+  }
+  
+  /*modal buscador*/
+  #modalBuscador{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 12; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  #contentBuscador{
+    background-color: #fefefe;
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  #modalBuscador .headere{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    margin-top: 5%;
+  }
+  
+  #modalBuscador .headere .search{
+    padding: 5px;
+    border-radius: 25px;
+    background-color: #f5f5f5;
+    position: relative;
+    display: flex;
+    width: 83%;
+  }
+  
+  #modalBuscador .headere .search div{
+    border-radius: 100%;
+    position: absolute;
+    padding-left: 5px;
+    padding-top: 5px;
+  }
+  
+  #modalBuscador .headere .search svg{
+    width: 25px;
+    height: 25px;
+  }
+  
+  #modalBuscador .headere .search input{
+    display: block;
+    margin-left: 40px;
+    background-color: transparent;
+    border: none;
+    outline: transparent;
+    padding-right: 7%;
+    font-size: 18px;
+    width: 100%;
+  }
+  
+  #modalBuscador .headere .close{
+    padding: 5px;
+    background-color: #e6e6e6;
+    display: block;
+    margin-left: auto;
+    border-radius: 100%;
+  }
+  
+  #modalBuscador .headere .close svg{
+    width: 35px;
+    height: 35px;
+    fill: black;
+  }
+  
+  #modalBuscador .body{
+    margin-left: 10%;
+    margin-top: 12%;
+  }
+  
+  #modalBuscador .body h1{
+    font-size: 20px;
+  }
+  
+  #modalBuscador .body ul{
+    padding: 0;
+  }
+  
+  #modalBuscador .body li{
+    padding: 5px;
+    font-size: 18px;
+    list-style-type: none;
+    color: #888888;
+  }
+
+  
+@media (max-width: 650px){
+
+    .header .al span{
+      display: none;
+    }
+  
+    .header .person-login{
+      width: 35px;
+      height: 35px;
+      margin-right: 5%;
+    }
+  
+    .headere h1{
+      font-size: 30px;
+    }
+  
+    /*.header input{
+      display: none;
+    }*/
+  
+    .header .headerCont{
+      width: 97%;
+    }
+  
+    .header .search-cont{
+      display: block;
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: auto;
+      margin-right: 1%;
+    }
+  
+    .header .al{
+      margin-left: 1%;
+    }
+  
+    .header .search-icon{
+      width: 25px;
+      height: 25px;
+      margin-right: 5%;
+      display: block;
+      margin-top: auto;
+      margin-bottom: auto;
+      fill: black;
+    }
+    
+    /*modalUbicacion*/
+  
+    #myModalUbi .modal-content{
+      width: 85%;
+      height: 300px;
+    }
+  
+    #myModalUbi .modal-content button{
+      background-color: white;
+      font-size: 120%;
+    }
+  
+    #myModalUbi .modal-content .ubicacion{
+      height: 18%;
+    }
+  
+    /*modal ini*/
+    .modalIni .modal-content {
+      width: 100%;
+      height:100%;
+      border: none;
+      border-radius: 0;
+    }
+    /*Modal izq*/
+  
+    .mContent {
+        width: 0;
+        display: none;
+    }
+  
+      /*carrito*/
+      
+      .modalContent {
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        float: right;
+    }
+  
+    .pedidos .pedido h3{
+        max-width: 60%;
+    }
+  
+    .pedir button{
+        background-image: linear-gradient(140deg,#da5306,#ff2b2e 70%);
+        height:40px;
+        width: 60%;
+    }
+  
+    .pedir svg{
+        width: 25px;
+        height: 25px;
+        /*lo centre a mano fijarse de cambiarlo*/
+    }
+  
+    .modal{
+        padding-top: 50%;
+    }
+  
+    
+    /*footer*/
+    .bottom{
+      border-top: solid rgb(150, 150, 150) 3px;
+    }
+  
+    .bottom .body{
+      height: 700px;
+    }
+  
+    .bottom .body .preguntasFrecuentes{
+      width: 100%;
+    }
+  
+    .bottom .body .nosotros{
+      width: 100%;
+    }
+  
+    .bottom .body .redesSociales{
+      width: 100%;
+    }
+  
+    .bottom .body h3{
+      padding-top: 5%;
+    }
+  
+    .bottom .body .preguntasFrecuentes li{
+      font-size: 12px;
+      padding-top: 3%;
+    }
+    
+    .bottom .body .nosotros li{
+      font-size: 12px;
+      padding-top: 3%;
+    }
+  
+    .bottom .footer{
+      padding-top: 5%;
+    }
+  }
+  
+  @media (min-width: 951px){
+  
+    .header .headerCont{
+      width: 93%;
+    }
+  
+    .header .search-cont{
+      display: block;
+      margin-top: auto;
+      margin-bottom: auto;
+      width: 40%;
+      margin-left: 3%;
+    }
+  
+    .header .search-icon{
+      width: 25px;
+      height: 25px;
+      margin-right: 5%;
+      display: block;
+      margin-top: auto;
+      margin-bottom: auto;
+      fill: black;
+    }
+  
+    .header .person-login{
+      width: 35px;
+      height: 35px;
+      margin-right: 3%;
+    }
+  
+    #sBarClose{
+      top: 2.5%; 
+      right: 42%;
+    }
+  
+    /*modalUbicacion*/
+  
+    #myModalUbi .modal-content{
+      width: 430px;
+    }
+  
+    /*modalIni*/
+    .modalIni .modal-content {
+      width: 50%;
+      height:60%;
+    }
+  
+    .mContent {
+        width: 0;
+        max-width: 25%;
+        display: none;
+    }
+
+    /*carrito*/
+    .containerFactura{
+      display: none;
+      position: fixed;
+      z-index: 12;
+      top: 0;
+      padding-left: 860px;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.6);
+    }
+  
+    .modalContent {
+        margin: auto;
+        width: 500px;
+        height: 100%;
+        float: right;
+    }
+  
+    .pedidos .pedido h3{
+        max-width: 220px;
+    }
+  
+    .pedir button{
+        height:40px;
+        width: 250px;
+        background-image: linear-gradient(130deg,#ff451a,#ff1517 70%);
+    }
+  
+    .pedir svg{
+        width: 25px;
+        height: 25px;
+    }
+  
+    .modal{
+        padding-top: 323px;
+        padding-left: 870px;
+    }
+    /*footer*/
+    .bottom .body{
+      display: flex;
+    }
+  }
+  
+  @media (min-width: 651px) and (max-width: 950px){ 
+  
+    .header .headerCont{
+      width: 93%;
+    }
+  
+    .header .search-cont{
+      display: block;
+      margin-top: auto;
+      margin-bottom: auto;
+      width: 40%;
+      margin-left: 3%;
+    }
+  
+    .header .search-icon{
+      width: 25px;
+      height: 25px;
+      margin-right: 5%;
+      display: block;
+      margin-top: auto;
+      margin-bottom: auto;
+      fill: black;
+    }
+  
+    .header .person-login{
+      width: 35px;
+      height: 35px;
+      margin-right: 3%;
+    }
+  
+    /*modalIni*/
+    .modalIni .modal-content {
+      width: 65%;
+      height:85%;
+    }
+      
+    .mContent {
+      width: 0;
+      max-width: 45%;
+      display: none;
+    }
+  
+    /*modalUbicacion*/
+  
+    #myModalUbi .modal-content{
+      width: 50%;
+    }
+  
+      /*carrito*/
+      .containerFactura{
+        display: none;
+        position: fixed;
+        z-index: 6;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.6);
+    }
+    
+    .modalContent {
+        margin: auto;
+        width: 500px;
+        height: 100%;
+        float: right;
+    }
+  
+    .pedidos .pedido h3{
+        max-width: 220px;
+    }
+  
+    .pedir button{
+        height:40px;
+        width: 250px;
+        background-image: linear-gradient(130deg,#ff451a,#ff1517 70%);
+    }
+  
+    .pedir svg{
+        width: 25px;
+        height: 25px;
+    }
+  
+    .modal{
+        padding:auto;
+        padding-top: 40%;
+    }
+  
+    /*footer*/
+    .bottom .body{
+      display: flex;
+    }
+  }
+  
+  @media (min-width: 651px) and (max-width: 750px){
+  
+  .header .search-cont{
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 32%;
+    margin-left: 3%;
+  }
+  
+  #sBarClose{
+    top: 2.5%; 
+    right: 42%;
+  }
+  
+  #myModalUbi .modal-content{
+    width: 400px;
+  }
+  
+  }
+  
+  @media (min-width: 751px) and (max-width: 900px){
+  #sBarClose{
+    top: 2.5%; 
+    right: 37%;
+  }
+  }
+  
+  @media (min-width: 901px) and (max-width: 980px){
+  #sBarClose{
+    top: 2.5%; 
+    right: 38%;
+  }
+  }
+  
+  @media (min-width: 981px) and (max-width:1180px){
+  #sBarClose{
+    top: 2.5%; 
+    right: 40%;
+  }
+  }
+  
+  @media (min-width: 1180px){
+  #sBarClose{
+    top: 2.5%; 
+    right: 42%;
+  }
+  }

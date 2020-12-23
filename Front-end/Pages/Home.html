@@ -3,12 +3,14 @@
         <title>Home</title>
         <script src="jquery-3.4.1.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">        <link rel="stylesheet" href="./Styles/Home.css" type="text/css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">        <link rel="stylesheet" href="./Styles/UniversalStyles.css" type="text/css">
         <script src="./JS/Home.js"></script>
+        <script src="./JS/HeaderFunctions.js"></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body style="padding-top: 66px;">
-        <header style="position: fixed; width: 100%; top: 0; height: 66px; z-index: 12; background-color: white;">
+        <header onclick="document.getElementsByTagName('body')[0].scrollIntoView()" style="position: fixed; width: 100%; top: 0; height: 66px; z-index: 12; background-color: white;">
             <div class = "header" style="height: 100%;">
                 <div style="height: 100%;">
                     <div class="headerCont">
@@ -42,33 +44,6 @@
                                 <path fill-rule="evenodd" d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                             </svg>
                         </div>
-                        <script>
-                            function llamarModal(id){
-                                console.log('entre')
-                                var modal = document.getElementById(id);
-
-                                modal.style.display = "block";
-                                let width = 0
-                                if(innerWidth < 651){
-                                    width = 75
-                                }else if(innerWidth>951){
-                                    width = 25
-                                }else{
-                                    width = 45
-                                }
-                                
-                                if(openSearchBar('izqModalCont', width)){
-                                    modal.style.display = 'none'
-                                }
-
-                                // When the user clicks anywhere outside of the modal, close it
-                                window.onclick = function(event) {
-                                    if (event.target == modal) {
-                                        llamarModal('containerIzqModal')
-                                    }
-                                }
-                             }   
-                        </script>
                         <svg id="list" onclick="llamarModal('containerIzqModal')" class="list" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
                         </svg>
@@ -134,7 +109,7 @@
         <div id="factura" class="containerFactura">
             <div id="fc" class="modalContent" style="display: none;">
                 <div class="headerNombrePagina">
-                    <h5>Envio a: aaaaaaaaaaaaaaaaaaaaaaaaaaaa <span>Av Triunvirato 3528</span> aaaaaaaaaa</h5>
+                    <h5>Envio a: <span>Av Triunvirato 3528</span></h5>
                     <svg onclick="llamarFactura('factura')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
                     </svg>
@@ -172,84 +147,6 @@
                                     <h2>$</h2>
                                     <h4 class="precio">490</h4>
                                     <svg id="botonDelete1" onmousedown="eliminarPlato('plato1')" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-                                    </svg>
-                                </div>
-                            </li>
-                            <li id = "plato2" class="pedido" onmouseover="botonEliminar('botonDelete2', true)" onmouseout="botonEliminar('botonDelete2', false)">
-                                <img src="../Images/ñoquis.jpg" alt="">
-                                <h3>Ñoquis con salsa</h3>
-                                <div class="p">
-                                    <h2>$</h2>
-                                    <h4 class="precio">590</h4>
-                                    <svg id="botonDelete2" onmousedown="eliminarPlato('plato2')" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-                                    </svg>
-                                </div>
-                            </li>
-                            <li id = "plato3" class="pedido" onmouseover="botonEliminar('botonDelete3', true)" onmouseout="botonEliminar('botonDelete3', false)">
-                                <img src="../Images/reyes.jpg" alt="">
-                                <h3>Milanesa con papas fritas</h3>
-                                <div class="p">
-                                    <h2>$</h2>
-                                    <h4 class="precio">490</h4>
-                                    <svg id="botonDelete3" onmousedown="eliminarPlato('plato3')" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-                                    </svg>
-                                </div>
-                            </li>
-                            <li id = "plato4" class="pedido" onmouseover="botonEliminar('botonDelete4', true)" onmouseout="botonEliminar('botonDelete4', false)">
-                                <img src="../Images/ñoquis.jpg" alt="">
-                                <h3>Ñoquis con salsa</h3>
-                                <div class="p">
-                                    <h2>$</h2>
-                                    <h4 class="precio">590</h4>
-                                    <svg id="botonDelete4" onmousedown="eliminarPlato('plato4')" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-                                    </svg>
-                                </div>
-                            </li>
-                            <li id = "plato5" class="pedido" onmouseover="botonEliminar('botonDelete5', true)" onmouseout="botonEliminar('botonDelete5', false)">
-                                <img src="../Images/reyes.jpg" alt="">
-                                <h3>Milanesa con papas fritas</h3>
-                                <div class="p">
-                                    <h2>$</h2>
-                                    <h4 class="precio">490</h4>
-                                    <svg id="botonDelete5" onmousedown="eliminarPlato('plato5')" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-                                    </svg>
-                                </div>
-                            </li>
-                            <li id = "plato6" class="pedido" onmouseover="botonEliminar('botonDelete6', true)" onmouseout="botonEliminar('botonDelete6', false)">
-                                <img src="../Images/ñoquis.jpg" alt="">
-                                <h3>Ñoquis con salsa</h3>
-                                <div class="p">
-                                    <h2>$</h2>
-                                    <h4 class="precio">590</h4>
-                                    <svg id="botonDelete6" onmousedown="eliminarPlato('plato6')" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-                                    </svg>
-                                </div>
-                            </li>
-                            
-                            <li id = "plato7" class="pedido" onmouseover="botonEliminar('botonDelete7', true)" onmouseout="botonEliminar('botonDelete7', false)">
-                                <img src="../Images/ñoquis.jpg" alt="">
-                                <h3>Ñoquis con salsa</h3>
-                                <div class="p">
-                                    <h2>$</h2>
-                                    <h4 class="precio">590</h4>
-                                    <svg id="botonDelete7" onmousedown="eliminarPlato('plato7')" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-                                    </svg>
-                                </div>
-                            </li>
-                            <li id = "plato8" class="pedido" onmouseover="botonEliminar('botonDelete8', true)" onmouseout="botonEliminar('botonDelete8', false)">
-                                <img src="../Images/ñoquis.jpg" alt="">
-                                <h3>Ñoquis con salsa</h3>
-                                <div class="p">
-                                    <h2>$</h2>
-                                    <h4 class="precio">590</h4>
-                                    <svg id="botonDelete8" onmousedown="eliminarPlato('plato8')" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
                                     </svg>
                                 </div>
@@ -295,63 +192,39 @@
         <div id = "containerIzqModal" class="containerIzq">
             <div style="display: none" id="izqModalCont" class="mContent">
                 <ul class="opciones">
-                    <div >
-                        <li class="opcion" >
-                            <h1>Trabaja con nosotros</h1>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                            </svg>
-                        </li>
-                    </div>
-                    <div>
-                        <li class="opcion">
-                            <h1>Ayuda</h1>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                            </svg>
-                        </li>
-                    </div>
-                    <div >
-                        <li class="opcion">
-                            <h1>Ver negocio</h1>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                            </svg>
-                        </li>
-                    </div>
-                    <div >
-                        <li class="opcion">
-                            <h1>Frabbi prime</h1>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                            </svg>
-                        </li>
-                    </div>
-                    <div >
-                        <li class="opcion">
-                            <h1>Mis puntos</h1>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                            </svg>
-                        </li>
-                    </div>
+                    <li class="opcion" >
+                        <h1>Trabaja con nosotros</h1>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </li>
+                    <li class="opcion">
+                        <h1>Ayuda</h1>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </li>
+                    <li class="opcion">
+                        <h1>Ver negocio</h1>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </li>
+                    <li class="opcion">
+                        <h1>Frabbi prime</h1>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </li>
+                    <li class="opcion">
+                        <h1>Mis puntos</h1>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </li>
                 </ul>
             </div>
         </div> 
-        <script>
-            function passwordModal(offsetTop){
-                document.getElementById('passwordModalC').style.top = offsetTop - 30
-                document.getElementById('passwordModal').style.display = "block";       
-
-                window.onclick = function(event) {
-                    if (event.target == document.getElementById('passwordModal')) {
-                        document.getElementById('passwordModal').style.display = "none";
-                    }
-                }
-
-                setTimeout(function () {document.getElementById('passwordModal').style.display = 'none'}, 3000)
-            }
-        </script>
         <!--iniciarSesionModal-->
         <div id="iniciarSesionModal" class="modalIni">
             <div class="modal-content">
@@ -370,35 +243,7 @@
                             <svg id="right-close" onclick="modalIniClose()" class="closer" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
                             </svg>
-                            <script>/*Lo puse aca porque sino no anda*/
-                                function modalIniClose(){
-                                    document.getElementById('iniContNew').style.display = 'none'
-                                    document.getElementById('iniCont2').style.display = 'none'
-                                    document.getElementById('iniciarSesionModal').style.display = 'none'
-                                    document.getElementById('iniciarSesionCont').style.display = 'block'
-                                }
-                                function back()
-                                {
-                                    let now = 'bodyRegister2'
-                                    let last = 'bodyRegister1'
-                                    if(document.getElementById(now).style.display != 'none'){
-                                        document.getElementById(now).style.display='none'
-                                        document.getElementById(last).style.display='block'
-
-                                    }else{
-                                        document.getElementById('containerFormulario').style.display='block'
-                                        document.getElementById(now).style.display='none'
-                                        document.getElementById('headerFormModal').innerHTML='INICIAR SESION' 
-                                        document.getElementById('right-close').style.display='block' 
-                                        document.getElementById('right-back').style.display='none' 
-                                        document.getElementById('registerF').style.display='none' 
-                                    } 
-                                }
-                                function loginWPP(){
-                                    document.getElementById('iniciarSesionCont').style.display = 'none'
-                                    document.getElementById('iniContWPP').style.display = 'block'
-                                }
-                            </script>
+                            
                             <svg style="margin-top: 10%; width:40px; height:40px; display:none;" id="right-back" onclick="back()" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
                             </svg>
@@ -432,128 +277,7 @@
                                     <h6 onclick="loginWPP()" class="wpp">Iniciar sesión via whatsapp</h6>
                                     <h6 style ="color: #007bff;" onclick="document.getElementById('iniciarSesionCont').style.display = 'none', document.getElementById('iniContNew').style.display = 'block'" class="forgotPassword">¿Olvidaste tu contraseña?</h6>
                                 </div>
-                                <script>
-                                    function globalCheck(...inputs){
-                                        let optional = false
-                                        for(let i=0; i<inputs.length; i++){
-                                            let input=inputs[i]
-                                            if(input == 'optional'){
-                                                optional = true
-                                            }else if((document.getElementById(input).value == "" && !optional) || document.getElementById(input).className.includes("is-invalid")){
-                                                document.getElementById(input).scrollIntoView()
-                                                return false
-                                            }
-                                        }
-                                        return true
-                                    }
-
-                                    function checkForm(type, id){//completar
-                                        let email = document.getElementById(id)
-                                        formConditions(email, type)
-                                        if(email.value == ''){
-                                            email.classList.remove('is-invalid')
-                                        }
-                                    }
-
-                                    function formConditions(element, type){
-                                        let ok = false
-                                        switch(type){
-                                            case 'email':   
-                                                if(element.value.length > 5){
-                                                    let arroba = false
-                                                    let extension = false
-
-                                                    for(let i=0; i<element.value.length; i++){
-                                                        if(element.value[i] == '@' && element.value[i-3] != null && element.value.charCodeAt(i+1) > 64 && element.value.charCodeAt(i+1) < 123){
-                                                            arroba = true
-                                                        }else if(element.value[i] == '.' && arroba && element.value[i+1] != null){
-                                                            extension = true
-                                                        }
-                                                    }
-
-                                                    if(arroba && extension){
-                                                        ok = true
-                                                    }
-                                                }
-                                                if(ok){
-                                                    element.classList.remove('is-invalid')
-                                                }else{
-                                                    element.classList.add('is-invalid')
-                                                }
-                                                break
-                                            case "password":
-                                                if(element.value.length>8){
-                                                    let upperCase = false
-                                                    let lowerCase = false
-                                                    let number = false
-
-                                                    for(let i = 0; i<element.value.length; i++ ){
-                                                        if(element.value.charCodeAt(i) > 64 && element.value.charCodeAt(i) < 91 ){
-                                                            upperCase = true
-                                                        }else if(element.value.charCodeAt(i) < 123 && element.value.charCodeAt(i) > 96 ){
-                                                            lowerCase = true
-                                                        }else if(element.value.charCodeAt(i) > 47 && element.value.charCodeAt(i) < 58 ){
-                                                            number = true
-                                                        }
-                                                    }
-                                                    
-                                                    if(lowerCase && upperCase && number){
-                                                        ok = true
-                                                    }
-                                                }
-                                                if(ok){
-                                                    element.classList.remove('is-invalid')
-                                                }else{
-                                                    element.classList.add('is-invalid')
-                                                }
-                                                break 
-                                            case "password2":
-                                                if(element.value == document.getElementById('passwordRegister').value){
-                                                    element.classList.remove('is-invalid')
-                                                }else if(element.value != ''){
-                                                    element.classList.add('is-invalid')
-                                                }
-                                                break
-                                            case "name":
-                                                if(element.value.length>1){
-                                                    for(let i=0; i<element.value.length; i++){
-                                                        if((element.value.charCodeAt(i) < 65 || (element.value.charCodeAt(i) > 90 && element.value.charCodeAt(i) < 95)) || element.value.charCodeAt(i) > 122){
-                                                            element.classList.add('is-invalid')
-                                                            ok = true
-                                                            break
-                                                        }
-                                                    }
-                                                }else{
-                                                    ok = true
-                                                }
-                                                if(!ok){
-                                                    element.classList.remove('is-invalid')
-                                                }
-                                                break
-                                            case "phone":
-                                                if(element.value.length>8 && element.value.length<12){
-                                                    element.classList.remove('is-invalid')
-                                                }else{
-                                                    element.classList.add('is-invalid')
-                                                }
-                                                break
-                                            case "code":
-                                                if(element.value.length!=6){
-                                                    element.classList.add('is-invalid')
-                                                }else{
-                                                    element.classList.remove('is-invalid')
-                                                }
-                                        }
-                                    }
-
-                                    function toVerify(){
-                                        if(globalCheck('emailRegister', 'nameRegister', 'lastnameRegister', 'passwordRegister', 'password2Register', 'optional','celRegister', 'addressRegister')){
-                                            document.getElementById('bodyRegister1').style.display='none'
-                                            document.getElementById('bodyRegister2').style.display='block'
-                                        }
-                                        document.getElementById('emailVerRegi').innerHTML = document.getElementById('emailRegister').value
-                                    }
-                                </script>
+                                
                                 <button onclick="globalCheck('emailIni', 'passwordIni')" class="button">ACCEDER</button>
                             </div>
                         </div>
@@ -577,19 +301,6 @@
                                         <input onkeyup="checkForm('phone', 'celIni')" class="form-control" id="celIni" type="number" placeholder="Escribe tu numero...">
                                     </div>
                                 </div>
-                                <script>
-                                    function newPassword(...inputs){
-                                        for(let i=0; i<inputs.length; i++){
-                                            let input=inputs[i]
-                                            if(document.getElementById(input).value != "" && !document.getElementById(input).className.includes("is-invalid")){
-                                                document.getElementById('h1NewPass').innerHTML += " "+document.getElementById(input).value
-                                                document.getElementById('iniContNew').style.display = 'none'
-                                                document.getElementById('iniCont2').style.display = 'block'
-                                                return 0
-                                            }
-                                        }
-                                    }
-                                </script>
                                 <button onclick="newPassword('emailNew', 'celIni')" class="button">ENVIAR</button>
                             </div>
                         </div>
