@@ -1,0 +1,10 @@
+#dots{
+    z-index: 1;
+    margin-top: -4%;
+    text-align: center;
+    position: relative;
+}
+
+.dot:hover {
+    background-color: white;
+  }

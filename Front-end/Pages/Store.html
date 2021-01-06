@@ -18,8 +18,8 @@
                 if(innerWidth>650 && innerWidth<700){
                     for(let i=0; i<document.getElementsByClassName('publicity').length; i++){
                         document.getElementsByClassName('publicity')[i].classList.add('publi')
-                        document.getElementsByClassName('publicity')[i].parentElement.style.height='50vh'
-                        document.getElementById('publicity')[i].getElementsByTagName('IMG')[0].style.height='50vh'
+                        document.getElementsByClassName('publicity')[i].parentElement.style.height='60vh'
+                        document.getElementsByClassName('publicity')[i].getElementsByTagName('IMG')[0].style.height='60vh'
                         document.getElementsByClassName('publicity')[i].classList.remove('publicity')
                     }
                 }else if(innerWidth<650 && innerWidth>550){
@@ -49,10 +49,10 @@
             }
 
             function headerClothesFixed(){
-                if(document.body.scrollTop > document.getElementById('cr').scrollHeight - 30 && document.getElementById('categoriesCont').classList.length == 0){
+                if(document.body.scrollTop > document.getElementById('cr').scrollHeight - 130 && document.getElementById('categoriesCont').classList.length == 0){
                     document.getElementById('categoriesCont').style.top = document.getElementsByTagName('HEADER')[0].style.height
                     document.getElementById('categoriesCont').classList.add('fixedCC')
-                }else if(document.body.scrollTop <= document.getElementById('cr').scrollHeight - 30){
+                }else if(document.body.scrollTop <= document.getElementById('cr').scrollHeight - 130){
                     document.getElementById('categoriesCont').classList.remove('fixedCC')
                 }
             }
@@ -74,6 +74,17 @@
                     <svg id="adelante" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
                     </svg>
+                </div>
+                <div class="publicit">
+                    <div class="text">
+                        <h3>Mira lo ultimo de nuestra linea de invierno</h3>
+                        <div class="shop">
+                            <h5>Ir a comprar</h5>
+                            <svg style="position:static; width:13px; height:13px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
             <script>
@@ -531,326 +542,440 @@
             </div>
         </div>
         <!--Categories-->
-        <div id="categoriesCont">
-            <ul>
-                <li style="border:0" class="category">
-                    <h5>Categoria</h5>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                        </svg>
-                    </div>
-                </li>
-                <li class="category">
-                    <h5>Actividad</h5>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                        </svg>
-                    </div>
-                </li>
-                <li class="category">
-                    <h5>Ordenar por</h5>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                        </svg>
-                    </div>
-                </li>
-                <li class="category">
-                    <h5>Filtrar por</h5>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                        </svg>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div id="clothesCont" class="clothesCont">
-            <div id="headerClothes" class="header">
-                <h1>TODO</h1>    
-            </div>
-            <div class="body">
-                <div class="clotheCont">
-                    <svg id="svgHeartFill1" style="display:none; fill:black" onclick="document.getElementById('svgHeart1').style.display='block', document.getElementById('svgHeartFill1').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                    </svg>
-                    <svg id="svgHeart1" onclick="document.getElementById('svgHeart1').style.display='none', document.getElementById('svgHeartFill1').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                    </svg>
-                    <div class="img">
-                        <img src="../Images/bag.png" alt="">
-                    </div>
-                    <div class="mensaje">
-                        <h1>NUEVO</h1>
-                    </div>
-                    <div class="description">
-                        <p>Cartera elegante, colaboración entre LV y Adidas</p>
-                        <h4>$1.900</h4>
-                    </div>
-                </div>
-                <div class="clotheCont">
-                    <svg id="svgHeartFill2" style="display:none; fill:black" onclick="document.getElementById('svgHeart2').style.display='block', document.getElementById('svgHeartFill2').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                    </svg>
-                    <svg id="svgHeart2" onclick="document.getElementById('svgHeart2').style.display='none', document.getElementById('svgHeartFill2').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                    </svg>
-                    <div class="img">
-                        <img src="../Images/jean.png" alt="">
-                    </div>
-                    <div class="description">
-                        <p>Jean elegante, colaboración entre Batuk y Russel</p>
-                        <div class="desc">
-                            <h4>$3.900</h4>
-                            <h5>2.900</h5>    
-                        </div>
-                    </div>
-                </div>
-                <div class="clotheCont">
-                    <svg id="svgHeartFill3" style="display:none; fill:black" onclick="document.getElementById('svgHeart3').style.display='block', document.getElementById('svgHeartFill3').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                    </svg>
-                    <svg id="svgHeart3" onclick="document.getElementById('svgHeart3').style.display='none', document.getElementById('svgHeartFill3').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                    </svg>
-                    <div class="img">
-                        <img src="../Images/zapatos.png" alt="">
-                    </div>
-                    <div class="mensaje">
-                        <h1>SIN STOCK</h1>
-                    </div>
-                    <div class="description">
-                        <p>Zapatos elegantes, ultimo modelo en colaboración con Garcon García</p>
-                        <h4>$8.900</h4>
-                    </div>
-                </div>
-                <div class="clotheCont">
-                    <svg id="svgHeartFill4" style="display:none; fill:black" onclick="document.getElementById('svgHeart4').style.display='block', document.getElementById('svgHeartFill4').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                    </svg>
-                    <svg id="svgHeart4" onclick="document.getElementById('svgHeart4').style.display='none', document.getElementById('svgHeartFill4').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                    </svg>
-                    <div class="img">
-                        <img src="../Images/campera.png" alt="">
-                    </div>
-                    <div class="description">
-                        <p>Cartera deportiva, colaboración entre Nike y Puma</p>
-                        <h4>$2.500</h4>
-                    </div>
-                </div>  
-                <div class="clotheCont" style="height: fit-content; width: 200%; margin-right: 0; margin-left: 0;">
-                    <div class="publicity">
-                        <img src="../Images/background2.jpg" alt="">
-                        <div class="text">
-                            <h3>Mira lo ultimo de nuestra linea de verano</h3>
-                            <div class="shop">
-                                <h5>Ir a comprar</h5>
-                                <svg style="position:static; width:13px; height:13px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+        <div id="cagoriesBox">
+            <div id="categoriesCont">
+                <ul>
+                    <li style="border:0" class="category" onclick="displayCategory('category1')">
+                        <div style="width: fit-content; display: flex; margin-left: auto; margin-right: auto;">
+                            <h5>Categoría</h5>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
                                 </svg>
                             </div>
                         </div>
-                    </div>
+                    </li>
+                    <li class="category" onclick="displayCategory('category2')">
+                        <div style="width: fit-content; display: flex; margin-left: auto; margin-right: auto;">
+                            <h5>Actividad</h5>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>  
+                        </div>
+                    </li>
+                    <li class="category" onclick="displayCategory('category3')">
+                        <div style="width: fit-content; display: flex; margin-left: auto; margin-right: auto;">
+                            <h5>Filtrar por</h5>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>  
+                        </div>
+                    </li>
+                    <li class="category" onclick="displayCategory('category4')">
+                        <div style="width: fit-content; display: flex; margin-left: auto; margin-right: auto;">
+                            <h5>Ordenar por</h5>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div> 
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="categoryCont">
+                <div>
+                    <ul id="category1" class="categoryCont">
+                        <li id="category1Option1" class="li" onclick="hideCategory('category1Option1')">    
+                            Todos (50)
+                        </li>
+                        <li id="category1Option2" class="li" onclick="hideCategory('category1Option2')">    
+                            Pantalones (12)
+                        </li>
+                        <li id="category1Option3" class="li" onclick="hideCategory('category1Option3')">    
+                            Zapatillas (5)
+                        </li>
+                        <li id="category1Option4" class="li" onclick="hideCategory('category1Option4')">    
+                            Relojes (3)
+                        </li>
+                        <li id="category1Option5" class="li" onclick="hideCategory('category1Option5')">    
+                            Remeras (26)
+                        </li>
+                    </ul>
+                    <ul id="category2" class="categoryCont">
+                        <li id="category1Option1" class="li" onclick="hideCategory('category1Option1')">    
+                            Todos (50)
+                        </li>
+                        <li id="category1Option2" class="li" onclick="hideCategory('category1Option2')">    
+                            Elegante (12)
+                        </li>
+                        <li id="category1Option3" class="li" onclick="hideCategory('category1Option3')">    
+                            Urbano (5)
+                        </li>
+                        <li id="category1Option4" class="li" onclick="hideCategory('category1Option4')">    
+                            Ciclismo (3)
+                        </li>
+                        <li id="category1Option5" class="li" onclick="hideCategory('category1Option5')">    
+                            Running (26)
+                        </li>
+                    </ul>
+                    <ul id="category3" class="categoryCont">
+                        <li id="category1Option1" class="li" onclick="hideCategory('category1Option1')">    
+                            Todos (50)
+                        </li>
+                        <li id="category1Option2" class="li" onclick="hideCategory('category1Option2')">    
+                            Hombre (12)
+                        </li>
+                        <li id="category1Option3" class="li" onclick="hideCategory('category1Option3')">    
+                            Mujer (5)
+                        </li>
+                        <li id="category1Option4" class="li" onclick="hideCategory('category1Option4')">    
+                            Niño (3)
+                        </li>
+                        <li id="category1Option5" class="li" onclick="hideCategory('category1Option5')">    
+                            Niña (26)
+                        </li>
+                    </ul>
+                    <ul id="category4" class="categoryCont">
+                        <li id="category4Option1" class="li" onclick="hideCategory('category4Option1')">    
+                            Más relevante
+                        </li>
+                        <li id="category4Option2" class="li" onclick="hideCategory('category4Option2')">    
+                            Mayor precio
+                        </li>
+                        <li id="category4Option3" class="li" onclick="hideCategory('category4Option3')">    
+                            Menor precio
+                        </li>
+                    </ul>
                 </div>
-                <div class="clotheCont" style="opacity: 0; height: fit-content;">
-                    <div class="publicity">
-                        <img src="" alt="">
-                    </div>
-                </div>
-                <div class="clotheCont">
-                    <svg id="svgHeartFill4" style="display:none; fill:black" onclick="document.getElementById('svgHeart4').style.display='block', document.getElementById('svgHeartFill4').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                    </svg>
-                    <svg id="svgHeart4" onclick="document.getElementById('svgHeart4').style.display='none', document.getElementById('svgHeartFill4').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                    </svg>
-                    <div class="img">
-                        <img src="../Images/campera.png" alt="">
-                    </div>
-                    <div class="description">
-                        <p>Cartera deportiva, colaboración entre Nike y Puma</p>
-                        <h4>$2.500</h4>
-                    </div>
-                </div>  
             </div>
         </div>
+        <script>
+            function displayCategory(id){
+                document.getElementById('footer').scrollIntoView()
+                for(let i=0; i<document.getElementsByClassName('categoryCont').length;i++){
+                    document.getElementsByClassName('categoryCont')[i].style.display = 'none'
+                }
+                document.getElementById('categoryCont').style.display = 'block'
+                document.getElementById(id).style.display = 'grid'
+                document.getElementById('categoryCont').style.top = document.getElementsByTagName('HEADER')[0].scrollHeight+ document.getElementById('categoriesCont').scrollHeight 
+                document.getElementById('categoriesCont').classList.add('fixedCC')
+                document.getElementById('categoryCont').style.height = "calc(100% - "+ document.getElementById('categoryCont').style.top+")"
+                document.body.style.overflow = 'hidden'
+            }
 
-        <div id="clothesContB" class="clothesCont">
-            <div /*id="headerClothes"*/ class="header">
-                <h1>ALL</h1>    
-            </div>
-            <div class="body">
-                <div class="clotheCont">
-                    <svg id="svgHeartBFill1" style="display:none; fill:black" onclick="document.getElementById('svgHeartB1').style.display='block', document.getElementById('svgHeartBFill1').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                    </svg>
-                    <svg id="svgHeartB1" onclick="document.getElementById('svgHeartB1').style.display='none', document.getElementById('svgHeartBFill1').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                    </svg>
-                    <div class="img">
-                        <img src="../Images/bag.png" alt="">
-                    </div>
-                    <div class="mensaje">
-                        <h1>NUEVO</h1>
-                    </div>
-                    <div class="description">
-                        <p>Cartera elegante, colaboración entre LV y Adidas</p>
-                        <h4>$1.900</h4>
-                    </div>
+            function hideCategory(id){
+                document.getElementById('categoryCont').style.display = 'none'
+                document.body.style.overflow = 'auto'
+                document.getElementById('clothesContBox').scrollIntoView()
+                document.getElementById('categoriesCont').classList.remove('fixedCC')
+            }
+        </script>
+        <div id="clothesContBox">
+            <div id="clothesCont" class="clothesCont">
+                <div id="headerClothes" class="header">
+                    <h1>TODO</h1>    
                 </div>
-                <div class="clotheCont">
-                    <svg id="svgHeartBFill2" style="display:none; fill:black" onclick="document.getElementById('svgHeartB2').style.display='block', document.getElementById('svgHeartBFill2').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                    </svg>
-                    <svg id="svgHeartB2" onclick="document.getElementById('svgHeartB2').style.display='none', document.getElementById('svgHeartBFill2').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                    </svg>
-                    <div class="img">
-                        <img src="../Images/jean.png" alt="">
-                    </div>
-                    <div class="description">
-                        <p>Jean elegante, colaboración entre Batuk y Russel</p>
-                        <div class="desc">
-                            <h4>$3.900</h4>
-                            <h5>2.900</h5>    
+                <div class="body">
+                    <div class="clotheCont">
+                        <svg id="svgHeartFill1" style="display:none; fill:black" onclick="document.getElementById('svgHeart1').style.display='block', document.getElementById('svgHeartFill1').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                        <svg id="svgHeart1" onclick="document.getElementById('svgHeart1').style.display='none', document.getElementById('svgHeartFill1').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg>
+                        <div class="img">
+                            <img src="../Images/bag.png" alt="">
+                        </div>
+                        <div class="mensaje">
+                            <h1>NUEVO</h1>
+                        </div>
+                        <div class="description">
+                            <p>Cartera elegante, colaboración entre LV y Adidas</p>
+                            <h4>$1.900</h4>
                         </div>
                     </div>
-                </div>
-                <div class="clotheCont">
-                    <svg id="svgHeartBFill3" style="display:none; fill:black" onclick="document.getElementById('svgHeartB3').style.display='block', document.getElementById('svgHeartBFill3').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                    </svg>
-                    <svg id="svgHeartB3" onclick="document.getElementById('svgHeartB3').style.display='none', document.getElementById('svgHeartBFill3').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                    </svg>
-                    <div class="img">
-                        <img src="../Images/zapatos.png" alt="">
-                    </div>
-                    <div class="mensaje">
-                        <h1>SIN STOCK</h1>
-                    </div>
-                    <div class="description">
-                        <p>Zapatos elegantes, ultimo modelo en colaboración con Garcon García</p>
-                        <h4>$8.900</h4>
-                    </div>
-                </div>
-                <div class="clotheCont">
-                    <svg id="svgHeartBFill4" style="display:none; fill:black" onclick="document.getElementById('svgHeartB4').style.display='block', document.getElementById('svgHeartBFill4').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                    </svg>
-                    <svg id="svgHeartB4" onclick="document.getElementById('svgHeartB4').style.display='none', document.getElementById('svgHeartBFill4').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                    </svg>
-                    <div class="img">
-                        <img src="../Images/campera.png" alt="">
-                    </div>
-                    <div class="description">
-                        <p>Cartera deportiva, colaboración entre Nike y Puma</p>
-                        <h4>$2.500</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="clothesContC" class="clothesCont">
-            <div class="header">
-                <h1>ALL</h1>    
-            </div>
-            <div class="body">
-                <div class="clotheCont">
-                    <svg id="svgHeartCFill1" style="display:none; fill:black" onclick="document.getElementById('svgHeartC1').style.display='block', document.getElementById('svgHeartCFill1').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                    </svg>
-                    <svg id="svgHeartC1" onclick="document.getElementById('svgHeartC1').style.display='none', document.getElementById('svgHeartCFill1').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                    </svg>
-                    <div class="img">
-                        <img src="https://statics.glamit.com.ar/media/catalog/product/cache/123/base/700x1050/9df78eab33525d08d6e5fb8d27136e95/b/e/bensimon_15172_24_01.jpg" alt="">
-                    </div>
-                    <div class="mensaje">
-                        <h1>NUEVO</h1>
-                    </div>
-                    <div class="description">
-                        <p>Cartera elegante, colaboración entre LV y Adidas</p>
-                        <h4>$1.900</h4>
-                    </div>
-                </div>
-                <div class="clotheCont">
-                    <svg id="svgHeartCFill2" style="display:none; fill:black" onclick="document.getElementById('svgHeartC2').style.display='block', document.getElementById('svgHeartCFill2').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                    </svg>
-                    <svg id="svgHeartC2" onclick="document.getElementById('svgHeartC2').style.display='none', document.getElementById('svgHeartCFill2').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                    </svg>
-                    <div class="img">
-                        <img src="https://statics.glamit.com.ar/media/catalog/product/cache/123/base/700x1050/9df78eab33525d08d6e5fb8d27136e95/b/e/bensimon_33169_21_66170.jpg" alt="">
-                    </div>
-                    <div class="description">
-                        <p>Jean elegante, colaboración entre Batuk y Russel</p>
-                        <div class="desc">
-                            <h4>$3.900</h4>
-                            <h5>2.900</h5>    
+                    <div class="clotheCont">
+                        <svg id="svgHeartFill2" style="display:none; fill:black" onclick="document.getElementById('svgHeart2').style.display='block', document.getElementById('svgHeartFill2').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                        <svg id="svgHeart2" onclick="document.getElementById('svgHeart2').style.display='none', document.getElementById('svgHeartFill2').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg>
+                        <div class="img">
+                            <img src="../Images/jean.png" alt="">
                         </div>
-                    </div>
-                </div>
-                <div class="clotheCont">
-                    <svg id="svgHeartCFill3" style="display:none; fill:black" onclick="document.getElementById('svgHeartC3').style.display='block', document.getElementById('svgHeartCFill3').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                    </svg>
-                    <svg id="svgHeartC3" onclick="document.getElementById('svgHeartC3').style.display='none', document.getElementById('svgHeartCFill3').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                    </svg>
-                    <div class="img">
-                        <img src="https://statics.glamit.com.ar/media/catalog/product/cache/123/base/700x1050/9df78eab33525d08d6e5fb8d27136e95/b/e/bensimon_15415_93_67494.jpg" alt="">
-                    </div>
-                    <div class="sinStock">
-                        <h1>SIN STOCK</h1>
-                    </div>
-                    <div class="description">
-                        <p>Zapatos elegantes, ultimo modelo en colaboración con Garcon García</p>
-                        <h4>$8.900</h4>
-                    </div>
-                </div>
-                <div class="clotheCont">
-                    <svg id="svgHeartCFill4" style="display:none; fill:black" onclick="document.getElementById('svgHeartC4').style.display='block', document.getElementById('svgHeartCFill4').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                    </svg>
-                    <svg id="svgHeartC4" onclick="document.getElementById('svgHeartC4').style.display='none', document.getElementById('svgHeartCFill4').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                    </svg>
-                    <div class="img">
-                        <img src="https://statics.glamit.com.ar/media/catalog/product/cache/123/base/700x1050/9df78eab33525d08d6e5fb8d27136e95/b/e/bensimon_33167_09_01.jpg" alt="">
-                    </div>
-                    <div class="description">
-                        <p>Cartera deportiva, colaboración entre Nike y Puma</p>
-                        <h4>$2.500</h4>
-                    </div>
-                </div>
-                <div class="clotheCont" style="height: fit-content; width: 200%; margin-right: 0; margin-left: 0;">
-                    <div class="publicity">
-                        <img src="../Images/carrousel3.jpg" alt="">
-                        <div class="text">
-                            <h3>Mira lo ultimo de nuestra linea de verano</h3>
-                            <div class="shop">
-                                <h5>Ir a comprar</h5>
-                                <svg style="position:static; width:13px; height:13px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
-                                </svg>
+                        <div class="description">
+                            <p>Jean elegante, colaboración entre Batuk y Russel</p>
+                            <div class="desc">
+                                <h4>$3.900</h4>
+                                <h5>2.900</h5>    
                             </div>
                         </div>
                     </div>
+                    <div class="clotheCont">
+                        <svg id="svgHeartFill3" style="display:none; fill:black" onclick="document.getElementById('svgHeart3').style.display='block', document.getElementById('svgHeartFill3').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                        <svg id="svgHeart3" onclick="document.getElementById('svgHeart3').style.display='none', document.getElementById('svgHeartFill3').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg>
+                        <div class="img">
+                            <img src="../Images/zapatos.png" alt="">
+                        </div>
+                        <div class="mensaje">
+                            <h1>SIN STOCK</h1>
+                        </div>
+                        <div class="description">
+                            <p>Zapatos elegantes, ultimo modelo en colaboración con Garcon García</p>
+                            <h4>$8.900</h4>
+                        </div>
+                    </div>
+                    <div class="clotheCont">
+                        <svg id="svgHeartFill4" style="display:none; fill:black" onclick="document.getElementById('svgHeart4').style.display='block', document.getElementById('svgHeartFill4').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                        <svg id="svgHeart4" onclick="document.getElementById('svgHeart4').style.display='none', document.getElementById('svgHeartFill4').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg>
+                        <div class="img">
+                            <img src="../Images/campera.png" alt="">
+                        </div>
+                        <div class="description">
+                            <p>Cartera deportiva, colaboración entre Nike y Puma</p>
+                            <h4>$2.500</h4>
+                        </div>
+                    </div>  
+                    <div class="clotheCont" style="height: fit-content; width: 200%; margin-right: 0; margin-left: 0;">
+                        <div class="publicit publicity">
+                            <img src="../Images/background2.jpg" alt="">
+                            <div class="text">
+                                <h3>Mira lo ultimo de nuestra linea de verano</h3>
+                                <div class="shop">
+                                    <h5>Ir a comprar</h5>
+                                    <svg style="position:static; width:13px; height:13px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clotheCont" style="opacity: 0; height: fit-content;">
+                        <div class="publicit publicity">
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                    <div class="clotheCont">
+                        <svg id="svgHeartFill5" style="display:none; fill:black" onclick="document.getElementById('svgHeart5').style.display='block', document.getElementById('svgHeartFill5').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                        <svg id="svgHeart5" onclick="document.getElementById('svgHeart5').style.display='none', document.getElementById('svgHeartFill5').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg>
+                        <div class="img">
+                            <img src="../Images/abrigo2.png" alt="">
+                        </div>
+                        <div class="description">
+                            <p>Cartera deportiva, colaboración entre Nike y Puma</p>
+                            <h4>$2.500</h4>
+                        </div>
+                    </div>
+                    <div class="clotheCont">
+                        <svg id="svgHeartFill6" style="display:none; fill:black" onclick="document.getElementById('svgHeart6').style.display='block', document.getElementById('svgHeartFill6').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                        <svg id="svgHeart6" onclick="document.getElementById('svgHeart6').style.display='none', document.getElementById('svgHeartFill6').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg>
+                        <div class="img">
+                            <img src="../Images/abrigo.png" alt="">
+                        </div>
+                        <div class="description">
+                            <p>Cartera deportiva, colaboración entre Nike y Puma</p>
+                            <h4>$2.500</h4>
+                        </div>
+                    </div>    
                 </div>
-                <div class="clotheCont" style="opacity: 0; height: fit-content;">
-                    <div class="publicity">
-                        <img src="" alt="">
+            </div>
+            <button>Ver más</button>
+            <!--<div id="clothesContB" class="clothesCont">
+                <div /*id="headerClothes"*/ class="header">
+                    <h1>ALL</h1>    
+                </div>
+                <div class="body">
+                    <div class="clotheCont">
+                        <svg id="svgHeartBFill1" style="display:none; fill:black" onclick="document.getElementById('svgHeartB1').style.display='block', document.getElementById('svgHeartBFill1').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                        <svg id="svgHeartB1" onclick="document.getElementById('svgHeartB1').style.display='none', document.getElementById('svgHeartBFill1').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg>
+                        <div class="img">
+                            <img src="../Images/bag.png" alt="">
+                        </div>
+                        <div class="mensaje">
+                            <h1>NUEVO</h1>
+                        </div>
+                        <div class="description">
+                            <p>Cartera elegante, colaboración entre LV y Adidas</p>
+                            <h4>$1.900</h4>
+                        </div>
+                    </div>
+                    <div class="clotheCont">
+                        <svg id="svgHeartBFill2" style="display:none; fill:black" onclick="document.getElementById('svgHeartB2').style.display='block', document.getElementById('svgHeartBFill2').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                        <svg id="svgHeartB2" onclick="document.getElementById('svgHeartB2').style.display='none', document.getElementById('svgHeartBFill2').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg>
+                        <div class="img">
+                            <img src="../Images/jean.png" alt="">
+                        </div>
+                        <div class="description">
+                            <p>Jean elegante, colaboración entre Batuk y Russel</p>
+                            <div class="desc">
+                                <h4>$3.900</h4>
+                                <h5>2.900</h5>    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clotheCont">
+                        <svg id="svgHeartBFill3" style="display:none; fill:black" onclick="document.getElementById('svgHeartB3').style.display='block', document.getElementById('svgHeartBFill3').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                        <svg id="svgHeartB3" onclick="document.getElementById('svgHeartB3').style.display='none', document.getElementById('svgHeartBFill3').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg>
+                        <div class="img">
+                            <img src="../Images/zapatos.png" alt="">
+                        </div>
+                        <div class="mensaje">
+                            <h1>SIN STOCK</h1>
+                        </div>
+                        <div class="description">
+                            <p>Zapatos elegantes, ultimo modelo en colaboración con Garcon García</p>
+                            <h4>$8.900</h4>
+                        </div>
+                    </div>
+                    <div class="clotheCont">
+                        <svg id="svgHeartBFill4" style="display:none; fill:black" onclick="document.getElementById('svgHeartB4').style.display='block', document.getElementById('svgHeartBFill4').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                        <svg id="svgHeartB4" onclick="document.getElementById('svgHeartB4').style.display='none', document.getElementById('svgHeartBFill4').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg>
+                        <div class="img">
+                            <img src="../Images/campera.png" alt="">
+                        </div>
+                        <div class="description">
+                            <p>Cartera deportiva, colaboración entre Nike y Puma</p>
+                            <h4>$2.500</h4>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div id="clothesContC" class="clothesCont">
+                <div class="header">
+                    <h1>ALL</h1>    
+                </div>
+                <div class="body">
+                    <div class="clotheCont">
+                        <svg id="svgHeartCFill1" style="display:none; fill:black" onclick="document.getElementById('svgHeartC1').style.display='block', document.getElementById('svgHeartCFill1').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                        <svg id="svgHeartC1" onclick="document.getElementById('svgHeartC1').style.display='none', document.getElementById('svgHeartCFill1').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg>
+                        <div class="img">
+                            <img src="https://statics.glamit.com.ar/media/catalog/product/cache/123/base/700x1050/9df78eab33525d08d6e5fb8d27136e95/b/e/bensimon_15172_24_01.jpg" alt="">
+                        </div>
+                        <div class="mensaje">
+                            <h1>NUEVO</h1>
+                        </div>
+                        <div class="description">
+                            <p>Cartera elegante, colaboración entre LV y Adidas</p>
+                            <h4>$1.900</h4>
+                        </div>
+                    </div>
+                    <div class="clotheCont">
+                        <svg id="svgHeartCFill2" style="display:none; fill:black" onclick="document.getElementById('svgHeartC2').style.display='block', document.getElementById('svgHeartCFill2').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                        <svg id="svgHeartC2" onclick="document.getElementById('svgHeartC2').style.display='none', document.getElementById('svgHeartCFill2').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg>
+                        <div class="img">
+                            <img src="https://statics.glamit.com.ar/media/catalog/product/cache/123/base/700x1050/9df78eab33525d08d6e5fb8d27136e95/b/e/bensimon_33169_21_66170.jpg" alt="">
+                        </div>
+                        <div class="description">
+                            <p>Jean elegante, colaboración entre Batuk y Russel</p>
+                            <div class="desc">
+                                <h4>$3.900</h4>
+                                <h5>2.900</h5>    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clotheCont">
+                        <svg id="svgHeartCFill3" style="display:none; fill:black" onclick="document.getElementById('svgHeartC3').style.display='block', document.getElementById('svgHeartCFill3').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                        <svg id="svgHeartC3" onclick="document.getElementById('svgHeartC3').style.display='none', document.getElementById('svgHeartCFill3').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg>
+                        <div class="img">
+                            <img src="https://statics.glamit.com.ar/media/catalog/product/cache/123/base/700x1050/9df78eab33525d08d6e5fb8d27136e95/b/e/bensimon_15415_93_67494.jpg" alt="">
+                        </div>
+                        <div class="sinStock">
+                            <h1>SIN STOCK</h1>
+                        </div>
+                        <div class="description">
+                            <p>Zapatos elegantes, ultimo modelo en colaboración con Garcon García</p>
+                            <h4>$8.900</h4>
+                        </div>
+                    </div>
+                    <div class="clotheCont">
+                        <svg id="svgHeartCFill4" style="display:none; fill:black" onclick="document.getElementById('svgHeartC4').style.display='block', document.getElementById('svgHeartCFill4').style.display='none'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                        <svg id="svgHeartC4" onclick="document.getElementById('svgHeartC4').style.display='none', document.getElementById('svgHeartCFill4').style.display='block'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg>
+                        <div class="img">
+                            <img src="https://statics.glamit.com.ar/media/catalog/product/cache/123/base/700x1050/9df78eab33525d08d6e5fb8d27136e95/b/e/bensimon_33167_09_01.jpg" alt="">
+                        </div>
+                        <div class="description">
+                            <p>Cartera deportiva, colaboración entre Nike y Puma</p>
+                            <h4>$2.500</h4>
+                        </div>
+                    </div>
+                    <div class="clotheCont" style="height: fit-content; width: 200%; margin-right: 0; margin-left: 0;">
+                        <div class="publicit publicity">
+                            <img src="../Images/carrousel3.jpg" alt="">
+                            <div class="text">
+                                <h3>Mira lo ultimo de nuestra linea de verano</h3>
+                                <div class="shop">
+                                    <h5>Ir a comprar</h5>
+                                    <svg style="position:static; width:13px; height:13px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clotheCont" style="opacity: 0; height: fit-content;">
+                        <div class="publicit publicity">
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>-->
         </div>
         <!-- preguntas frecuentes¿?-->
-        <div class="bottom">
+        <div id="footer" class="bottom">
             <div class="body">
                 <div class="redesSociales">
                     <h3>REDES SOCIALES</h3>
@@ -893,6 +1018,9 @@
             </div>
         </div>    
     </body>
+    <script>
+        onresizeFun
+    </script>
 </html>
 
 <!--

@@ -104,6 +104,9 @@ header{
 /*categories*/
 #categoriesCont{
   justify-content: center;
+  background-color: white;
+  z-index: 4;
+  width: 100%;
   border: solid 1px #dbd8d6;
 }
 
@@ -126,7 +129,7 @@ header{
 #categoriesCont .category{
   list-style-type: none;
   width: min-content;
-  padding: 2.5%;
+  padding: 1.5%;
   display: flex;
   border-left: 1px solid #dbd8d6;
   flex-grow: 1;
@@ -144,6 +147,7 @@ header{
 #categoriesCont .category svg{
   width: 15px;
   height:15px;
+  stroke: black;
 }
 
 #categoriesCont .category h5{
@@ -152,33 +156,111 @@ header{
   display: block;
   font-size: smaller;
   margin-top: auto;
+  letter-spacing: 0.5px;
+  font-family: serif;
   margin-bottom: auto;
 }
 
+#categoryCont{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  outline: 0; 
+}
+
+#categoryCont div{
+  width: 100%;
+  height: 100%;
+  background-color: rgb(230, 230, 230);
+  overflow-y: scroll;
+}
+
+#categoryCont .categoryCont{
+  width: 100%;
+  padding: 0;
+  list-style-type: none;
+  grid-row-gap: 0px;
+  border-top: solid 2px black;
+  display: none;
+  overflow-y: scroll;
+}
+
+#categoryCont .categoryCont li{
+  border-bottom: solid 1px #cccccc;
+  letter-spacing: 2px;
+  padding: 12px;
+  background-color: white;
+  text-align: center;
+  font-size: 14px;
+  position: relative;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#categoryCont .categoryCont .li:after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0;
+  transition: all .4s linear;
+  height: 2px;
+  background: #383838;
+  z-index: 2;
+}
+
+#categoryCont .categoryCont .li:hover:after{
+  width: 100%;
+}
 /*clothes*/
-.clothesCont .body .publicity{
+#clothesContBox button{
+  width: 150px;
+  outline: transparent;
+  height: 30px;
+  margin: 50px;
+  border: none;
+  color: white;
+  background: black;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+#clothesContBox button svg{
+  fill: white;
+  width: 30px;
+  height: 30px;
+}
+
+.clothesCont .body .publicit{
   width: 100%;
   position: relative;
 }
 
-.clothesCont .body .publicity img{
+.clothesCont .body .publicit img{
   width: 100%;
   object-fit: cover;
 }
 
-.clothesCont .body .publicity .text{
+.publicit .text{
   position: absolute;
   color: white;
   text-align: center;
   justify-content: center;
   width: 100%;
   top: 50%;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   letter-spacing: 1;
   text-transform: uppercase;
 }
 
-.clothesCont .body .publicity .text h3{
+.publicit .text h3{
   font-size: medium;
   padding: 4%;
   display: -webkit-box;
@@ -189,19 +271,19 @@ header{
   height: 60px;
 }
 
-.clothesCont .body .publicity .text .shop{
+.publicit .text .shop{
   display: flex;
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
 }
 
-.clothesCont .body .publicity .text .shop svg{
+.publicit .text .shop svg{
   position: static;
 
 }
 
-.clothesCont .body .publicity .text .shop h5{
+.publicit .text .shop h5{
   text-align: center;
   font-size: x-small;
 }
@@ -350,15 +432,15 @@ header{
 
 #clothesCont .body .clotheCont .mensaje{
   position: absolute;
-  background: black;
+  background: rgb(192, 192, 192);
   transform: rotate(180deg);
   writing-mode: vertical-rl;
   top: 0;
-  left: 8%;
+  left: 4%;
 }
 
 #clothesCont .body .clotheCont .mensaje h1{
-  font-size: 16px;
+  font-size: 12px;
   margin: 4px;
   color: white;
   font-family: serif;
@@ -609,6 +691,11 @@ header{
       height: 33%;
       background-size: contain;
     }
+
+    #categoriesCont .category{
+      padding: 2.5%;
+      padding-bottom: 20px;
+    }
     /*carrousel*/
 
   #points{
@@ -632,6 +719,25 @@ header{
   }
 
   /*clothes*/
+  #clothesContBox button{
+    width: 200px;
+    color: white;
+    outline: transparent;
+    height: 40px;
+    margin: 50px;
+    border: none;
+    background: #272727;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  
+  #clothesContBox button svg{
+    fill: white;
+    width: 40px;
+    height: 40px;
+  }
+
   .clothesCont .body{
     grid-template-columns: 50% 50%;
   }
@@ -664,7 +770,19 @@ header{
   }
 
   .clothesCont .body .clotheCont{
-    height: 50vh;
+    height: 60vh;
+  }
+
+  #clothesCont .body .clotheCont .img{
+    width: 55%;
+  }
+
+  #clothesContB .body .clotheCont .img{
+    width: 55%;
+  }
+  #clothesContBox button{
+    width: 25%;
+    height: 15%;
   }
   }
   
@@ -690,8 +808,14 @@ header{
     }
 
     .clothesCont .body .clotheCont{
-      height: 50vh;
+      height: 60vh;
     }
+
+    
+  #clothesContBox button{
+    width: 25%;
+    height: 15%;
+  }
   }
 
   @media (min-width: 651px) and (max-width: 750px){
