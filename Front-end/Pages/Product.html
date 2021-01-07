@@ -414,9 +414,210 @@
                 </div>
             </div>
         </div>
-        <div id="producto">
-            <div id="dots">
-
+        <div class="cont">
+            <div class="productContainer">
+                <div id="cr">
+                    <div id="imagesCarrousel">
+                        <img id="imagen1" src="../Images/carrousel1.jpg">
+                        <img id="imagen2" src="../Images/carrousel2.jpg">
+                        <img id="imagen3" src="../Images/carrousel3.jpg">
+                        <img id="imagen4" src="../Images/moda-background.jpg">
+                    </div>
+                    <div id="rey">
+                        <svg id="atras" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                        </svg>
+                        <svg id="adelante" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                    <div id="points">
+                        <span id="p1" class="dot"></span> 
+                        <span id="p2" class="dot"></span> 
+                        <span id="p3" class="dot"></span> 
+                        <span id="p4" class="dot"></span>
+                    </div>
+                </div>
+                <script>
+                    function activarCarrousel(){
+                        var imagen = 1;
+                        $("#adelante").click(function ManualAdelante(){
+                            cambioPuntos();
+                            $("#imagen" + imagen).css("display","none");
+                            if(imagen==4){
+                                imagen=1;
+                            }
+                            else{
+                                imagen=imagen+1;
+                            }
+                            cambioPuntos();
+                            $("#imagen" + imagen).fadeIn(1000);
+                            $("#imagen" + imagen).css("display","block");
+                        });
+    
+                        $("#atras").click(function ManualAtras(){
+                            $("#imagen" + imagen).css("display","none");
+                            if(imagen==1){
+                                imagen=4;
+                            }
+                            else{
+                                imagen=imagen-1;
+                            }
+                            cambioPuntos();
+                            $("#imagen" + imagen).fadeIn(1000);
+                            $("#imagen" + imagen).css("display","block");
+                        });
+    
+                        function cambioPuntos(){
+                            var i;
+                            var puntos = document.getElementsByClassName("dot");
+                            for (i = 0; i < puntos.length; i++) {
+                                puntos[i].className = puntos[i].className.replace(" active", "");
+                            }
+                            puntos[imagen-1].className += " active";
+                        }
+    
+                        $("#p1").click(function LlamarPunto(){
+                            clearInterval(interval);
+                            interval=setInterval(CambioAutomatico, 3000);
+                            $("#imagen" + imagen).css("display","none");
+                            imagen = 1;
+                            cambioPuntos();
+                            $("#imagen" + imagen).fadeIn(1000);
+                            $("#imagen" + imagen).css("display","block");
+                        });
+    
+                        $("#p2").click(function LlamarPunto(){
+                            clearInterval(interval);
+                            interval=setInterval(CambioAutomatico, 3000);
+                            $("#imagen" + imagen).css("display","none");
+                            imagen = 2;
+                            cambioPuntos();
+                            $("#imagen" + imagen).fadeIn(1000);
+                            $("#imagen" + imagen).css("display","block");
+                        });
+    
+                        $("#p3").click(function LlamarPunto(){
+                            clearInterval(interval);
+                            interval=setInterval(CambioAutomatico, 3000);
+                            $("#imagen" + imagen).css("display","none");
+                            imagen = 3;
+                            cambioPuntos();
+                            $("#imagen" + imagen).fadeIn(1000);
+                            $("#imagen" + imagen).css("display","block");
+                        });
+    
+                        $("#p4").click(function LlamarPunto(){
+                            clearInterval(interval);
+                            interval=setInterval(CambioAutomatico, 3000);
+                            $("#imagen" + imagen).css("display","none");
+                            imagen = 4;
+                            cambioPuntos();
+                            $("#imagen" + imagen).fadeIn(1000);
+                            $("#imagen" + imagen).css("display","block");
+                        });
+                    }
+                    activarCarrousel();
+    
+                </script>
+                <div class="productData">
+                    <div class="price">
+                        <h1>SHORT VINTAGE</h1>
+                        <h3>$3.000</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="relatedProducts">
+                <h2>productos que también podrían interesarte</h2>
+                <div id="puntos">
+                    <span id="pB1" class="dot"></span> 
+                    <span id="pB2" class="dot"></span> 
+                    <span id="pB3" class="dot"></span> 
+                    <span id="pB4" class="dot"></span>
+                    <span id="pB5" class="dot"></span>
+                </div>
+                <div id="products">
+                    <div id="arrows">
+                        <div id="back">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                            </svg>
+                        </div>
+                        <div id="foward">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="products">
+                        <div class="productCont">
+                            <div class="product">
+                                <img src="../Images/bag.png" alt="">
+                            </div>
+                            <div class="productDetail">
+                                <h4>Cartera elegante en colaboración con LV</h4>
+                                <h6>$2.500</h6>
+                            </div>
+                        </div>
+                        <div class="productCont">
+                            <div class="product">
+                                <img src="../Images/abrigo.png" alt="">
+                            </div>
+                            <div class="productDetail">
+                                <h4>Abrigo temporada invierno SY</h4>
+                                <div class="desc">
+                                    <h4>$2.500</h4>
+                                    <h5>3.000</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="productCont">
+                            <div class="product">
+                                <img src="../Images/abrigo2.png" alt="">
+                            </div>
+                            <div class="productDetail">
+                                <h4>Abrigo temporada invierno SU</h4>
+                                <h6>$2.900</h6>
+                            </div>
+                        </div>
+                        <div class="productCont">
+                            <div class="product">
+                                <img src="../Images/bag.png" alt="">
+                            </div>
+                            <div class="productDetail">
+                                <h4>Mochila para el verano</h4>
+                                <h6>$2.500</h6>
+                            </div>
+                        </div>
+                        <div class="productCont">
+                            <div class="product">
+                                <img src="../Images/bag.png" alt="">
+                            </div>
+                            <div class="productDetail">
+                                <h4>Mochila para el verano</h4>
+                                <h6>$2.500</h6>
+                            </div>
+                        </div>
+                        <div class="productCont">
+                            <div class="product">
+                                <img src="../Images/bag.png" alt="">
+                            </div>
+                            <div class="productDetail">
+                                <h4>Mochila para el verano</h4>
+                                <h6>$2.500</h6>
+                            </div>
+                        </div>
+                        <div class="productCont">
+                            <div class="product">
+                                <img src="../Images/bag.png" alt="">
+                            </div>
+                            <div class="productDetail">
+                                <h4>Mochila para el verano</h4>
+                                <h6>$2.500</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- preguntas frecuentes¿?-->

@@ -129,7 +129,7 @@ header{
 #categoriesCont .category{
   list-style-type: none;
   width: min-content;
-  padding: 1.5%;
+  padding: 1%;
   display: flex;
   border-left: 1px solid #dbd8d6;
   flex-grow: 1;
