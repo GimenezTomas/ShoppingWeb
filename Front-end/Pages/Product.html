@@ -10,7 +10,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body style="padding-top: 66px;">
+    <body style="padding-top: 66px;" onresize="productsHideOnResize('productCont', 'visiblePX'), dotsResize('puntos', 'pB', 'productCont')">
         <header onclick="document.getElementsByTagName('body')[0].scrollIntoView()" style="position: fixed; width: 100%; top: 0; height: 66px; z-index: 12; background-color: white;">
             <div class = "header" style="height: 100%;">
                 <div style="height: 100%;">
@@ -530,20 +530,15 @@
             <div class="relatedProducts">
                 <h2>productos que también podrían interesarte</h2>
                 <div id="puntos">
-                    <span id="pB1" class="dot"></span> 
-                    <span id="pB2" class="dot"></span> 
-                    <span id="pB3" class="dot"></span> 
-                    <span id="pB4" class="dot"></span>
-                    <span id="pB5" class="dot"></span>
                 </div>
                 <div id="products">
                     <div id="arrows">
-                        <div id="back">
+                        <div id="back" onclick="sliderProducts('puntos', 'dot', 'left', 'productCont', 'visiblePX')">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                             </svg>
                         </div>
-                        <div id="foward">
+                        <div id="foward" onclick="sliderProducts('puntos', 'dot', 'right', 'productCont', 'visiblePX')">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
                             </svg>
@@ -619,6 +614,114 @@
                     </div>
                 </div>
             </div>
+            <script>
+                function sliderProducts(idDots, clase, direction, classProd, classV){
+                    let elementCont = document.getElementById(idDots).childNodes
+                    
+                    let productsVisible = 0
+                    
+                    for(let i = 0; i < elementCont.length; i ++){
+                        if(elementCont[i].tagName != undefined){
+                            if(elementCont[i].classList.contains(clase) && elementCont[i].classList.contains('selected')){
+                                let vP = i
+
+                                if(direction == 'left' && i > 0){
+                                    vP = i - 1
+                                    elementCont[i-1].classList.add('selected')
+                                    elementCont[i].classList.remove('selected')
+                                }else if(direction == 'right' && i < elementCont.length - 1){
+                                    vP = i + 1
+                                    elementCont[i+1].classList.add('selected')
+                                    elementCont[i].classList.remove('selected')
+                                }
+
+                                if(i < elementCont.length - 1 || i > 0){
+                                         
+                                    let visibleProducts = 0
+
+                                    for(let i=0; i<document.getElementsByClassName(classV).length; i++){
+                                        document.getElementsByClassName(classV)[i].classList.remove(classV)
+                                    }
+
+                                    if(window.innerWidth < 651){
+                                        visibleProducts = 2
+                                        vP = vP * 2
+                                    }else if(window.innerWidth > 650 && window.innerWidth < 951){
+                                        visibleProducts = 3
+                                        vP = vP * 3
+                                    }else if(window.innerWidth > 950){
+                                        vP = vP * 5
+                                        visibleProducts = 5
+                                    }
+
+                                    for(let x = vP; x < Math.min( visibleProducts, document.getElementsByClassName(classProd).length - vP); x++){
+                                        document.getElementsByClassName(classProd)[x].classList.add(classV)
+                                    }
+                                }
+
+                                break   
+                            }
+                        }
+                    }
+                }
+
+                function dotsResize(idDots, id, classProd){
+                    
+                    let laps = 0
+                    if(window.innerWidth < 350 ){
+                        laps = document.getElementsByClassName(classProd).length
+                    }else if(window.innerWidth < 651){
+                        laps = document.getElementsByClassName(classProd).length / 2
+                    }else if(window.innerWidth > 650 && window.innerWidth < 951){
+                        laps = document.getElementsByClassName(classProd).length / 3
+                    }else if(window.innerWidth > 950){
+                        laps = document.getElementsByClassName(classProd).length / 4
+                    }
+                    
+                    laps = Math.ceil(laps)
+
+                    while(document.getElementById(idDots).firstChild){
+                        document.getElementById(idDots).removeChild(document.getElementById(idDots).firstChild)
+                    }
+
+                    for(let i=0; i<laps; i++){
+                        let span = document.createElement('SPAN')
+                        span.id = id+i
+                        span.classList.add('dot')
+                        if(i == 0){
+                            span.classList.add('selected')
+                        }
+                        document.getElementById(idDots).appendChild(span)
+                    }
+                }
+
+                function productsHideOnResize(class1, class2){
+                    let visibleProducts = 0
+                    
+                    if(window.innerWidth < 651){
+                        visibleProducts = 2
+                    }else if(window.innerWidth > 650 && window.innerWidth < 951){
+                        visibleProducts = 3
+                    }else if(window.innerWidth > 950){
+                        visibleProducts = 5
+                    }
+
+                    if(visibleProducts <= document.getElementsByClassName(class1).length){
+
+                        for(let i=0; i<document.getElementsByClassName(class2).length; i++){
+                            document.getElementsByClassName(class2)[i].classList.remove(class2)
+                        }
+                        
+                        for(let i=0; i<visibleProducts; i++){
+                            document.getElementsByClassName(class1)[i].classList.add(class2)
+                        }
+                    }
+                }
+
+                productsHideOnResize('productCont', 'visiblePX')
+
+                dotsResize('puntos', 'pB', 'productCont')
+            </script>
         </div>
         <!-- preguntas frecuentes¿?-->
         <div id="footer" class="bottom">
