@@ -2,7 +2,7 @@
 .productContainer{
     display: flex;
     width: 100%;
-    height: 60%;
+    min-height: 100%;
     padding: 5%;
     padding-top: 0%;
     justify-content: center;
@@ -11,40 +11,210 @@
 .productContainer .productData{
     width: 35%;
     padding: 3%;
+    padding-right: 0;
+}
+
+.productContainer .productData .header{
+  display: flex;
+}
+
+.productContainer .productData .header h6{
+  width: 67%;
+  font-size: smaller;
+  font-weight: 300;
+}
+
+.productContainer .productData .valoration{
+  width: 30%;
+  display: contents;
+  height: 30px;
+}
+
+.productContainer .productData .valoration .a{
+  width: auto;
+  position: absolute;
+  right: 0;
+  display: flex;
+}
+
+.productContainer .productData .valoration .a svg{
+  width: 15px;
+  height: 15px;
+  fill: black;
+}
+
+.productContainer .productData .valoration .b{
+  display: none;
+  margin-top: 2px;
 }
 
 .productContainer .productData .price h1{
     text-transform: uppercase;
     font-size: x-large;
-    margin: 0;
-    font-weight: 600;
+    font-weight: 800;
+    overflow: hidden;
+    width: 100%;
 }
 
 .productContainer .productData .price h3{
-    margin: 0;
-    font-size: 18px;
-    color: #9e9e9e;
-    font-weight: 500;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
 }
-/*carrousel*/
 
-#imagen1{
-    display: block;
-    margin: auto;
-  }
-  #imagen2, #imagen3, #imagen4{
-    display: none;
-    margin: auto;
-  
-  }
+.productContainer .productData h5{
+  font-size: large;
+  margin-top: 5%;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.cont .section{
+  border-top: solid #bfbfbfde 1px;
+  width: 100%;
+  margin-top: 5%;
+}
+
+.productContainer .productData .colours .productsC{
+  list-style-type: none;
+  width: 100%;
+  padding: 0;
+}
+
+.productContainer .productData .colours .productsC .product{
+  width: 60px;
+  height: 100px;
+  display: inline-block;
+  margin-right: 2%;
+  margin-top: 2%;
+  background-color: #f6f6f6;
+}
+
+.productContainer .productData .colours .productsC .product :active{
+  border: 1px solid black;
+}
+
+.productContainer .productData .colours .productsC .product img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.productContainer .productData .size .guia{
+  color: #d8d8d8d4;
+  text-align: right;
+  right: 0;
+  position: absolute;
+}
+
+.productContainer .productData .size .sizes{
+  list-style-type: none;
+  padding: 0;
+  margin-top: 5%;
+}
+
+.productContainer .productData .size .sizes label{
+  display: inline-block;
+  width: 16%;
+  height: 7%;
+  border: solid rgb(168, 168, 168) 1px;
+  font-size: large;
+  font-family: sans-serif;
+  text-align: center;
+  padding-top: 2%;
+  transition: all .5s;
+  border-radius: 8px;
+}
+
+.productContainer .productData .size .sizes label:hover{
+  background-color: black;
+  color: white;
+}
+
+.productContainer .productData .size .sizes label:active{
+  background-color: black;
+  color: white;
+}
+
+.productContainer .productData .button{
+  width: 80%;
+  border-radius: 10px;
+  background-color: black;
+  height: 10%;
+  text-transform: uppercase;
+  color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  outline: transparent;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-top: 7%;
+}
+
+.productContainer .productData .button svg{
+  width: 20px;
+  height: 20px;
+}
+
+.productContainer .productData .size .sas{
+  position: relative;
+}
+
+.cont .description{
+  width: 100%;
+  height: auto;
+  padding: 5%;
+}
+
+.cont .description .data h1{
+  text-transform: uppercase;
+  font-size: x-large;
+  font-weight: 800;
+  overflow: hidden;
+  width: 100%;
+}
+
+.cont .description .data h3{
+  text-transform: uppercase;
+  font-size: medium;
+  font-weight: 600;
+  letter-spacing: 2px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.cont .description .image img{
+  width: 100%;
+  object-fit: contain;
+  height: auto;
+  max-height: 450px;
+}
+
+/*carrousel*/
   #cr{
     display: block;
-    width: 65%;
+    width: 100%;
     height: 80%;
     margin: auto;
     position: relative;
     margin-top: 2%;
-    box-shadow: 0px 3px 6px 4px #888888;
+    box-shadow: 0px 2px 10px 4px #8888888c;
+  }
+
+  #cr .like{
+    padding: 3%;
+    border-radius: 100%;
+    right: 5%;
+    top: 3%;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.508);
+  }
+
+  #cr .like svg{
+    width: 20px;
+    height: 20px;
   }
   
   #imagesCarrousel img{
@@ -58,7 +228,7 @@
     margin-top: -4%;
     text-align: center;
     position: absolute;
-    bottom: 0;
+    bottom: 2%;
     width: 100%;
   }
   
@@ -67,7 +237,7 @@
     height: 15px;
     width: 15px;
     margin: 0 2px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.438);
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.6s ease;
@@ -96,8 +266,13 @@
   }
 
   #rey svg{
-      height: 100%;
-      width: 12%;
+    height: 100%;
+    width: 12%;
+    background-color: #ffffff82;
+  }
+
+  #rey svg:hover{
+    background-color: #ffffffda;
   }
   /*productos relacionados*/
   .relatedProducts{
@@ -122,7 +297,7 @@
     display: -webkit-inline-box;
     overflow: hidden;
     width: 100%;
-    height: 41%;
+    height: 43%;
     margin-top: 4%;
   }
 
@@ -245,7 +420,7 @@
     cursor: pointer;
     height: 2px;
     width: 20px;
-    margin: 0 2px;
+    margin: 2px 2px;
     background-color: rgb(143, 143, 143);
     display: inline-block;
     border-radius: 0%;
@@ -267,17 +442,48 @@
         display: block;
     }
     .productContainer .productData{
-        width: 100%;
+      width: 100%;
+      margin-top: 20px;
     }
+
     #cr{
         width: 100%;
     }
+
     #products .productCont{
         width: 50%;
+    }
+
+    .productContainer .productData .valoration .a{
+      display: none;
+    }
+
+    .productContainer .productData .valoration .b{
+      display: flex;
+      width: 40px;
+      margin-right: 5%;
+      height: 40px;
+      justify-content: center;
+    }
+
+    .productContainer .productData .valoration .b h4{
+      font-size: 18px;
+      font-weight: 600;
+      color: black;
+    }
+
+    .productContainer .productData .valoration .b svg{
+      width: 18px;
+      height: 18px;
     }
     
     .relatedProducts{
         padding-bottom: 8%;
+    }
+    
+    .productContainer .productData .size .sizes label{
+      width: 50px;
+      height: 45px;
     }
   }
   
@@ -286,22 +492,103 @@
         width: 30%;
     }
 
-    #cr{
-        width: 70%;
-    }
-
     #products{
       margin-bottom: 25px;
+    }
+
+    .ppp{
+      height: 100vh;
+      width: 70%;
+    }
+
+    #rey{
+      height: 8%;
+    }
+
+    .productContainer .productData .valoration{
+      display: block;
+    }
+    
+    .productContainer .productData .valoration .a{
+      right: 5%;
+    }
+
+    .productContainer .productData .size .sas{
+      position: initial;
+    }
+
+    .productContainer .productData .size .sizes label{
+      width: 24%;
+    }
+
+    .productContainer .productData .size .guia {
+      color: #d8d8d8d4;
+      text-align: right;
+      bottom: -25px;
+      position: absolute;
+      right: 0;
+      font-size: smaller;
+    }
+
+    .productContainer .productData .button{
+      margin-top: 15%;
     }
   }
   
   @media (min-width: 651px) and (max-width: 950px){
+    .productContainer{
+      display: block;
+    }
+    
+    .productContainer .productData{
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .ppp{
+      height: 75vh;
+      width: 100%;
+    }
+
+    #cr{
+      height: 100%;
+      width: 100%;
+    }
+    
     #products .productCont{
-      width: 31%;
+      width: 30%;
+    }
+
+    .productContainer .productData .valoration .a{
+      display: none;
+    }
+
+    .productContainer .productData .valoration .b{
+      display: flex;
+      width: 40px;
+      margin-right: 5%;
+      height: 40px;
+      justify-content: center;
+    }
+
+    .productContainer .productData .valoration .b h4{
+      font-size: 18px;
+      font-weight: 600;
+      color: black;
+    }
+
+    .productContainer .productData .valoration .b svg{
+      width: 18px;
+      height: 18px;
     }
 
     .relatedProducts{
         padding-bottom: 8%;
+    }
+
+    .productContainer .productData .size .sizes label{
+      width: 12%;
+      height: 10%;
     }
   }
  
@@ -313,6 +600,27 @@
 
     .relatedProducts{
         padding-bottom: 8%;
+    }
+
+    .products{
+      height: 44%;
+    }
+
+    .productContainer .productData .size .sas{
+      position: initial;
+    }
+
+    .productContainer .productData .size .guia {
+      color: #d8d8d8d4;
+      text-align: right;
+      bottom: -25px;
+      position: absolute;
+      right: 0;
+      font-size: smaller;
+    }
+
+    .productContainer .productData .button{
+      margin-top: 15%;
     }
   }
   
