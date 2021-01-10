@@ -10,8 +10,91 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body style="padding-top: 66px;" onresize="productsHideOnResize('productCont', 'visiblePX'), dotsResize('puntos', 'pB', 'productCont')">
-        <header onclick="document.getElementsByTagName('body')[0].scrollIntoView()" style="position: fixed; width: 100%; top: 0; height: 66px; z-index: 12; background-color: white;">
+    <!--BODY STYLE style="padding-top: 66px;"--><body onresize="onresizefun(), productsHideOnResize('productCont', 'visiblePX'), dotsResize('puntos', 'pB', 'productCont')">
+        <script>
+            function onresizeFun(){
+                document.getElementsByTagName('body')[0].style.paddingTop = $('#imgHeader').css('height')
+                
+                if(innerWidth>650 && innerWidth<700){
+                    for(let i=0; i<document.getElementsByClassName('publicity').length; i++){
+                        document.getElementsByClassName('publicity')[i].classList.add('publi')
+                        document.getElementsByClassName('publicity')[i].parentElement.style.height='60vh'
+                        document.getElementsByClassName('publicity')[i].getElementsByTagName('IMG')[0].style.height='60vh'
+                        document.getElementsByClassName('publicity')[i].classList.remove('publicity')
+                    }
+                }else if(innerWidth<650 && innerWidth>550){
+                    for(let i=0; i<document.getElementsByClassName('publi').length; i++){
+                        document.getElementsByClassName('publi')[i].classList.add('publicity')
+                        document.getElementsByClassName('publi')[i].parentElement.style.height='fit-content'
+                        document.getElementsByClassName('publi')[i].classList.remove('publi')
+                    }
+                }
+            }
+            onresizeFun()
+        </script>
+        <script>
+            function changeHeaderBackground(){
+                if(document.body.scrollTop > 50 || document.documentElement.scrollTop > 50){
+                    document.getElementsByTagName('HEADER')[0].style.background="#282828"
+                    document.getElementById('searchIconSVG').style.fill="#b5b5b5"
+                    document.getElementById('bagIcon').style.fill="#b5b5b5"
+                    document.getElementById('logInIcon').style.fill="#b5b5b5"
+                    document.getElementById('list').style.fill="#b5b5b5"
+                }else{
+                    document.getElementsByTagName('HEADER')[0].style.background="linear-gradient(to bottom,#b5b5b5 0,rgba(37,33,30,0) 100%)"
+                    document.getElementById('searchIconSVG').style.fill=/*"rgba(0,0,0,.5)"*/"white"
+                    document.getElementById('bagIcon').style.fill=/*"rgba(0,0,0,.5)"*/"white"
+                    document.getElementById('logInIcon').style.fill=/*"rgba(0,0,0,.5)"*/"white"
+                    document.getElementById('list').style.fill=/*"rgba(0,0,0,.5)"*/"white"    
+                }
+            }
+
+            function headerClothesFixed(){
+                if(document.body.scrollTop > document.getElementById('cr').scrollHeight - 130 && document.getElementById('categoriesCont').classList.length == 0){
+                    document.getElementById('categoriesCont').style.top = document.getElementsByTagName('HEADER')[0].style.height
+                    document.getElementById('categoriesCont').classList.add('fixedCC')
+                }else if(document.body.scrollTop <= document.getElementById('cr').scrollHeight - 130){
+                    document.getElementById('categoriesCont').classList.remove('fixedCC')
+                }
+            }
+            window.onscroll = function(){changeHeaderBackground(), headerClothesFixed()}
+        </script>
+        <header onclick="document.getElementsByTagName('body')[0].scrollIntoView()" style="position: fixed; width: 100%; top: 0; height: 60px; z-index: 12; background:linear-gradient(rgb(218, 218, 218) 0px, rgba(37, 33, 30, 0) 100%); background-color: transparent;">
+            <div class = "header" style="height: 100%;">
+                <div style="height: 100%;">
+                    <div class="headerCont">
+                        <div class="logo">
+                            <img id="logoHeader" src="../Images/dcLogoWhite.png" alt="">
+                        </div>
+                        <span class="search-cont">
+                            <span style="display: flex;">
+                                <svg id="searchIconSVG" style="fill: rgb(255, 255, 255);" onclick="searchBar('searchBar', 100)" class="search-icon" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                                    <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                                </svg>
+                                <input onkeyup="barChange('searchBar','sBarClose')" id="searchBar" style="display: none;" placeholder="Nombre del restaurante..." type="text">
+                                <svg class="closer" onclick="document.getElementById('searchBar').value='', document.getElementById('sBarClose').style.display='none'" style="display:none; fill: #2ABB9B; position: absolute; z-index: 10; transform: translate(-50%, 50%);" id="sBarClose" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+                                </svg>
+                            </span>
+                        </span>
+                        <div class="al">
+                            <svg style="fill: rgb(255, 255, 255);" id="bagIcon" onclick="llamarFactura('factura')" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bag-dash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M8 1a2.5 2.5 0 0 0-2.5 2.5V4h5v-.5A2.5 2.5 0 0 0 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5H2z"/>
+                                <path fill-rule="evenodd" d="M5.5 10a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
+                            </svg>
+                            <svg id="logInIcon" style="fill: rgb(255, 255, 255);" onclick="document.getElementById('iniciarSesionModal').style.display='block'" class="person-login" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                            </svg>
+                        </div>
+                        <svg style="fill: rgb(255, 255, 255);" id="list" onclick="llamarModal('containerIzqModal')" class="list" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--<header onclick="document.getElementsByTagName('body')[0].scrollIntoView()" style="position: fixed; width: 100%; top: 0; height: 66px; z-index: 12; background-color: white;">
             <div class = "header" style="height: 100%;">
                 <div style="height: 100%;">
                     <div class="headerCont">
@@ -46,7 +129,8 @@
                 </div>
             </div>
             <div class="headerBottom"></div>
-        </header>
+        </header>-->
+
         <!--modalBuscador-->
         <div id="modalBuscador">
             <div id="contentBuscador">
@@ -546,17 +630,25 @@
                     <div class="colours section">
                         <h5>Seleccioná un color</h5>
                         <ul class="productsC">
-                            <li id="colour0" class="product">
+                            <li id="colour0" class="product koko" onclick="colourSelection('colour0')">
                                 <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/5243556a-65b2-4de0-83a2-12d25809fbaf/calzado-de-running-air-zoom-tempo-next-flyease-020g4N.jpg" alt="">
                             </li>
-                            <li id="colour1" class="product">
+                            <li id="colour1" class="product koko" onclick="colourSelection('colour1')">
                                 <img src="https://static.nike.com/a/images/t_PDP_144_v1/f_auto/259a7f28-f7bc-4376-918d-f9ad20fbe81f/calzado-de-running-air-zoom-pegasus-37-KLvDcj.jpg" alt="">
                             </li>
-                            <li id="colour2" class="product">
+                            <li id="colour2" class="product koko" onclick="colourSelection('colour2')">
                                 <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/ce63c325-0563-47b0-ab46-5de8859eb42c/calzado-de-running-air-zoom-tempo-next-flyease-020g4N.jpg" alt="">
                             </li>
                         </ul>
                     </div>
+                    <script>
+                        function colourSelection(id){
+                            for(let i=0; i<document.getElementsByClassName('koko').length; i++){
+                                document.getElementsByClassName('koko')[i].classList.remove('borderr')
+                            }
+                            document.getElementById(id).classList.add('borderr')
+                        }
+                    </script>
                     <div class="section size" style="position: relative;">
                         <div class="sas" style="display: flex; width: 100%;">    
                             <h5>Elegí el talle</h5>
@@ -578,13 +670,13 @@
                             <label>
                                 9
                             </label>
-                            <label>
+                            <label class="soldOut">
                                 9.5
                             </label>
-                            <label>
+                            <label class="soldOut">
                                 10
                             </label>
-                            <label>
+                            <label class="soldOut">
                                 10.5
                             </label>
                             <label>
@@ -618,31 +710,260 @@
             <div class="section userSection">
                 <ul class="sec">
                     <li class="sect">
-                        Reseñas
+                        <div class="header">
+                            <h5 id="h5usr0">Reseñas</h5>
+                            <svg onclick="hideUserSection('h5usr0', 'userSection0')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                        </div>
+                        <div id="userSection0" style="display: none;" class="review">
+                            <ul>
+                                <li>
+                                    <div class="headere">
+                                        <div class="left">
+                                            <h5>Roberto Mansilla • </h5>
+                                            <h6>Enero 11, 2020</h6>
+                                        </div>
+                                        <div class="valoration">
+                                            <div class="vvv">
+                                                <div class="a">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                                    </svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                                    </svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="body">
+                                        <h1>EXCELENTE CALZADO PERO DEMASIADO ELEVADO EL PRECIO</h1>
+                                        <p>Me gustó el producto, se siente cómodo liviano y de buen calce, lamentablemente aún no tengo elementos claros para hacer una reseña clara ya que solo me los probé y no pude usarlos por las restricciones y ciertos cuidados que estoy teniendo que tener, espero pronto poder usarlos y editar el comentario con elementos claros reseña a través de su uso.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="headere">
+                                        <div class="left">
+                                            <h5>Marta Santillan • </h5>
+                                            <h6>Enero 19, 2019</h6>
+                                        </div>
+                                        <div class="valoration">
+                                            <div class="vvv">
+                                                <div class="a">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                                    </svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                                    </svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                                    </svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="body">
+                                        <h1>LA COMPRÉ PARA REGALO Y A LA PERSONA LE QUEDÓ CHICO. HICE CAMBIO POR OTRO TALLE Y MODELO SIN PROBLEMA</h1>
+                                        <p>El producto tiene horma chica. No es para todos.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="headere">
+                                        <div class="left">
+                                            <h5>Jazmín Zelarrayán • </h5>
+                                            <h6>Diciembre 02, 1999</h6>
+                                        </div>
+                                        <div class="valoration">
+                                            <div class="vvv">
+                                                <div class="a">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                                    </svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="body">
+                                        <h1>BUENA RELACION PRECIO CALIDAD</h1>
+                                        <p>Me gusta bastante por el precio que pague! Lo recomiendo, esta bueno que den estas facilidades de pagos si interes y rebajas en sus productos ya que de no ser asi se encareceria bastante</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="headere">
+                                        <div class="left">
+                                            <h5>AlfredoCotilla01 • </h5>
+                                            <h6>Febrero 29, 2020</h6>
+                                        </div>
+                                        <div class="valoration">
+                                            <div class="vvv">
+                                                <div class="a">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                                    </svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                                    </svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                                    </svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                                    </svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="body">
+                                        <h1>Llego roto pero pude cambiarlo</h1>
+                                        <p>Me gusta el producto por la calidad y garantía de la marca.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="headere">
+                                        <div class="left">
+                                            <h5>Ricardo Funes Ugarte • </h5>
+                                            <h6>Enero 21, 2020</h6>
+                                        </div>
+                                        <div class="valoration">
+                                            <div class="vvv">
+                                                <div class="a">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                                    </svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                                    </svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="body">
+                                        <h1>Fabulosas! Ideales para runners experimentados</h1>
+                                        <p>Me encantaron, lastima que duran poco...</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li class="sect">
-                        Tecnología
+                        <div class="header">
+                            <h5 id="h5usr1">Tecnología</h5>
+                            <svg onclick="hideUserSection('h5usr1', 'userSection1')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                        </div>
+                        <div id="userSection1" style="display: none;" class="description">
+                            <div class="data">
+                                <h1>NIKE AIR ZOOM TEMPO FLY EASE</h1>
+                                <h3>ZAPATILLAS CON LA NUEVA TECNOLOGIA SPACE-X PARA LLEVAR TU RENDIMIENTO AL MÁXIMO</h3>
+                                <p>Avanza con Zoom
+
+                                    La espuma Nike ZoomX en la plantilla brinda un retorno de energía a medida que avanzas. La unidad Zoom Air visible proporciona una amortiguación eficaz y brinda una mayor elasticidad con cada paso.
+                                    
+                                    
+                                    Póntelo y ajústalo con una mano
+                                    
+                                    El talón del calzado se hunde al ponerlo y después vuelve a su lugar. El mecanismo de sujeción y liberación asegura el ajuste y elimina la necesidad de atar cordones. Jala la cinta cerca de la lengüeta para apretar y libera jalando la cinta hacia la punta del pie.
+                                    
+                                    
+                                    Talón eficaz
+                                    
+                                    La tecnología Nike React en el talón es ligera y duradera. Ayuda a mantener el pie amortiguado y seguro en cada pisada.
+                                    
+                                    
+                                    Tracción basada en información de corredores
+                                    
+                                    La suela de goma cuenta con un diseño creado con datos de cientos de corredores. Esa información permite ubicar la tracción donde más lo necesite el pie, así te brinda agarre en múltiples superficies.
+                                    
+                                    </p>    
+                            </div>
+                            <div class="image">
+                                <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/a639f8e9-bdc2-4e24-88cf-9d56a2f81574/calzado-de-running-air-zoom-tempo-next-flyease-020g4N.jpg" alt="">
+                            </div>
+                        </div>
                     </li>
                     <li class="sect">
-                        Reseñas
+                        <div class="header">
+                            <h5 id="h5usr2">Envios</h5>
+                            <svg onclick="hideUserSection('h5usr2', 'userSection2')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                        </div>
+                        <div id="userSection2" style="display: none;" class="description">
+                            <div class="data">
+                                <h1>NIKE AIR ZOOM TEMPO FLY EASE</h1>
+                                <h3>ZAPATILLAS CON LA NUEVA TECNOLOGIA SPACE-X PARA LLEVAR TU RENDIMIENTO AL MÁXIMO</h3>
+                                <p>El Nike Air Zoom Tempo Next% FlyEase es sumamente eficaz y está diseñado para ayudarte a obtener el máximo provecho de tus carreras de entrenamiento, para que puedas ir con confianza a tu próxima (o primera) carrera. Es fácil de colocar, solo debes deslizar el pie dentro de él, y tiene un mecanismo interno de cordones que puedes operar con una sola mano. Cintas en forma de bucle para ajustarlo y liberarlo.</p>    
+                            </div>
+                            <div class="image">
+                                <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/a639f8e9-bdc2-4e24-88cf-9d56a2f81574/calzado-de-running-air-zoom-tempo-next-flyease-020g4N.jpg" alt="">
+                            </div>
+                        </div>
                     </li>
                     <li class="sect">
-                        Reseñas
+                        <div class="header">
+                            <h5 id="h5usr3">Redes</h5>
+                            <svg onclick="hideUserSection('h5usr3', 'userSection3')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                        </div>
+                        <div id="userSection3" style="display: none;" class="description">
+                            <div class="data">
+                                <h1>NIKE AIR ZOOM TEMPO FLY EASE</h1>
+                                <h3>ZAPATILLAS CON LA NUEVA TECNOLOGIA SPACE-X PARA LLEVAR TU RENDIMIENTO AL MÁXIMO</h3>
+                                <p>El Nike Air Zoom Tempo Next% FlyEase es sumamente eficaz y está diseñado para ayudarte a obtener el máximo provecho de tus carreras de entrenamiento, para que puedas ir con confianza a tu próxima (o primera) carrera. Es fácil de colocar, solo debes deslizar el pie dentro de él, y tiene un mecanismo interno de cordones que puedes operar con una sola mano. Cintas en forma de bucle para ajustarlo y liberarlo.</p>    
+                            </div>
+                            <div class="image">
+                                <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/a639f8e9-bdc2-4e24-88cf-9d56a2f81574/calzado-de-running-air-zoom-tempo-next-flyease-020g4N.jpg" alt="">
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>
-            <div class="relatedProducts">
-                <h2>productos que también podrían interesarte</h2>
-                <div id="puntos">
+            <script>
+                function hideUserSection(idH5, idUserS){
+                    if(document.getElementById(idUserS).style.display == 'none'){
+                        if(window.innerWidth < 951 ){ 
+                            document.getElementById(idUserS).style.display = 'block'
+                        }else{
+                            document.getElementById(idUserS).style.display = 'flex'
+                        }
+                        document.getElementById(idH5).style.textDecoration = 'underline'
+                    }else{
+                        document.getElementById(idUserS).style.display = 'none'
+                        document.getElementById(idH5).style.textDecoration = 'none'    
+                    }
+                }
+            </script>
+            <div class="section relatedProducts">
+                <h2>productos PRADA que también podrían interesarte</h2>
+                <div id="puntos" class="puntos12">
                 </div>
-                <div id="products">
-                    <div id="arrows">
-                        <div id="back" onclick="sliderProducts('puntos', 'dot', 'left', 'productCont', 'visiblePX')">
+                <div id="products" class="products12">
+                    <div id="arrows" class="arrows12">
+                        <div id="back" class="back12" onclick="sliderProducts('puntos', 'dot', 'left', 'productCont', 'visiblePX')">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                             </svg>
                         </div>
-                        <div id="foward" onclick="sliderProducts('puntos', 'dot', 'right', 'productCont', 'visiblePX')">
+                        <div id="foward" class="foward12" onclick="sliderProducts('puntos', 'dot', 'right', 'productCont', 'visiblePX')">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
                             </svg>
@@ -715,70 +1036,73 @@
                                 <h6>$2.500</h6>
                             </div>
                         </div>
-                        <div class="productCont">
-                            <div class="product">
-                                <img src="https://i.imgur.com/mkogmIa.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="section relatedProducts">
+                <h2>productos destacados que podrían interesarte</h2>
+                <div id="puntos2" class="puntos12">
+                </div>
+                <div id="products2" class="products12">
+                    <div id="arrows2" class="arrows12">
+                        <div id="back2" class="back12" onclick="sliderProducts('puntos2', 'dot', 'left', 'productCont2', 'visiblePX2')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                            </svg>
+                        </div>
+                        <div id="foward2" class="foward12" onclick="sliderProducts('puntos2', 'dot', 'right', 'productCont2', 'visiblePX2')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="products">
+                        <div class="productCont2">
+                            <div class="productC">
+                                <img src="https://static.zara.net/photos///2020/S/0/2/p/5558/349/400/2/w/572/5558349400_2_1_1.jpg?ts=1606826792786" alt="">
                             </div>
                             <div class="productDetail">
-                                <h4>Camiseta de River Plate logo 84'</h4>
-                                <h6>$9.500</h6>
+                                <h4>Short vintage - BATUK</h4>
+                                <h6>$3.500</h6>
                             </div>
                         </div>
-                        <div class="productCont">
-                            <div class="product">
-                                <img src="https://i.imgur.com/pCik0r9.png" alt="">
+                        <div class="productCont2">
+                            <div class="productC">
+                                <img src="https://static.zara.net/photos///2020/I/0/2/p/5613/196/505/2/w/572/5613196505_2_1_1.jpg?ts=1593777717414" alt="">
                             </div>
                             <div class="productDetail">
-                                <h4>Remera river</h4>
+                                <h4>Bolso - BATUK</h4>
                                 <h6>$6.500</h6>
                             </div>
                         </div>
-                        <div class="productCont">
-                            <div class="product">
-                                <img src="../Images/bag.png" alt="">
+                        <div class="productCont2">
+                            <div class="productC">
+                                <img src="https://batukjeans.com.ar/site/wp-content/uploads/2020/12/OJOC2.jpg" alt="">
                             </div>
                             <div class="productDetail">
-                                <h4>Cartera elegante en colaboración con LV</h4>
+                                <h4>FLIPS - BATUK</h4>
                                 <h6>$2.500</h6>
                             </div>
                         </div>
-                        <div class="productCont">
-                            <div class="product">
-                                <img src="../Images/abrigo.png" alt="">
+                        <div class="productCont2">
+                            <div class="productC">
+                                <img src="https://batukjeans.com.ar/site/wp-content/uploads/2020/12/CASMED.jpg" alt="">
                             </div>
                             <div class="productDetail">
-                                <h4>Abrigo temporada invierno SY</h4>
+                                <h4>Remera record - BATUK</h4>
                                 <div class="desc">
-                                    <h4>$2.500</h4>
+                                    <h4>$4.500</h4>
                                     <h5>3.000</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="productCont">
-                            <div class="product">
-                                <img src="../Images/abrigo2.png" alt="">
+                        <div class="productCont2">
+                            <div class="productC">
+                                <img src="https://batukjeans.com.ar/site/wp-content/uploads/2020/12/NECES2.jpg" alt="">
                             </div>
                             <div class="productDetail">
-                                <h4>Abrigo temporada invierno SU</h4>
+                                <h4>Accesorio nessare salmón - BATUK</h4>
                                 <h6>$2.900</h6>
-                            </div>
-                        </div>
-                        <div class="productCont">
-                            <div class="product">
-                                <img src="https://assets.stickpng.com/thumbs/580b57fbd9996e24bc43bf75.png" alt="">
-                            </div>
-                            <div class="productDetail">
-                                <h4>Remera lisa negra</h4>
-                                <h6>$1.500</h6>
-                            </div>
-                        </div>
-                        <div class="productCont">
-                            <div class="product">
-                                <img src="https://assets.stickpng.com/images/580b57fbd9996e24bc43bf78.png" alt="">
-                            </div>
-                            <div class="productDetail">
-                                <h4>Remera gris</h4>
-                                <h6>$2.500</h6>
                             </div>
                         </div>
                     </div>
@@ -900,6 +1224,10 @@
                 productsHideOnResize('productCont', 'visiblePX')
 
                 dotsResize('puntos', 'pB', 'productCont')
+
+                productsHideOnResize('productCont2', 'visiblePX2')
+
+                dotsResize('puntos2', 'pBB', 'productCont2')
             </script>
         </div>
         <!-- preguntas frecuentes¿?-->
