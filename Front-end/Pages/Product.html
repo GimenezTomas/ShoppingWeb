@@ -10,7 +10,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <!--BODY STYLE style="padding-top: 66px;"--><body onresize="onresizefun(), productsHideOnResize('productCont', 'visiblePX'), dotsResize('puntos', 'pB', 'productCont')">
+    <body onresize="onresizefun(), productsHideOnResize('productCont', 'visiblePX'), dotsResize('puntos', 'pB', 'productCont')">
         <script>
             function onresizeFun(){
                 document.getElementsByTagName('body')[0].style.paddingTop = $('#imgHeader').css('height')
@@ -41,25 +41,16 @@
                     document.getElementById('logInIcon').style.fill="#b5b5b5"
                     document.getElementById('list').style.fill="#b5b5b5"
                 }else{
-                    document.getElementsByTagName('HEADER')[0].style.background="linear-gradient(to bottom,#b5b5b5 0,rgba(37,33,30,0) 100%)"
+                    document.getElementsByTagName('HEADER')[0].style.background="linear-gradient(to bottom,#25211e54 0,rgba(37,33,30,0) 100%)"
                     document.getElementById('searchIconSVG').style.fill=/*"rgba(0,0,0,.5)"*/"white"
                     document.getElementById('bagIcon').style.fill=/*"rgba(0,0,0,.5)"*/"white"
                     document.getElementById('logInIcon').style.fill=/*"rgba(0,0,0,.5)"*/"white"
                     document.getElementById('list').style.fill=/*"rgba(0,0,0,.5)"*/"white"    
                 }
             }
-
-            function headerClothesFixed(){
-                if(document.body.scrollTop > document.getElementById('cr').scrollHeight - 130 && document.getElementById('categoriesCont').classList.length == 0){
-                    document.getElementById('categoriesCont').style.top = document.getElementsByTagName('HEADER')[0].style.height
-                    document.getElementById('categoriesCont').classList.add('fixedCC')
-                }else if(document.body.scrollTop <= document.getElementById('cr').scrollHeight - 130){
-                    document.getElementById('categoriesCont').classList.remove('fixedCC')
-                }
-            }
-            window.onscroll = function(){changeHeaderBackground(), headerClothesFixed()}
+            window.onscroll = function(){changeHeaderBackground()}
         </script>
-        <header onclick="document.getElementsByTagName('body')[0].scrollIntoView()" style="position: fixed; width: 100%; top: 0; height: 60px; z-index: 12; background:linear-gradient(rgb(218, 218, 218) 0px, rgba(37, 33, 30, 0) 100%); background-color: transparent;">
+        <header onclick="document.getElementsByTagName('body')[0].scrollIntoView()" style="position: fixed; width: 100%; top: 0; height: 60px; z-index: 12; background:linear-gradient(to bottom,#25211e54 0,rgba(37,33,30,0) 100%); background-color: transparent;">
             <div class = "header" style="height: 100%;">
                 <div style="height: 100%;">
                     <div class="headerCont">
@@ -72,8 +63,8 @@
                                     <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
                                     <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
                                 </svg>
-                                <input onkeyup="barChange('searchBar','sBarClose')" id="searchBar" style="display: none;" placeholder="Nombre del restaurante..." type="text">
-                                <svg class="closer" onclick="document.getElementById('searchBar').value='', document.getElementById('sBarClose').style.display='none'" style="display:none; fill: #2ABB9B; position: absolute; z-index: 10; transform: translate(-50%, 50%);" id="sBarClose" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <input onkeyup="barChange('searchBar','sBarClose')" style="background: transparent; color:white; border-bottom: solid 1px white;" id="searchBar" style="display: none; top: 20px" placeholder="Nombre del restaurante..." type="text">
+                                <svg class="closer" onclick="document.getElementById('searchBar').value='', document.getElementById('sBarClose').style.display='none'" style="display:none; fill: #ffffff; position: absolute; z-index: 10; transform: translate(-50%, 50%);" id="sBarClose" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
                                 </svg>
                             </span>
@@ -94,42 +85,6 @@
                 </div>
             </div>
         </header>
-        <!--<header onclick="document.getElementsByTagName('body')[0].scrollIntoView()" style="position: fixed; width: 100%; top: 0; height: 66px; z-index: 12; background-color: white;">
-            <div class = "header" style="height: 100%;">
-                <div style="height: 100%;">
-                    <div class="headerCont">
-                        <div class="logo">
-                            <img src="../Images/dcLogo.png" alt="">
-                        </div>
-                        <span class="search-cont">
-                            <span style="display: flex;">
-                                <svg onclick="searchBar('searchBar', 100)" class="search-icon" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-                                    <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-                                </svg>
-                                <input onkeyup="barChange('searchBar','sBarClose')" id="searchBar" style="display: none;" placeholder="Nombre del restaurante..." type="text">
-                                <svg class="closer" onclick="document.getElementById('searchBar').value='', document.getElementById('sBarClose').style.display='none'" style="display:none; position: absolute; z-index: 10; top:25px" id="sBarClose" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-                                </svg>
-                            </span>
-                        </span>
-                        <div class="al">
-                            <svg id="bagIcon" onclick="llamarFactura('factura')" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bag-dash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M8 1a2.5 2.5 0 0 0-2.5 2.5V4h5v-.5A2.5 2.5 0 0 0 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5H2z"/>
-                                <path fill-rule="evenodd" d="M5.5 10a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
-                            </svg>
-                            <svg onclick="document.getElementById('iniciarSesionModal').style.display='block'" class="person-login" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-                            </svg>
-                        </div>
-                        <svg id="list" onclick="llamarModal('containerIzqModal')" class="list" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-            <div class="headerBottom"></div>
-        </header>-->
 
         <!--modalBuscador-->
         <div id="modalBuscador">

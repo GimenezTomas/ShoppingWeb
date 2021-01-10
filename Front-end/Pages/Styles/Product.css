@@ -20,7 +20,7 @@
 }
 
 .productContainer .productData .header h6{
-  width: 67%;
+  width: 65%;
   font-size: smaller;
   font-weight: 300;
 }
@@ -674,11 +674,16 @@
       padding-top: 7%;
       padding-bottom: 7%;
     }
+
+    #cr .like{
+      top: 10%;
+    }
   }
   
   @media (min-width: 951px){
     .productContainer .productData{
         width: 30%;
+        padding-top: 5%;
     }
 
     .products12{
