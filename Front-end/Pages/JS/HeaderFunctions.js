@@ -357,6 +357,38 @@ function canastaVacia(){
     document.getElementById("carritoVacio").style.display="flex"
         
 }
+
+function hideSection(idH5, idUserS, idDelete){
+    if(document.getElementById(idUserS).style.display != 'block'){
+        if(window.innerWidth < 951 ){ 
+            document.getElementById(idUserS).style.display = 'block'
+        }else{
+            document.getElementById(idUserS).style.display = 'flex'
+        }
+        document.getElementById(idDelete).style.display = 'block'
+        document.getElementById(idH5).style.fontWeight = 700
+    }else{
+        document.getElementById(idDelete).style.display = 'none'
+        document.getElementById(idUserS).style.display = 'none'
+        document.getElementById(idH5).style.fontWeight = 600    
+    }
+}
+
+function nextStepBag(idA, idB, idButton, idExit, idBack){
+    if(document.getElementById(idA).style.display == 'none'){
+        document.getElementById(idA).style.display = 'block'
+        document.getElementById(idB).style.display = 'none'
+        document.getElementById(idButton).style.innerHTML = 'Continuar'
+        document.getElementById(idExit).style.display= "block"
+        document.getElementById(idBack).style.display = 'none'
+    }else{
+        document.getElementById(idB).style.display = 'block'
+        document.getElementById(idA).style.display = 'none'
+        document.getElementById(idButton).style.innerHTML = 'Comprar( $15 000 )'
+        document.getElementById(idBack).style.display = "block"
+        document.getElementById(idExit).style.display = 'none'
+    }
+}
 /*modal vaciar canasta*/
 function vaciarCanastaModal(){
     var modal = document.getElementById("myModal");
@@ -400,11 +432,20 @@ function llamarFactura(id){
     if(openSearchBar('fc', width)){
         modal.style.display = 'none'
     }
+}
 
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+function hideSection(idH5, idUserS, idDelete){
+    if(document.getElementById(idUserS).style.display != 'block'){
+        if(window.innerWidth < 951 ){ 
+            document.getElementById(idUserS).style.display = 'block'
+        }else{
+            document.getElementById(idUserS).style.display = 'flex'
         }
+        document.getElementById(idDelete).style.display = 'block'
+        document.getElementById(idH5).style.fontWeight = 700
+    }else{
+        document.getElementById(idDelete).style.display = 'none'
+        document.getElementById(idUserS).style.display = 'none'
+        document.getElementById(idH5).style.fontWeight = 600    
     }
 }

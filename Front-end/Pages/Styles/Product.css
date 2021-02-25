@@ -309,6 +309,24 @@
   font-weight: 400;
 }
 
+.cont .userSection .sec .sect .review ul .circle{
+  border: none;
+}
+
+.cont .userSection .sec .sect .review .circle svg{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30px;
+  height: 30px;
+  fill: rgb(158, 158, 158);
+  transition: all .5s;
+}
+
+.cont .userSection .sec .sect .review .circle svg:hover{
+  fill: black;
+}
+
 /*carrousel*/
   #cr{
     display: block;
@@ -421,7 +439,8 @@
   .products12 .productCont{
     width: 20%;
     height: 100%;
-    margin-right: 3%;
+    margin-right: 1.5%;
+    margin-left: 1.5%;
     display: none;
   }
 
@@ -560,7 +579,8 @@
   .products12 .productCont2{
     width: 20%;
     height: 100%;
-    margin-right: 3%;
+    margin-right: 1.5%;
+    margin-left: 1.5%;
     display: none;
   }
 
@@ -650,7 +670,8 @@
     }
 
     #cr{
-        width: 100%;
+      width: 100%;
+      margin-top: 0;
     }
 
     .products12 .productCont{
@@ -693,6 +714,10 @@
     .ppp{
       height: 100vh;
       width: 70%;
+    }
+
+    #cr{
+      margin-top: 7%;
     }
 
     #rey{
@@ -780,7 +805,11 @@
       height: 100%;
       width: 100%;
     }
-    
+
+    #cr .like{
+      top: 7%;
+    }
+
     .products12 .productCont{
       width: 30%;
     }

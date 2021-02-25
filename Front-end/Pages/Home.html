@@ -109,65 +109,425 @@
         <div id="factura" class="containerFactura">
             <div id="fc" class="modalContent" style="display: none;">
                 <div class="headerNombrePagina">
-                    <h5>Envio a: <span>Av Triunvirato 3528</span></h5>
-                    <svg onclick="llamarFactura('factura')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                    <h5 onclick="document.getElementById('modalBuscador').style.display='block'">Envio a: <span>Av Triunvirato 3528</span></h5>
+                    <svg id="bagExitButton" onclick="llamarFactura('factura')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
                     </svg>
+                    <svg id="bagBackButton" onclick="nextStepBag('fcStep1', 'fcStep2', 'botonPedir', 'bagExitButton', 'bagBackButton')" style="display: none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+                    </svg>
                 </div>
-                <div class="headerUsuario">
-                    <img src="../Images/usuarioLogo.png" alt="">
-                    <h1>Tomás Giménez</h1>
-                    <!--<h2>PUNTOS: 0</h1> SI O NO?-->
-                </div>
-                <div class="headerRestaurante">
-                    <img src="../Images/logoRestaurante.jpg" alt="">
-                    <h1>Cantina Los Lopez</h1>
-                </div>
-                <div id = "pedidos" class="pedidos">
-                    <div style="height: 290px;">
-                        <div id="myModal" class="modal">
-                            <div class="modal-content">
-                                <span class="close closer">&times;</span>
-                                <h1 style="font-size: 20px;text-align: center;margin: 11%;">¿Estas seguro que quieres vaciar la canasta?</h1>
-                                <div style="display: flex; justify-content: center;">
-                                    <svg class="closer" onmousedown="vaciarCanasta('platos')" id = "canastaVaciaFalse"  style="margin-right:30px" width="30px" height="30px" viewBox="0 0 16 16" class="bi bi-check-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
-                                    </svg>
-                                    <svg class="closer" id = "canastaVaciaTrue" margin-left="10px" width="30px" height="30px" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-                                    </svg>
-                                </div>
+                <div class="cont">
+                    <div id="fcStep1" style="display: block;" class="fcStep1">    
+                        <div class="headerUsuario">
+                            <!--<h1>- Usuario Desconocido -</h1>-->
+                            <h1 id="nameMF" onclick="document.getElementById('iniciarSesionModal').style.display='block'">- Tomás Giménez -</h1>
+                            <div class="cash">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cash-stack" viewBox="0 0 16 16">
+                                    <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+                                    <path d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z"/>
+                                </svg>
+                                <h1 id="creditsMF">: 1500</h1>    
                             </div>
                         </div>
-                        <ul id="platos">
-                            <li id = "plato1" class="pedido" onmouseover="botonEliminar('botonDelete1', true)" onmouseout="botonEliminar('botonDelete1', false)">
-                                <img src="../Images/reyes.jpg" alt="">
-                                <h3>Milanesa con papas fritas</h3>
-                                <div class="p">
-                                    <h2>$</h2>
-                                    <h4 class="precio">490</h4>
-                                    <svg id="botonDelete1" onmousedown="eliminarPlato('plato1')" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-                                    </svg>
+                        <script>
+                            /*function hideSection(idH5, idUserS, idDelete){
+                                if(document.getElementById(idUserS).style.display != 'block'){
+                                    if(window.innerWidth < 951 ){ 
+                                        document.getElementById(idUserS).style.display = 'block'
+                                    }else{
+                                        document.getElementById(idUserS).style.display = 'flex'
+                                    }
+                                    document.getElementById(idDelete).style.display = 'block'
+                                    document.getElementById(idH5).style.fontWeight = 700
+                                }else{
+                                    document.getElementById(idDelete).style.display = 'none'
+                                    document.getElementById(idUserS).style.display = 'none'
+                                    document.getElementById(idH5).style.fontWeight = 600    
+                                }
+                            }*/
+                        </script>
+                        <ul class="shops">
+                            <li class="shop">          
+                                <div class="headerRestaurante">
+                                    <img src="../Images/logoLV.png" alt="">
+                                    <h1>Louis Vuitton</h1>
+                                </div>
+                                <div class="body">
+                                    <ul>
+                                        <li>
+                                            <div class="head">
+                                                <img src="../Images/abrigo.png" alt="">
+                                                <h3 id="1fac1">Abrigo LV edición invierno - 2021</h3>
+                                                <div class="p">
+                                                    <svg onclick="hideSection('1fac1', '1fac1body','1botonDelete1')" style="display:block" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                                    </svg>
+                                                    <svg class="delete" id="1botonDelete1" onmousedown="eliminarPlato('plato1')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="body" id="1fac1body">
+                                                <div class="aaa">    
+                                                    <p>
+                                                        <span class='start'>COLOR:</span>
+                                                        <span class='end'>Negro</span>
+                                                    </p>
+                                                    <p>
+                                                        <span class='start'>Talle:</span>
+                                                        <span class='end'>XL</span>
+                                                    </p>
+                                                    <p>
+                                                        <span class='start'>PRECIO:</span>
+                                                        <span class='end price'>$2.499,99</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="head">
+                                                <img src="../Images/abrigo2.png" alt="">
+                                                <h3 id="1fac2">Abrigo LV edición primavera - 2020</h3>
+                                                <div class="p">
+                                                    <svg onclick="hideSection('1fac2', '1fac2body','1botonDelete2')" style="display:block" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                                    </svg>
+                                                    <svg class="delete" id="1botonDelete2" onmousedown="eliminarPlato('plato1')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="body" id="1fac2body">
+                                                <div class="aaa">    
+                                                    <p>
+                                                        <span class='start'>COLOR:</span>
+                                                        <span class='end'>Rojo</span>
+                                                    </p>
+                                                    <p>
+                                                        <span class='start'>Talle:</span>
+                                                        <span class='end'>L</span>
+                                                    </p>
+                                                    <p>
+                                                        <span class='start'>PRECIO:</span>
+                                                        <span class='end price'>$2.199,99</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="shop">          
+                                <div class="headerRestaurante">
+                                    <img src="../Images/nikeLogo.png" alt="">
+                                    <h1>NIKE</h1>
+                                </div>
+                                <div class="body">
+                                    <ul>
+                                        <li>
+                                            <div class="head">
+                                                <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/5243556a-65b2-4de0-83a2-12d25809fbaf/calzado-de-running-air-zoom-tempo-next-flyease-020g4N.jpg" alt="">
+                                                <h3 id="2fac1">NIKE VAPORMAX 207 SV ZOOM</h3>
+                                                <div class="p">
+                                                    <svg onclick="hideSection('2fac1', '2fac1body','2botonDelete1')" style="display:block" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                                    </svg>
+                                                    <svg class="delete" id="2botonDelete1" onmousedown="eliminarPlato('plato1')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="body" id="2fac1body">
+                                                <div class="aaa">    
+                                                    <p>
+                                                        <span class='start'>COLOR:</span>
+                                                        <span class='end'>Rosa</span>
+                                                    </p>
+                                                    <p>
+                                                        <span class='start'>Talle:</span>
+                                                        <span class='end'>8.5</span>
+                                                    </p>
+                                                    <p>
+                                                        <span class='start'>PRECIO:</span>
+                                                        <span class='end price'>$7.999,99</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="head">
+                                                <img src="https://static.nike.com/a/images/t_PDP_144_v1/f_auto/259a7f28-f7bc-4376-918d-f9ad20fbe81f/calzado-de-running-air-zoom-pegasus-37-KLvDcj.jpg" alt="">
+                                                <h3 id="2fac2">Nike Air VaporMax 2020</h3>
+                                                <div class="p">
+                                                    <svg onclick="hideSection('2fac2', '2fac2body','2botonDelete2')" style="display:block" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                                    </svg>
+                                                    <svg class="delete" id="2botonDelete2" onmousedown="eliminarPlato('plato1')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="body" id="2fac2body">
+                                                <div class="aaa">    
+                                                    <p>
+                                                        <span class='start'>COLOR:</span>
+                                                        <span class='end'>Naranja</span>
+                                                    </p>
+                                                    <p>
+                                                        <span class='start'>Talle:</span>
+                                                        <span class='end'>11</span>
+                                                    </p>
+                                                    <p>
+                                                        <span class='start'>PRECIO:</span>
+                                                        <span class='end price'>$9.199,99</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="head">
+                                                <img src="https://static.nike.com/a/images/t_PDP_144_v1/f_auto/259a7f28-f7bc-4376-918d-f9ad20fbe81f/calzado-de-running-air-zoom-pegasus-37-KLvDcj.jpg" alt="">
+                                                <h3 id="2fac3">NIKE AIR ZOOM TEMPO FLY EASE</h3>
+                                                <div class="p">
+                                                    <svg onclick="hideSection('2fac3', '2fac3body','2botonDelete3')" style="display:block" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                                    </svg>
+                                                    <svg class="delete" id="2botonDelete3" onmousedown="eliminarPlato('plato1')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="body" id="2fac3body">
+                                                <div class="aaa">    
+                                                    <p>
+                                                        <span class='start'>COLOR:</span>
+                                                        <span class='end'>Negro</span>
+                                                    </p>
+                                                    <p>
+                                                        <span class='start'>Talle:</span>
+                                                        <span class='end'>11</span>
+                                                    </p>
+                                                    <p>
+                                                        <span class='start'>PRECIO:</span>
+                                                        <span class='end price'>$10.250</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
                             </li>
                         </ul>
                     </div>
-                    <div class="pedir">
-                        <button id="botonPedir" onmouseover="actualizarPrecioTotal('platos', 'precio', 'botonPedir')">Pedir  ($1500)</button>
-                        <div>
-                            <svg onmousedown="vaciarCanastaModal()" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                            </svg>
+                    <div id="fcStep2" style="display: none;">
+                        <div id="detallePedido" class="sec">
+                            <div class="head">
+                                <h1>Detalles de entrega</h1>
+                            </div>
+                            <div class="body">
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <h1>Dirección</h1>
+                                            <h3>Av Triunvirato 3528 - 1A</h3>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                        </svg>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <h1>Instrucciones para la entrega</h1>
+                                            <h3>Dejar el paquete en porteria</h3>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                        </svg>                                    </li>
+                                    <li>
+                                        <div>
+                                            <h1>Forma de pago</h1>
+                                            <h3>Efectivo</h3>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                        </svg>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <h1>Retirar en el local</h1>
+                                        </div>
+                                        <select>
+                                            <option value="NO">NO</option>
+                                            <option value="SI">SI</option>
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <h1>Cupón</h1>
+                                            <h3>- VACÍO -</h3>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                        </svg>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <h1>Créditos</h1>
+                                            <h3>0</h3>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                        </svg>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="resumenPedido" class="sec">
+                            <div class="head">
+                                <h1>Resumen pedido</h1>
+                            </div>
+                            <div class="body">
+                                <ul>
+                                    <li>
+                                        <h1>Paquete 1</h1>
+                                        <div class="container">
+                                            <div class="left">
+                                                <img src="../Images/logoLV.png" alt="">
+                                            </div>
+                                            <div class="right">
+                                                <div class="right1">
+                                                    <div class="up">
+                                                        <div>
+                                                            <h2>Envio a domicilio</h2>
+                                                            <h3>Llega entre el lunes y martes</h3>
+                                                        </div>
+                                                        <h4>$400</h4>
+                                                    </div>
+                                                    <div class="down">
+                                                        <div>
+                                                            <h2>4 Productos</h2>
+                                                            <!--<h3>Abrigo LV invierno 2020, Zapatilla Vapormax 207, Relleno 232, Relleno 232, Relleno 232</h3>--> 
+                                                        </div>
+                                                        <h4>$2600</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="right2">
+                                                    <h2>Total: </h2>
+                                                    <h3>$3000</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h1>Paquete 2</h1>
+                                        <div class="container">
+                                            <div class="left">
+                                                <img src="../Images/nikeLogo.png" alt="">
+                                            </div>
+                                            <div class="right">
+                                                <div class="right1">
+                                                    <div class="up">
+                                                        <div>
+                                                            <h2>Envio a domicilio</h2>
+                                                            <h3>Llega entre el martes</h3>
+                                                        </div>
+                                                        <h4>$250</h4>
+                                                    </div>
+                                                    <div class="down">
+                                                        <div>
+                                                            <h2>3 Productos</h2>
+                                                            <!--<h3>Abrigo LV invierno 2020, Zapatilla Vapormax 207, Relleno 232, Relleno 232, Relleno 232</h3>--> 
+                                                        </div>
+                                                        <h4>$21000</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="right2">
+                                                    <h2>Total: </h2>
+                                                    <h3>$21250</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h1>Paquete 3</h1>
+                                        <div class="container">
+                                            <div class="left">
+                                                <img src="../Images/starbucks.png" alt="">
+                                            </div>
+                                            <div class="right">
+                                                <div class="right1">
+                                                    <div class="up">
+                                                        <div>
+                                                            <h2>Retirar por local</h2>
+                                                            <h3>Abierto Lun a Sáb. 10 a 12hrs y 14 a 21hrs</h3>
+                                                        </div>
+                                                        <h4>$0</h4>
+                                                    </div>
+                                                    <div class="down">
+                                                        <div>
+                                                            <h2>1 Productos</h2>
+                                                            <!--<h3>Abrigo LV invierno 2020, Zapatilla Vapormax 207, Relleno 232, Relleno 232, Relleno 232</h3>--> 
+                                                        </div>
+                                                        <h4>$2600</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="right2">
+                                                    <h2>Total: </h2>
+                                                    <h3>$2600</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div id="carritoVacio" style="display: none;">
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart4" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
-                    </svg>
-                    <h1>El carrito esta vacio</h1>                            
+                <div class="pedir">
+                    <button id="botonPedir" onclick="nextStepBag('fcStep1', 'fcStep2', 'botonPedir', 'bagExitButton', 'bagBackButton')">Continuar</button>
+                    <div>
+                        <svg onmousedown="vaciarCanastaModal()" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                        </svg>
+                    </div>
+                </div>
+                <script>
+                    function nextStepBag(idA, idB, idButton, idExit, idBack){
+                        if(document.getElementById(idA).style.display == 'none'){
+                            document.getElementById(idA).style.display = 'block'
+                            document.getElementById(idB).style.display = 'none'
+                            document.getElementById(idButton).style.innerHTML = 'Continuar'
+                            document.getElementById(idExit).style.display= "block"
+                            document.getElementById(idBack).style.display = 'none'
+                        }else{
+                            document.getElementById(idB).style.display = 'block'
+                            document.getElementById(idA).style.display = 'none'
+                            document.getElementById(idButton).style.innerHTML = 'Comprar( $15 000 )'
+                            document.getElementById(idBack).style.display = "block"
+                            document.getElementById(idExit).style.display = 'none'
+                        }
+                    }
+                </script>
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close closer">&times;</span>
+                        <h1 style="font-size: 20px;text-align: center;margin: 11%;">¿Estas seguro que quieres vaciar la canasta?</h1>
+                        <div style="display: flex; justify-content: center;">
+                            <svg class="closer" onmousedown="vaciarCanasta('proximaOrdenBody')" id = "canastaVaciaFalse"  style="margin-right:30px" width="30px" height="30px" viewBox="0 0 16 16" class="bi bi-check-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                            </svg>
+                            <svg class="closer" id = "canastaVaciaTrue" margin-left="10px" width="30px" height="30px" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

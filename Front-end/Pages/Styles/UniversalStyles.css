@@ -206,7 +206,7 @@ html{
   #myModalUbi{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 6; /* Sit on top */
+    z-index: 30; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -338,7 +338,7 @@ html{
   .modalIni {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 12; /* Sit on top */
+    z-index: 30; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -642,10 +642,11 @@ html{
   }
   
 /*CARRITO*/
+
 .containerFactura{
     display: none;
     position: fixed;
-    z-index: 12;
+    z-index: 25;
     top: 0;
     width: 100%;
     height: 100%;
@@ -660,13 +661,12 @@ html{
     width: 500px;
     height: 100%;
     float: right;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
   
   .headerNombrePagina{
     border-bottom: 1px solid #e5edef;
-    margin-right: 4%;
-    margin-left: 4%;
+    padding-right: 4%;
+    padding-left: 4%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -681,10 +681,14 @@ html{
     text-overflow: ellipsis;
     white-space: nowrap;
     font-weight: 500;
+    text-transform: uppercase;
+    font-size: medium;
   }
   
   .headerNombrePagina span{
     font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: capitalize;
   }
   
   .headerNombrePagina svg{
@@ -700,148 +704,123 @@ html{
   .headerNombrePagina svg:hover{
     --main-svg-width: 32px;
   }
+
+  .containerFactura .modalContent .cont{
+    overflow-y: scroll;
+    height: 76%;
+  }
+
   .headerUsuario {
     margin-left: 8%;
     margin-right: 8%;
     margin-top: 5%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: row;
-    border-bottom: solid;
-    border-bottom-width: 0.1px;
-    border-color: #ff2426;
   }
-  .headerUsuario img{
-    border-style: solid;
-    border-color: #ff2426;
-    border-width: 2px;
+  .headerUsuario svg{
     width: 40px;
     height: 40px;
-    border-radius: 100%;
-    margin-bottom: 5%;
   }
+
   .headerUsuario h1{
-    margin-left: 8px;
-    font-size: 18px;
+    font-size: 14px;
     text-align: center;
-    margin-bottom: 5%;
-    color: black;
+    color: #0000007a;
+  }
+
+  .headerUsuario .cash{
+    display: flex;
+    width: fit-content;
+    margin: auto;
+  }
+
+  .headerUsuario .cash h1{
+    margin-left: 10px;
+    letter-spacing: 5px;
+    font-size: 16px;
+  }
+
+  .headerUsuario .cash svg{
+    width: 22px;
+    height: 22px;
+    fill: #0000007a;
+  }
+
+  .containerFactura .modalContent .shops{
+    margin-left: 8%;
+    margin-right: 8%;
+    padding-inline-start: 0%;
+    list-style-type: none;
   }
   
   .headerRestaurante{
-    margin-left: 8%;
-    margin-right: 8%;
     margin-top: 5%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    border-bottom: solid;
-    border-bottom-width: 0.1px;
-    border-color: #ff2426;
-  
+    padding-bottom: 2%;
+    border-bottom: solid 1px;
   }
   
   .headerRestaurante img{
     width: 50px;
     height: 50px;
-    border-radius: 10%;
-    margin-bottom: 5%;
+    border: solid 2px #a7a7a79e;
+    border-radius: 100%;
   }
   
   .headerRestaurante h1{
     margin-left: 8px;
-    font-size: 15px;
+    font-size: 20px;
     text-align: center;
-    margin-bottom: 5%;
-    color: black;
+    color: #404040;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 0;
+    font-style: italic;
   }
-  .headerRestaurante h2{
-    font-size: 12px;
-    text-align: right;
-    display: block;
-    color: #f7732d;
-  }
-  .headerRestaurante h2:hover{
-    font-size: 15px;
-  }
-  
-  .pedidos{
-    margin-top: 5%;
-    margin-left: 8%;
-    margin-right: 8%;
-    margin-bottom:5%;
-  }
-  .pedidos ul{
-    overflow-y: scroll;
-    height: 290px;
-    padding-inline-start: 0%;
-  
-  }
-  
-  #platos .header{
-    border-bottom: solid;
-    border-bottom-width: 1px;
-    border-color: black;
-  }
-  
-  #platos .header h1{
-    font-size: 15px;
-    color: black;
-  }
-  
-  .pedido{
+
+  .containerFactura .modalContent .shops .shop ul{
     list-style-type: none;
+    padding: 0;
+    width: 100%;
+  }
+
+  .containerFactura .modalContent .shops .shop ul li .head{
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    flex-direction: row;
-    border-bottom: solid;
-    border-bottom-width: 1px;
-    border-color: #7d7d7d;
-    padding: 10px 5px;
   }
-  
-  .platoCarritoDiv{
-    margin-left: 8px;
+
+  .containerFactura .modalContent .shops .shop ul li{
+    padding: 3% 5%;
   }
-  
-  .platoCarritoDiv h5{
-    font-size: 12px;
-    color: #7d7d7d;
+
+  .containerFactura .modalContent .shops .shop ul li img{
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border: solid 1px silver;
+    background-color: #e7e7e7;
   }
-  
-  .pedidos .pedido img{
-    border-style: solid;
-    border-color: silver;
-    border-width: 1px;
-    width: 50px;
-    height: 50px;
-    border-radius: 10%;
-  }
-  
-  .pedidos .pedido h3{
-    font-size: 15px;
-    font-weight: 400;
+
+  .containerFactura .modalContent .shops .shop ul li h3{
     text-align: center;
     text-overflow: ellipsis;
     overflow: hidden;
-    margin-bottom: 0px;
     white-space: nowrap;
-    color: black;
-    margin-left: 8px;
+    margin-left: 3%;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
   }
-  
-  .pedidos .pedido .p h2, h4{
+
+  .containerFactura .modalContent .shops .shop .p h2, h4{
     font-size: 15px;
     text-align: right;
     display: block;
     color: #7d7d7d;
     margin-bottom: 0px;
   }
-  
-  .pedidos .pedido .p{
+
+  .containerFactura .modalContent .shops .shop .p{
     text-align: right;
     margin: 0px auto 0px auto;
     margin-right: 0;
@@ -850,8 +829,8 @@ html{
     justify-content: flex-start;
     flex-direction: row;
   }
-  
-  .pedidos .pedido .p svg{
+
+  .containerFactura .modalContent .shops .shop .p svg{
     display: none;
     width: 20px;
     height: 20px;
@@ -861,46 +840,279 @@ html{
     transition: all .5s;
   }
   
-  .pedidos .pedido .p svg:hover{
-    width: 30px;
-    height: 30px;
+  .containerFactura .modalContent .shops .shop .p svg:hover{
+    width: 25px;
+    height: 25px;
+  }
+
+  .containerFactura .modalContent .shops .shop .p .delete{
+    fill: red;
+  }
+
+  .containerFactura .modalContent .shops .shop .body ul li .body{
+    margin-top: 5%;
+    display: none;
+  }
+
+  .containerFactura .modalContent .shops .shop .body *{
+    position: relative;
+  }
+
+  .containerFactura .modalContent .shops .shop .body p {
+    background: inherit;
+    width: 85%;
+    margin: 0 auto;
+    font-size: 12px;
+    padding-top: 2%;
+    margin-bottom: .5rem;
+    letter-spacing: 2px;
+    color: #868686bd;
+    font-weight: 900;
   }
   
-  .pedir{
-    /*margin-left: 8%;*/
-    margin-top: 10px;
-    display: inline-flex;
+  .containerFactura .modalContent .shops .shop .body p:before {
+    content: '';
+    position: absolute;
+    bottom: .4rem;
     width: 100%;
+    height: 0;
+    line-height: 0;
+    border-bottom: 2px dotted #ddd;
   }
   
-  .pedir button{
+  .containerFactura .modalContent .shops .shop .body .start {
+    background: white;
+    display: inline;
+    z-index: 1;
+    padding-right: 5px;
+    text-transform: uppercase;
+  }
+  
+  .containerFactura .modalContent .shops .shop .body .end {
+    background: white;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-left: 5px;
+    text-align: right;
+    z-index: 2;
+    text-transform: capitalize;
+  }
+  
+  .containerFactura .modalContent .shops .shop .body .price{
+    font-weight: 900;
+  }
+
+  .containerFactura .pedir{
+    display: flex;
+    width: 80%;
+    padding-top: 2%;
+    margin: auto;
+  }
+  
+  .containerFactura .pedir button{
     border-radius: 6px;
     color: white;
-    border: #f7732d;
+    width: 70%;
+    height: 40px;
+    outline: none;
+    border: none;
+    background-color: rgb(0,0,0);
   }
   
-  .pedir button:active{
+  .containerFactura .pedir button:active{
     border-style: none;
   }
   
-  .pedir button:focus{
+  .containerFactura .pedir button:focus{
     border-style: none;
   }
   
-  .pedir div{
-    margin-left: 75px;
+  .containerFactura .pedir div{
+    width: 30%;
   }
   
-  .pedir svg{
-    margin-top:8px;
+  .containerFactura .pedir svg{
     fill: black;
+    height: 40px;
+    width: 25px;
+    margin: auto;
+    display: block;
     transition: all .5s;
     /*lo centre a mano fijarse de cambiarlo*/
   }
-  .pedir svg:hover {
+  
+  .containerFactura .pedir svg:hover {
     fill: red;
   }
+
+  #fcStep2{
+    height: 100%;
+  }
+
+  #fcStep2 .sec{
+    width: 90%;
+    display: block;
+    margin: auto;
+  }
+
+  #fcStep2 .sec .head{
+    margin: 2% 5%;
+    border-bottom: solid 1px;
+  }
+
+  #fcStep2 .sec .head h1{
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  #fcStep2 .sec .body ul{
+    list-style-type: none;
+    padding: 0;
+  }
+
+  #detallePedido li{
+    display: flex;
+    padding: 1% 7%;
+  }
   
+  #detallePedido li h1{
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  #detallePedido li svg{
+    min-width: 16px;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    fill: red;
+  }
+
+  #detallePedido li div h3{
+    font-size: 14px;
+    color: #7d7d7d;
+    margin-right: 30px;
+    font-weight: 500;
+  }
+
+  #detallePedido li select{
+    margin-left: auto;
+  }
+
+  #resumenPedido ul li{
+    display: block;
+    margin: auto;
+    min-width: 300px;
+    width: 80%;
+    padding: 4% 0;
+    border-bottom: solid 1px silver;
+  }
+
+  #resumenPedido ul li h1{
+    margin-left: 5px;
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  #resumenPedido ul li .container{
+    display: flex;
+    border-radius: 20px;
+    border: 2.5px solid silver;
+    overflow: hidden;
+    height: 150px;
+    width: 100%;
+    padding: 0;
+  }
+
+  #resumenPedido ul li .container .left{
+    min-width: 80px;
+    height: 100%;
+    border-right: solid 1px silver;
+  }
+
+  #resumenPedido ul li .container .left img{
+    object-fit: contain;
+    width: 65px;
+    height: 100%;
+    border-radius: 100%;
+    display: block;
+    margin: auto;
+  }
+
+  #resumenPedido ul li .container .right{
+    width: 100%;
+    padding: 0% 4%;
+  }
+
+  #resumenPedido ul li .container .right1{
+    border-bottom: 1px solid silver;
+    height: 70%;
+  }
+
+  #resumenPedido ul li .container .right1 h2{
+    font-size: 16px;
+    color: black;
+  }
+
+  #resumenPedido ul li .container .right1 h3{
+    font-size: 13px;
+    color: rgb(126, 126, 126);
+    font-weight: 400;
+  }
+
+  #resumenPedido ul li .container .right1 .up{
+    display: flex;
+    padding: 10px 0;
+  }
+
+  #resumenPedido ul li .container .right1 .up div{
+    max-width: 80%;
+    max-height: 45px;
+    overflow: hidden;
+  }
+
+  #resumenPedido ul li .container .right1 h4{
+    margin: auto;
+    margin-right: 5%;
+    color: black;
+    font-size: 16px;
+  }
+
+  #resumenPedido ul li .container .right1 .down{
+    display: flex;
+  }
+
+  #resumenPedido ul li .container .right1 .down h3{
+    margin-left: auto;
+  }
+
+  #resumenPedido ul li .container .right2{
+    display: flex;
+    height: 30%;
+  }
+
+  #resumenPedido ul li .container .right2 h2,h3{
+    font-size: 18px;
+    margin: auto;
+    font-weight: 700;
+  }
+
+  #resumenPedido ul li .container .right2 h2{
+    margin-left: 0;
+  }
+
+  #resumenPedido ul li .container .right2 h3{
+    margin-right: 5%;
+  }
+
   ::-webkit-scrollbar{
     display: none;
   }
@@ -999,6 +1211,14 @@ html{
     font-size: 12px;
     margin: 0;
     padding: 5px;
+  }
+
+  /*modal vaciar canasta*/
+  
+  #myModal .modal-content{
+    width: 70%;
+    margin: auto;
+    padding: 5%;
   }
   
   /*modal buscador*/
@@ -1187,22 +1407,13 @@ html{
         max-width: 60%;
     }
   
-    .pedir button{
-        background-image: linear-gradient(140deg,#da5306,#ff2b2e 70%);
-        height:40px;
-        width: 60%;
-    }
-  
-    .pedir svg{
-        width: 25px;
-        height: 25px;
-        /*lo centre a mano fijarse de cambiarlo*/
-    }
-  
     .modal{
         padding-top: 50%;
     }
   
+    #myModal .modal-content{
+      width: 70%;
+    }
     
     /*footer*/
     .bottom{
@@ -1287,8 +1498,8 @@ html{
   
     /*modalIni*/
     .modalIni .modal-content {
-      width: 50%;
-      height:60%;
+      width: 65%;
+      height: 90%;
     }
   
     .mContent {
@@ -1301,9 +1512,9 @@ html{
     .containerFactura{
       display: none;
       position: fixed;
-      z-index: 12;
+      z-index: 25l;
       top: 0;
-      padding-left: 860px;
+      backdrop-filter: blur(4px);
       width: 100%;
       height: 100%;
       overflow: auto;
@@ -1313,7 +1524,7 @@ html{
   
     .modalContent {
         margin: auto;
-        width: 500px;
+        max-width: 500px;
         height: 100%;
         float: right;
     }
@@ -1322,20 +1533,26 @@ html{
         max-width: 220px;
     }
   
-    .pedir button{
-        height:40px;
-        width: 250px;
-        background-image: linear-gradient(130deg,#ff451a,#ff1517 70%);
-    }
-  
-    .pedir svg{
-        width: 25px;
-        height: 25px;
-    }
-  
     .modal{
         padding-top: 323px;
         padding-left: 870px;
+    }
+    
+    .containerFactura .pedir button{
+      width: 50%;
+    }
+    
+    .containerFactura .pedir div{
+      width: 50%;
+    }
+
+    .containerFactura .modalContent .shops .shop .body .aaa{
+      width: 100%;
+    }
+    
+    #myModal .modal-content{
+      width: 70%;
+      max-width: 400px;
     }
     /*footer*/
     .bottom .body{
@@ -1395,7 +1612,7 @@ html{
       .containerFactura{
         display: none;
         position: fixed;
-        z-index: 6;
+        z-index: 25;
         top: 0;
         width: 100%;
         height: 100%;
@@ -1414,23 +1631,44 @@ html{
     .pedidos .pedido h3{
         max-width: 220px;
     }
-  
-    .pedir button{
-        height:40px;
-        width: 250px;
-        background-image: linear-gradient(130deg,#ff451a,#ff1517 70%);
-    }
-  
-    .pedir svg{
-        width: 25px;
-        height: 25px;
-    }
-  
+
     .modal{
         padding:auto;
         padding-top: 40%;
     }
+
+    /*carrito*/
+    .containerFactura{
+      display: none;
+      position: fixed;
+      z-index: 25;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.6);
+    }
   
+    .modalContent {
+        margin: auto;
+        width: 70%;
+        height: 100%;
+        float: right;
+    }
+    
+    .containerFactura .pedir button{
+      width: 50%;
+    }
+
+    .containerFactura .pedir div{
+      width: 50%;
+    }
+    
+    #myModal .modal-content{
+      width: 70%;
+      max-width: 400px;
+    }
     /*footer*/
     .bottom .body{
       display: flex;
@@ -1484,4 +1722,27 @@ html{
     top: 2.5%; 
     right: 42%;
   }
+  }
+
+  @media (max-width: 450px){
+    #resumenPedido ul li{
+      width: 85%;
+    }
+    
+    #resumenPedido ul li .container .right1 h2,h4{
+      font-size: 13.5px;
+    }
+    
+    #resumenPedido ul li .container .right1 h3{
+      font-size: 12px;
+    }   
+
+    #resumenPedido ul li .container .right1 h4{
+      font-weight: 600;
+      font-size: 13.5px;
+    }  
+
+    #resumenPedido ul li .container .right2 h2,h3{
+      font-size: 16px;
+    }
   }
